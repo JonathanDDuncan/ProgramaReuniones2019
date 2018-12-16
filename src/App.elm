@@ -203,28 +203,6 @@ view model =
         , div [ attribute "id" "example-table" ] []
         , button [ attribute "id" "import" ] [ text "Import" ]
         , button [ attribute "id" "download-json" ] [ text "Download JSON" ]
-        , div []
-            [ img [ src "/logo.svg" ] []
-            , h1 [] [ text "Your Elm App is working!!!!11" ]
-            ]
-        , h1 []
-            [ img [ src "images/logo.png" ] []
-            , text "Elm Webpack Starter, featuring hot-loading"
-            ]
-        , p [] [ text "Click on the button below to increment the state." ]
-        , div []
-            [ button
-                [ class "btn btn-primary"
-                , onClick (FillSemana "this text")
-                ]
-                [ text "+ 1" ]
-            , text "A"
-            ]
-        , p [] [ text "Then make a change to the source code and see how the state is retained after you recompile." ]
-        , p []
-            [ text "And now don't forget to add a star to the Github repo "
-            , a [ href "https://github.com/simonh1000/elm-webpack-starter" ] [ text "elm-webpack-starter" ]
-            ]
         ]
 
 
