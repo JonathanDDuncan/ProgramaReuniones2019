@@ -196,7 +196,18 @@ createBackup newmodel semanastempl =
 view : Model -> Html Msg
 view model =
     div [ class "container" ]
-        [ h1 []
+        [ div [ attribute "id" "links" ] []
+        , input [ type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
+        , br [] []
+        , textarea [ attribute "id" "result" ] []
+        , div [ attribute "id" "example-table" ] []
+        , button [ attribute "id" "import" ] [ text "Import" ]
+        , button [ attribute "id" "download-json" ] [ text "Download JSON" ]
+        , div []
+            [ img [ src "/logo.svg" ] []
+            , h1 [] [ text "Your Elm App is working!!!!11" ]
+            ]
+        , h1 []
             [ img [ src "images/logo.png" ] []
             , text "Elm Webpack Starter, featuring hot-loading"
             ]
