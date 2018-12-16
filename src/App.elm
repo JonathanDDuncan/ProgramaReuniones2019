@@ -199,10 +199,13 @@ view model =
         [ div [ attribute "id" "links" ] []
         , input [ type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
         , br [] []
+        , button [ attribute "id" "import" ] [ text "Import" ]
+        , br [] []
         , textarea [ attribute "id" "result" ] []
         , div [ attribute "id" "example-table" ] []
-        , button [ attribute "id" "import" ] [ text "Import" ]
         , button [ attribute "id" "download-json" ] [ text "Download JSON" ]
+        , br [] []
+        , button [ attribute "id" "process" ] [ text "Process" ]
         ]
 
 

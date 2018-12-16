@@ -148,7 +148,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     table.download("json", "data.json");
 
   });
-
+  document.getElementById("process").addEventListener("click", function () {
+      getJsonData(function (data) {
+     fillData(app, data);
+   });
+  });
   // for (var i = 1; i <= 1000; i++) {
   //   tabledatahuge.push({ id: i, name: faker.name.findName(), progress: Math.floor(Math.random() * 100) + 1, gender: faker.random.boolean() ? "male" : "female", rating: Math.floor(Math.random() * 5) + 1, col: faker.commerce.color(), dob: moment(faker.date.past()).format("DD/MM/YYYY"), lucky_no: Math.floor(Math.random() * 20) + 1 })
   // }
@@ -259,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       // { title: "Driver", field: "car", align: "center", editor: true, formatter: "tickCross" },
     ],
   });
-
+  window.table = table;
   //  var tabledata = [
   //   {
   //     "id": "5dc172cf-53cc-4fa1-96a7-d0ab8b5fa850",
@@ -472,10 +476,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   //     ]
   //   }
   // ];
-});
-
-document.addEventListener("DOMContentLoaded", function (event) {
-
 
 
 
@@ -607,12 +607,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var br = document.createElement('br');
     container.appendChild(br);
   };
-  function getsemanasparallenar(callback) {
-    loadJSON('assets/json/semanasparallenar.json', function (json) {
-      callback(json);
-    })
-  };
 
+  function getsemanasparallenar(callback) {
+    var data =  window.table.getData();
+      callback(data);
+  };
 
   function loadCommonData(callback) {
     loadJSON('assets/json/commonData.json', function (json) {
@@ -686,7 +685,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   // For testing
-  getJsonData(function (data) {
-    fillData(app, data);
-  });
+  // getJsonData(function (data) {
+  //   fillData(app, data);
+  // });
 });
