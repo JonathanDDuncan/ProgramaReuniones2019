@@ -1,8 +1,11 @@
 module Main exposing (Model, Msg(..), init, main, update, view)
 
+import App
 import Browser
 import Html exposing (Html, div, h1, img, text)
 import Html.Attributes exposing (src)
+import LlenarSemana
+import Types.AppTypes
 
 
 
@@ -47,11 +50,11 @@ view model =
 ---- PROGRAM ----
 
 
-main : Program () Model Msg
+main : Program () Types.AppTypes.Model App.Msg
 main =
     Browser.element
-        { view = view
-        , init = \_ -> init
-        , update = update
-        , subscriptions = always Sub.none
+        { view = App.view
+        , init = \_ -> App.init
+        , update = App.update
+        , subscriptions = App.subscriptions
         }

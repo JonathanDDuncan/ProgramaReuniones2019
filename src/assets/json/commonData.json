@@ -1,0 +1,202 @@
+{
+    "defaultsemana": {
+        "id": "",
+        "creado": 0,
+        "modificado": 0,
+        "starthour": 15,
+        "startminute": 0,
+        "sabasamblea": false,
+        "sabasambleamensage": "",
+        "fechasabado": 0,
+        "presidenteid": "",
+        "presidentename": "",
+        "cancion1": 0,
+        "cancion1id": "",
+        "cancion1name": "",
+        "cancion1tema": "",
+        "cancion1versiculo": "",
+        "oracion1id": "",
+        "oracion1name": "",
+        "tb1titulo": "",
+        "tb1oradorid": "",
+        "tb1oradorname": "",
+        "tbperlasoradorid": "",
+        "tbperlasoradorname": "",
+        "consejolector": 0,
+        "tblectorid": "",
+        "tblectorname": "",
+        "smmleccionmaestros": false,
+        "smmtema1": "",
+        "smmtema2": "",
+        "smmtema3": "",
+        "smmtema4": "",
+        "smmmin1": 0,
+        "smmmin2": 0,
+        "smmmin3": 0,
+        "smmmin4": 0,
+        "smmconsejo1": 0,
+        "smmconsejo2": 0,
+        "smmconsejo3": 0,
+        "smmconsejo4": 0,
+        "smmesvideo1": false,
+        "smmesvideo2": false,
+        "smmesvideo3": false,
+        "smmesvideo4": false,
+        "smmtieneayudante1": true,
+        "smmtieneayudante2": false,
+        "smmtieneayudante3": false,
+        "smmtieneayudante4": false,
+        "smm1esid": "",
+        "smm1esname": "",
+        "smm1ayuid": "",
+        "smm1ayuname": "",
+        "smm2esid": "",
+        "smm2esname": "",
+        "smm2ayuid": "",
+        "smm2ayuname": "",
+        "smm3esid": "",
+        "smm3esname": "",
+        "smm3ayuid": "",
+        "smm3ayuname": "",
+        "smm4esid": "",
+        "smm4esname": "",
+        "smm4ayuid": "",
+        "smm4ayuname": "",
+        "presentacionesmesid": "",
+        "presentacionesmesname": "",
+        "cancion2": 0,
+        "cancion2id": "",
+        "cancion2name": "",
+        "cancion2tema": "",
+        "cancion2versiculo": "",
+        "nvctitulo1": "",
+        "nvcmins1": 0,
+        "nvcorador1id": "",
+        "nvcorador1name": "",
+        "nvctitulo2id": "",
+        "nvctitulo2name": "",
+        "nvcmins2": 0,
+        "nvcorador2id": "",
+        "nvcorador2name": "",
+        "nvcestudiooradorid": "",
+        "nvcestudiooradorname": "",
+        "nvcestudiolectorid": "",
+        "nvcestudiolectorname": "",
+        "cancion3": 0,
+        "cancion3id": "",
+        "cancion3name": "",
+        "cancion3tema": "",
+        "cancion3versiculo": "",
+        "oracion2id": "",
+        "oracion2name": "",
+        "camaraid": "",
+        "camaraname": "",
+        "aparatosid": "",
+        "aparatosname": "",
+        "cronometroid": "",
+        "cronometroname": "",
+        "domasamblea": false,
+        "domasambleamensage": "Hay asamblea",
+        "fechadomingo": 0,
+        "dompresidenteid": "",
+        "dompresidentename": "",
+        "domdiscursante": "",
+        "domhaydiscursante": false,
+        "domcancion1": 0,
+        "domcancion1id": "",
+        "domcancion1name": "",
+        "domcancion1tema": "",
+        "domcancion1versiculo": "",
+        "domcancion2": 0,
+        "domcancion2id": "",
+        "domcancion2name": "",
+        "domcancion2tema": "",
+        "domcancion2versiculo": "",
+        "elcversiculos": "",
+        "elcnarradorid": "",
+        "elcelcpersonajes": [],
+        "elcelcpersonajeslectids": []
+    },
+    "puntosMejoresLectoresMaestros": [
+        {
+            "num": 1,
+            "nombre": "Hacer una buena introducción"
+        },
+        {
+            "num": 2,
+            "nombre": "Hablar con naturalidad"
+        },
+        {
+            "num": 3,
+            "nombre": "Hacer preguntas"
+        },
+        {
+            "num": 4,
+            "nombre": "Introducir bien los textos bíblicos"
+        },
+        {
+            "num": 5,
+            "nombre": "Leer con exactitud"
+        },
+        {
+            "num": 6,
+            "nombre": "Explicar bien los textos bíblicos"
+        },
+        {
+            "num": 7,
+            "nombre": "Usar información exacta y convincente"
+        },
+        {
+            "num": 8,
+            "nombre": "Enseñar con ejemplos"
+        },
+        {
+            "num": 9,
+            "nombre": "Usar bien las ayudas visuales"
+        },
+        {
+            "num": 10,
+            "nombre": "Modular la voz"
+        },
+        {
+            "num": 11,
+            "nombre": "Hablar con entusiasmo"
+        },
+        {
+            "num": 12,
+            "nombre": "Mostrar amabilidad y empatía"
+        },
+        {
+            "num": 13,
+            "nombre": "Resaltar el valor práctico"
+        },
+        {
+            "num": 14,
+            "nombre": "Destacar los puntos principales"
+        },
+        {
+            "num": 15,
+            "nombre": "Hablar con convicción"
+        },
+        {
+            "num": 16,
+            "nombre": "Ser edificante y positivo"
+        },
+        {
+            "num": 17,
+            "nombre": "Hablar con sencillez"
+        },
+        {
+            "num": 18,
+            "nombre": "Presentar información instructiva"
+        },
+        {
+            "num": 19,
+            "nombre": "Llegar al corazón"
+        },
+        {
+            "num": 20,
+            "nombre": "Hacer una buena conclusión"
+        }
+    ]
+}
