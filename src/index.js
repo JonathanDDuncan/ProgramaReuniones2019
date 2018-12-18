@@ -491,10 +491,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     semanadefault.starthour = semanatofill.starthour;
     semanadefault.startminute = semanatofill.startminute;
-    semanadefault.fechadomingo = semanatofill.fechadomingo;
+    semanadefault.fechadomingo =parseInt(semanatofill.fechadomingo);
     semanadefault.sabasamblea = semanatofill.sabasamblea;
     semanadefault.domasamblea = semanatofill.domasamblea;
     semanadefault.domhaydiscursante = semanatofill.domhaydiscursante;
+    if (semanatofill.domdiscursante)
     semanadefault.domdiscursante = semanatofill.domdiscursante;
     semanadefault.cancion1 = semanatofill.cancion1;
     semanadefault.tb1titulo = semanatofill.tb1titulo;
@@ -505,9 +506,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     semanadefault.smmtema2 = semanatofill.smmtema2;
     semanadefault.smmtema3 = semanatofill.smmtema3;
     semanadefault.smmtema4 = semanatofill.smmtema4;
+    if (semanatofill.smmmin1)
     semanadefault.smmmin1 = semanatofill.smmmin1;
+    if (semanatofill.smmmin2)
     semanadefault.smmmin2 = semanatofill.smmmin2;
+    if (semanatofill.smmmin3)
     semanadefault.smmmin3 = semanatofill.smmmin3;
+    if (semanatofill.smmmin4)
     semanadefault.smmmin4 = semanatofill.smmmin4;
     semanadefault.smmconsejo1 = semanatofill.smmconsejo1;
     semanadefault.smmconsejo2 = semanatofill.smmconsejo2;
@@ -517,23 +522,36 @@ document.addEventListener("DOMContentLoaded", function (event) {
     semanadefault.smmesvideo2 = semanatofill.smmesvideo2;
     semanadefault.smmesvideo3 = semanatofill.smmesvideo3;
     semanadefault.smmesvideo4 = semanatofill.smmesvideo4;
+    if (semanatofill.smmtieneayudante1)
     semanadefault.smmtieneayudante1 = semanatofill.smmtieneayudante1;
+    if (semanatofill.smmtieneayudante2)
     semanadefault.smmtieneayudante2 = semanatofill.smmtieneayudante2;
+    if (semanatofill.smmtieneayudante3)
     semanadefault.smmtieneayudante3 = semanatofill.smmtieneayudante3;
-    semanadefault.smmtieneayudante4 = semanatofill.smmtieneayudante4;
+    if (semanatofill.smmtienfeayudante4)
+    semanadefault.smmtieneayudante4 = semanatofill.smmtienfeayudante4;
     semanadefault.cancion2 = semanatofill.cancion2;
+    if (semanatofill.nvctitulo1)
     semanadefault.nvctitulo1 = semanatofill.nvctitulo1
+    if (semanatofill.nvcmins1)
     semanadefault.nvcmins1 = semanatofill.nvcmins1;
+    if (semanatofill.nvcanciano1)
     semanadefault.nvcanciano1 = semanatofill.nvcanciano1;
+    if (semanatofill.nvctitulo2)
     semanadefault.nvctitulo2 = semanatofill.nvctitulo2;
+    if (semanatofill.nvcmins2)
     semanadefault.nvcmins2 = semanatofill.nvcmins2;
+    if (semanatofill.nvcanciano2)
     semanadefault.nvcanciano2 = semanatofill.nvcanciano2;
     semanadefault.cancion3 = semanatofill.cancion3;
     semanadefault.domcancion1 = semanatofill.domcancion1;
     semanadefault.domcancion2 = semanatofill.domcancion2;
     semanadefault.elcversiculos = semanatofill.elcversiculos
+    if (semanatofill.elcnarradorid)
     semanadefault.elcnarradorid = semanatofill.elcnarradorid
+    if (semanatofill.elcelcpersonajes)
     semanadefault.elcelcpersonajes = semanatofill.elcelcpersonajes;
+    if (semanatofill.elcelcpersonajeslectids)
     semanadefault.elcelcpersonajeslectids = semanatofill.elcelcpersonajeslectids;
     return semanadefault;
   }

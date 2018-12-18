@@ -376,7 +376,7 @@ decodeSemana =
 
 encodeSemanas : List Semana -> Json.Encode.Value
 encodeSemanas records =
-    Json.Encode.list   encodeSemana records 
+    Json.Encode.list encodeSemana records
 
 
 encodeSemana : Semana -> Json.Encode.Value
