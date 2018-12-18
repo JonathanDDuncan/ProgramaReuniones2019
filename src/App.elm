@@ -196,8 +196,7 @@ createBackup newmodel semanastempl =
 view : Model -> Html Msg
 view model =
     div [ class "container" ]
-        [ div [ attribute "id" "links" ] []
-        , input [ type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
+        [ input [ type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
         , br [] []
         , button [ attribute "id" "import" ] [ text "Import" ]
         , br [] []
@@ -206,6 +205,7 @@ view model =
         , button [ attribute "id" "download-json" ] [ text "Download JSON" ]
         , br [] []
         , button [ attribute "id" "process" ] [ text "Process" ]
+        , div [ attribute "id" "links" ] []
         ]
 
 
