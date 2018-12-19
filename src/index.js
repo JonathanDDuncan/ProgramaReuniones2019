@@ -320,6 +320,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   app.ports.fillSemanasTemplCallBack.subscribe(function (data) {
     console.log(JSON.stringify(data));
     downloadJSON(data, "datosprograma");
+    runtemplate(data);
   });
 
   app.ports.programasemanalbackupCallBack.subscribe(function (data) {
@@ -418,4 +419,44 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }, timebetween)
     }, timebetween);
   }
+
+  function loadFile(url,callback){
+    JSZipUtils.getBinaryContent(url,callback);
+}
+  function runtemplate(json) {
+   
+    let result = loadFile("../assets/templates/S-140-S-template.docx", function (error, content) {
+        if (error) { throw error };
+        var zip = new JSZip(content);
+        var doc=new window.Docxtemplater().loadZip(zip)
+
+        doc.setData(
+            {
+                "cong": "Congregación Danlí Señas",
+                "semanas": json
+            }
+        );
+
+        try {
+            // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+            doc.render()
+        }
+        catch (error) {
+            var e = {
+                message: error.message,
+                name: error.name,
+                stack: error.stack,
+                properties: error.properties,
+            }
+            console.log(JSON.stringify({ error: e }));
+            // The error thrown here contains additional information when logged with JSON.stringify (it contains a property object).
+            throw error;
+        }
+        var out = doc.getZip().generate({
+            type: "blob",
+            mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        }); //Output the document using Data-URI
+        saveAs(out, "output.docx");
+    })
+};
 });
