@@ -6,9 +6,9 @@ import Json.Decode
 import Json.Decode.Pipeline
 import Json.Encode
 
-  
+
 type alias SemanaTempl =
-    { resfecha : Int
+    { resfecha : String
     , sabasamblea : Bool
     , cancion1 : Int
     , cancion2 : Int
@@ -44,7 +44,7 @@ type alias SemanaTempl =
     , smmtieneayudante3 : Bool
     , smmtieneayudante4 : Bool
     , domasamblea : Bool
-    , fechadomingo : Int
+    , fechadomingo : String
     , domhaydiscursante : Bool
     , domdiscursante : String
     , sabasambleamensage : String
@@ -90,6 +90,7 @@ type alias SemanaTempl =
     , smm1h1 : String
     , smm2h1 : String
     , smm3h1 : String
+    , smm4h1 : String
     , nvc1h1 : String
     , nvc2h1 : String
     , nvc4h1 : String
@@ -107,7 +108,7 @@ decodeSemanasTemplates =
 decodeSemanaTempl : Json.Decode.Decoder SemanaTempl
 decodeSemanaTempl =
     Json.Decode.succeed SemanaTempl
-        |> Json.Decode.Pipeline.required "resfecha" Json.Decode.int
+        |> Json.Decode.Pipeline.required "resfecha" Json.Decode.string
         |> Json.Decode.Pipeline.required "sabasamblea" Json.Decode.bool
         |> Json.Decode.Pipeline.required "cancion1" Json.Decode.int
         |> Json.Decode.Pipeline.required "cancion2" Json.Decode.int
@@ -143,7 +144,7 @@ decodeSemanaTempl =
         |> Json.Decode.Pipeline.required "smmtieneayudante3" Json.Decode.bool
         |> Json.Decode.Pipeline.required "smmtieneayudante4" Json.Decode.bool
         |> Json.Decode.Pipeline.required "domasamblea" Json.Decode.bool
-        |> Json.Decode.Pipeline.required "fechadomingo" Json.Decode.int
+        |> Json.Decode.Pipeline.required "fechadomingo" Json.Decode.string
         |> Json.Decode.Pipeline.required "domhaydiscursante" Json.Decode.bool
         |> Json.Decode.Pipeline.required "domdiscursante" Json.Decode.string
         |> Json.Decode.Pipeline.required "sabasambleamensage" Json.Decode.string
@@ -189,6 +190,7 @@ decodeSemanaTempl =
         |> Json.Decode.Pipeline.required "smm1h1" Json.Decode.string
         |> Json.Decode.Pipeline.required "smm2h1" Json.Decode.string
         |> Json.Decode.Pipeline.required "smm3h1" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm4h1" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvc1h1" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvc2h1" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvc4h1" Json.Decode.string
@@ -205,7 +207,7 @@ encodeSemanasTemplates records =
 encodeSemanaTempl : SemanaTempl -> Json.Encode.Value
 encodeSemanaTempl record =
     Json.Encode.object
-        [ ( "resfecha", Json.Encode.int <| record.resfecha )
+        [ ( "resfecha", Json.Encode.string <| record.resfecha )
         , ( "sabasamblea", Json.Encode.bool <| record.sabasamblea )
         , ( "cancion1", Json.Encode.int <| record.cancion1 )
         , ( "cancion2", Json.Encode.int <| record.cancion2 )
@@ -241,7 +243,7 @@ encodeSemanaTempl record =
         , ( "smmtieneayudante3", Json.Encode.bool <| record.smmtieneayudante3 )
         , ( "smmtieneayudante4", Json.Encode.bool <| record.smmtieneayudante4 )
         , ( "domasamblea", Json.Encode.bool <| record.domasamblea )
-        , ( "fechadomingo", Json.Encode.int <| record.fechadomingo )
+        , ( "fechadomingo", Json.Encode.string <| record.fechadomingo )
         , ( "domhaydiscursante", Json.Encode.bool <| record.domhaydiscursante )
         , ( "domdiscursante", Json.Encode.string <| record.domdiscursante )
         , ( "sabasambleamensage", Json.Encode.string <| record.sabasambleamensage )
@@ -287,6 +289,7 @@ encodeSemanaTempl record =
         , ( "smm1h1", Json.Encode.string <| record.smm1h1 )
         , ( "smm2h1", Json.Encode.string <| record.smm2h1 )
         , ( "smm3h1", Json.Encode.string <| record.smm3h1 )
+        , ( "smm4h1", Json.Encode.string <| record.smm4h1 )
         , ( "nvc1h1", Json.Encode.string <| record.nvc1h1 )
         , ( "nvc2h1", Json.Encode.string <| record.nvc2h1 )
         , ( "nvc4h1", Json.Encode.string <| record.nvc4h1 )

@@ -1,6 +1,8 @@
 module SemanaTemplConv exposing (gethour, semanaToSemanaTempl, toStringOrEmpty)
 
 import Date exposing (..)
+import DateFormat exposing (..)
+import DateFormat.Language exposing (..)
 import Time exposing (..)
 import Types.Semana exposing (..)
 import Types.SemanaTempl exposing (..)
@@ -12,6 +14,20 @@ type alias TimeOfDay =
     }
 
 
+getDate : Int -> String
+getDate fecha =
+    DateFormat.formatWithLanguage DateFormat.Language.spanish
+        [ dayOfMonthNumber
+        , text " "
+        , monthNameFull
+        , text ", "
+        , yearNumber
+        ]
+        utc
+        (millisToPosix fecha)
+        |> String.toLower
+
+
 semanaToSemanaTempl : Semana -> SemanaTempl
 semanaToSemanaTempl semana =
     let
@@ -19,7 +35,7 @@ semanaToSemanaTempl semana =
             { hour = semana.starthour, minutes = semana.startminute }
 
         semanatempl =
-            { resfecha = semana.fechasabado
+            { resfecha = getDate semana.fechasabado
             , sabasamblea = semana.sabasamblea
             , cancion1 = semana.cancion1
             , cancion2 = semana.cancion2
@@ -55,7 +71,7 @@ semanaToSemanaTempl semana =
             , smmtieneayudante3 = semana.smmtieneayudante3
             , smmtieneayudante4 = semana.smmtieneayudante4
             , domasamblea = semana.domasamblea
-            , fechadomingo = semana.fechadomingo
+            , fechadomingo = getDate semana.fechadomingo
             , domhaydiscursante = semana.domhaydiscursante
             , domdiscursante = semana.domdiscursante
             , sabasambleamensage = semana.sabasambleamensage
@@ -99,8 +115,9 @@ semanaToSemanaTempl semana =
             , tb2h1 = gethour meetingstartTime 18
             , tb3h1 = gethour meetingstartTime 26
             , smm1h1 = gethour meetingstartTime 30
-            , smm2h1 = gethour meetingstartTime 33
-            , smm3h1 = gethour meetingstartTime 38
+            , smm2h1 = gethour meetingstartTime (30 + semana.smmmin1)
+            , smm3h1 = gethour meetingstartTime (30 + semana.smmmin1 + semana.smmmin2)
+            , smm4h1 = gethour meetingstartTime (30 + semana.smmmin1 + semana.smmmin2 + semana.smmmin3)
             , nvc1h1 = gethour meetingstartTime 45
             , nvc2h1 = gethour meetingstartTime 50
             , nvc4h1 = gethour meetingstartTime 65
