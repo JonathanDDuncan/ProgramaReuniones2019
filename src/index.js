@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     "domdiscursante": "",
     "cancion1": 0,
     "tb1titulo": "",
-    "lecturaversículos": "",
+    "lecturaversiculos": "",
     "consejolector": 0,
     "smmleccionmaestros": false,
     "smmtema1": "",
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       { title: "cancion1", field: "cancion1", width: 150, editor: "number" },
       { title: "tb1titulo", field: "tb1titulo", width: 150, editor: "input" },
       { title: "consejolector", field: "consejolector", width: 150, editor: "number" },
-      { title: "lecturaversículos", field: "lecturaversículos", width: 150, editor: "input" },
+      { title: "lecturaversiculos", field: "lecturaversiculos", width: 150, editor: "input" },
       { title: "smmleccionmaestros", field: "smmleccionmaestros", width: 150, editor: "tickCross" },
       { title: "smmtema1", field: "smmtema1", width: 150, editor: "input" },
       { title: "smmtema2", field: "smmtema2", width: 150, editor: "input" },
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       semanadefault.domdiscursante = semanatofill.domdiscursante;
     semanadefault.cancion1 = semanatofill.cancion1;
     semanadefault.tb1titulo = semanatofill.tb1titulo;
-    semanadefault.lecturaversículos = semanatofill.lecturaversículos;
+    semanadefault.lecturaversiculos = semanatofill.lecturaversiculos;
     semanadefault.consejolector = semanatofill.consejolector;
     semanadefault.smmleccionmaestros = semanatofill.smmleccionmaestros;
     semanadefault.smmtema1 = semanatofill.smmtema1;
