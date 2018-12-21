@@ -245,8 +245,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
       semanadefault.smmtieneayudante2 = semanatofill.smmtieneayudante2;
     if (semanatofill.smmtieneayudante3)
       semanadefault.smmtieneayudante3 = semanatofill.smmtieneayudante3;
-    if (semanatofill.smmtienfeayudante4)
-      semanadefault.smmtieneayudante4 = semanatofill.smmtienfeayudante4;
+    if (semanatofill.smmtieneayudante4)
+      semanadefault.smmtieneayudante4 = semanatofill.smmtieneayudante4;
     semanadefault.cancion2 = semanatofill.cancion2;
     if (semanatofill.nvctitulo1)
       semanadefault.nvctitulo1 = semanatofill.nvctitulo1

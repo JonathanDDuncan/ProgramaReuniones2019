@@ -71,9 +71,11 @@ type alias SemanaTempl =
     , smm1esname : String
     , smm1ayuname : String
     , smm2esname : String
-    , smmrevisitaayu : String
+    , smm2ayuname : String
     , smm3esname : String
     , smm3ayuname : String
+    , smm4esname : String
+    , smm4ayuname : String
     , nvcestudiolector : String
     , aparatos : String
     , camara : String
@@ -171,9 +173,11 @@ decodeSemanaTempl =
         |> Json.Decode.Pipeline.required "smm1esname" Json.Decode.string
         |> Json.Decode.Pipeline.required "smm1ayuname" Json.Decode.string
         |> Json.Decode.Pipeline.required "smm2esname" Json.Decode.string
-        |> Json.Decode.Pipeline.required "smmrevisitaayu" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm2ayuname" Json.Decode.string
         |> Json.Decode.Pipeline.required "smm3esname" Json.Decode.string
         |> Json.Decode.Pipeline.required "smm3ayuname" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm4esname" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm4ayuname" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvcestudiolector" Json.Decode.string
         |> Json.Decode.Pipeline.required "aparatos" Json.Decode.string
         |> Json.Decode.Pipeline.required "camara" Json.Decode.string
@@ -270,9 +274,11 @@ encodeSemanaTempl record =
         , ( "smm1esname", Json.Encode.string <| record.smm1esname )
         , ( "smm1ayuname", Json.Encode.string <| record.smm1ayuname )
         , ( "smm2esname", Json.Encode.string <| record.smm2esname )
-        , ( "smmrevisitaayu", Json.Encode.string <| record.smmrevisitaayu )
+        , ( "smm2ayuname", Json.Encode.string <| record.smm2ayuname )
         , ( "smm3esname", Json.Encode.string <| record.smm3esname )
         , ( "smm3ayuname", Json.Encode.string <| record.smm3ayuname )
+        , ( "smm4esname", Json.Encode.string <| record.smm4esname )
+        , ( "smm4ayuname", Json.Encode.string <| record.smm4ayuname )
         , ( "nvcestudiolector", Json.Encode.string <| record.nvcestudiolector )
         , ( "aparatos", Json.Encode.string <| record.aparatos )
         , ( "camara", Json.Encode.string <| record.camara )
