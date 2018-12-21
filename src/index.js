@@ -8,12 +8,3 @@ var app = Elm.Main.init({
 window.app = app;
 
 registerServiceWorker();
-
-document.addEventListener("DOMContentLoaded", function (event) {
-
-  document.getElementById("process").addEventListener("click", function () {
-      getJsonData(function (data) {
-        fillData(app, data);
-      });
-    });
-  });

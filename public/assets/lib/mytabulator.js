@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
 
   loadJSON('assets/json/publicadores.json', function (publicadores) {
-  
+    window.publicadores = publicadores;
     var table = new Tabulator("#example-table", {
       height: "311px",
       // dataTree: true,

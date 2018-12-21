@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
-  document.getElementById('import').onclick = function () {
+  document.getElementById('selectFiles').onchange = function () {
     var files = document.getElementById('selectFiles').files;
     console.log(files);
     if (files.length <= 0) {
@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     fr.onload = function (e) {
       console.log(e);
       var result = JSON.parse(e.target.result);
-      var formatted = JSON.stringify(result, null, 2);
-      document.getElementById('result').value = formatted;
       table.setData(result);
     }
 

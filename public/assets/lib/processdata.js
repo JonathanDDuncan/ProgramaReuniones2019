@@ -106,6 +106,12 @@ function epochTime(date) {
     if (!semanatofill.starthour) semanatofill.starthour = 15;
     if (!semanatofill.startminute) semanatofill.startminute = 0;
 
+    // get the id from the name
+    window.publicadores.forEach(element => {
+      if (element.name == semanatofill.elcnarradorid)
+      semanatofill.elcnarradorid = element.id;
+    });
+
     return semanatofill;
   };
 
