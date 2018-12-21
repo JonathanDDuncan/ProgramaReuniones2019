@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //cancel - function to call to abort the edit and return to a normal cell
 
     //create and style input
-    var cellValue = moment(cell.getValue(), "X").format("YYYY-MM-DD"),
+    var cellValue = moment(cell.getValue(), "YYYY-MM-DD").format("YYYY-MM-DD"),
       input = document.createElement("input");
 
     input.setAttribute("type", "date");
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     function onChange() {
       if (input.value != cellValue) {
-        success(moment(input.value, "YYYY-MM-DD").format("X"));
+        success(moment(input.value, "YYYY-MM-DD").format("YYYY-MM-DD"));
       } else {
         cancel();
       }
