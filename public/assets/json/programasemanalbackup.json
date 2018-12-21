@@ -1676,6 +1676,8 @@
             ,
             "elcversiculos": "",
             "elcnarradorid": "",
+            "elcpersonajesynombres": "",
+            "elcnarradorname": "", 
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         },
@@ -1804,6 +1806,8 @@
             ,
             "elcversiculos": "",
             "elcnarradorid": "",
+            "elcpersonajesynombres": "",
+            "elcnarradorname": "", 
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         },
@@ -1932,6 +1936,8 @@
             ,
             "elcversiculos": "",
             "elcnarradorid": "",
+            "elcpersonajesynombres": "",
+            "elcnarradorname": "", 
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         },
@@ -2060,6 +2066,8 @@
             ,
             "elcversiculos": "",
             "elcnarradorid": "",
+            "elcpersonajesynombres": "",
+            "elcnarradorname": "", 
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         },
@@ -2189,6 +2197,8 @@
             ,
             "elcversiculos": "",
             "elcnarradorid": "",
+            "elcpersonajesynombres": "",
+            "elcnarradorname": "", 
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         }

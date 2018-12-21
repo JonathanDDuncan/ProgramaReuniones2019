@@ -97,6 +97,7 @@ llenarsemana model =
             |> lectores
             |> apoyo
             |> llenarcanciones
+            |> elclectoresbiblia
 
     else
         model
@@ -146,6 +147,31 @@ llenarcanciones model =
                 }
     in
     updatesemantofill semanasetter model
+
+
+elclectoresbiblia model =
+    let
+        narrador =
+            List.filter (\pub -> pub.id == model.semanatofill.elcnarradorid) model.publicadores
+                |> List.head
+
+        narradorName =
+            case narrador of
+                Just pub ->
+                    pub.name
+
+                Nothing ->
+                    ""
+
+        currentsemanatofill =
+            model.semanatofill
+    in
+    { model
+        | semanatofill =
+            { currentsemanatofill
+                | elcnarradorname = narradorName
+            }
+    }
 
 
 discursos : Model -> Model
