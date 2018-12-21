@@ -68,7 +68,7 @@ import Types.Cancion exposing (..)
 import Types.Publicador exposing (..)
 import Types.Semana exposing (..)
 
- 
+
 
 -- Main flow
 
@@ -161,11 +161,12 @@ estudiantes : Model -> Model
 estudiantes model =
     model
         |> tblectorbiblia
+        |> setpresidentepartevideo
+        |> setpresidenteleccionmaestros
         |> smm1
         |> smm2
         |> smm3
         |> smm4
-        |> setpresidentepartevideo
 
 
 setpresidentepartevideo model =
@@ -175,7 +176,8 @@ setpresidentepartevideo model =
                 |> (\sf ->
                         if sf.smmesvideo1 then
                             { sf
-                                | smm1esname = sf.presidentename
+                                | smm1esid = sf.presidenteid
+                                , smm1esname = sf.presidentename
                                 , smm1ayuid = ""
                                 , smm1ayuname = ""
                             }
@@ -186,7 +188,8 @@ setpresidentepartevideo model =
                 |> (\sf ->
                         if sf.smmesvideo2 then
                             { sf
-                                | smm2esname = sf.presidentename
+                                | smm2esid = sf.presidenteid
+                                , smm2esname = sf.presidentename
                                 , smm2ayuid = ""
                                 , smm2ayuname = ""
                             }
@@ -197,10 +200,42 @@ setpresidentepartevideo model =
                 |> (\sf ->
                         if sf.smmesvideo3 then
                             { sf
-                                | smm3esid = ""
+                                | smm3esid = sf.presidenteid
                                 , smm3esname = sf.presidentename
                                 , smm3ayuid = ""
                                 , smm3ayuname = ""
+                            }
+
+                        else
+                            sf
+                   )
+                |> (\sf ->
+                        if sf.smmesvideo4 then
+                            { sf
+                                | smm4esid = sf.presidenteid
+                                , smm4esname = sf.presidentename
+                                , smm4ayuid = ""
+                                , smm4ayuname = ""
+                            }
+
+                        else
+                            sf
+                   )
+    in
+    { model | semanatofill = semanatofill }
+
+
+setpresidenteleccionmaestros model =
+    let
+        semanatofill =
+            model.semanatofill
+                |> (\sf ->
+                        if sf.smmleccionmaestros then
+                            { sf
+                                | smm1esid = sf.presidenteid
+                                , smm1esname = sf.presidentename
+                                , smm1ayuid = ""
+                                , smm1ayuname = ""
                             }
 
                         else
@@ -438,34 +473,42 @@ removeprincipiantes esprincipiante publicadores =
 
 smm1 : Model -> Model
 smm1 model =
-    model
-        |> setsmm1
-            idDiscursos
-            .smm1esid
-            .smm1publicador
-            (\( semana, id, name ) ->
-                { semana
-                    | smm1esid = id
-                    , smm1esname = name
-                }
-            )
-        |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm1ayuid .ayudante (\( semana, id, name ) -> { semana | smm1ayuid = id, smm1ayuname = name }) .smm1esid
+    if model.semanatofill.smm1esid == "" then
+        model
+            |> setsmm1
+                idDiscursos
+                .smm1esid
+                .smm1publicador
+                (\( semana, id, name ) ->
+                    { semana
+                        | smm1esid = id
+                        , smm1esname = name
+                    }
+                )
+            |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm1ayuid .ayudante (\( semana, id, name ) -> { semana | smm1ayuid = id, smm1ayuname = name }) .smm1esid
+
+    else
+        model
 
 
 smm2 : Model -> Model
 smm2 model =
-    model
-        |> setsmm2
-            idDiscursos
-            .smm2esid
-            .smm1publicador
-            (\( semana, id, name ) ->
-                { semana
-                    | smm2esid = id
-                    , smm2esname = name
-                }
-            )
-        |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm2ayuid .ayudante (\( semana, id, name ) -> { semana | smm2ayuid = id, smm2ayuname = name }) .smm2esid
+    if model.semanatofill.smm1esid == "" then
+        model
+            |> setsmm2
+                idDiscursos
+                .smm2esid
+                .smm1publicador
+                (\( semana, id, name ) ->
+                    { semana
+                        | smm2esid = id
+                        , smm2esname = name
+                    }
+                )
+            |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm2ayuid .ayudante (\( semana, id, name ) -> { semana | smm2ayuid = id, smm2ayuname = name }) .smm2esid
+
+    else
+        model
 
 
 smm3 : Model -> Model
@@ -491,23 +534,27 @@ smm3 model =
 
 smm4 : Model -> Model
 smm4 model =
-    if model.semanatofill.smmtieneayudante4 then
-        model
-            |> setsmm4
-                (List.concat [ idDiscursos, idAyudantes ])
-                .smm4esid
-                .smm4publicador
-                (\( semana, id, name ) ->
-                    { semana
-                        | smm4esid = id
-                        , smm4esname = name
-                    }
-                )
-            |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm4ayuid .ayudante (\( semana, id, name ) -> { semana | smm4ayuid = id, smm4ayuname = name }) .smm4esid
+    if model.semanatofill.smm1esid == "" then
+        if model.semanatofill.smmtieneayudante4 then
+            model
+                |> setsmm4
+                    (List.concat [ idDiscursos, idAyudantes ])
+                    .smm4esid
+                    .smm4publicador
+                    (\( semana, id, name ) ->
+                        { semana
+                            | smm4esid = id
+                            , smm4esname = name
+                        }
+                    )
+                |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm4ayuid .ayudante (\( semana, id, name ) -> { semana | smm4ayuid = id, smm4ayuname = name }) .smm4esid
+
+        else
+            model
+                |> smmdiscurso
 
     else
         model
-            |> smmdiscurso
 
 
 setsmm1 :
@@ -533,6 +580,10 @@ setsmm1 getters semanaid pubfilter semanasetter model =
                 anteriores model
                     |> getlastweekidwithin .smm3esid model.publicadores
 
+            idsmm4semanapasada =
+                anteriores model
+                    |> getlastweekidwithin .smm4esid model.publicadores
+
             -- |> Debug.log "setsmm12 idksmm3semanapasada"
         in
         model.publicadores
@@ -544,6 +595,7 @@ setsmm1 getters semanaid pubfilter semanasetter model =
             |> List.filter (\pub -> pub.id /= idsmm1semanapasada)
             |> List.filter (\pub -> pub.id /= idsmm2semanapasada)
             |> List.filter (\pub -> pub.id /= idsmm3semanapasada)
+            |> List.filter (\pub -> pub.id /= idsmm4semanapasada)
             -- |> Debug.log "setsmm12 removepreviousweek"
             |> removepublicadoresmatching "setsmm1" getters model.semanatofill
             -- |> Debug.log "setsmm12 removepublicadoresmatching"
