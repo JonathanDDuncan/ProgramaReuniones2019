@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     "smmesvideo2": false,
     "smmesvideo3": false,
     "smmesvideo4": false,
-    "smmtieneayudante1": true,
-    "smmtieneayudante2": true,
-    "smmtieneayudante3": true,
-    "smmtieneayudante4": true,
+    "smmtieneayudante1": false,
+    "smmtieneayudante2": false,
+    "smmtieneayudante3": false,
+    "smmtieneayudante4": false,
     "cancion2": 0,
     "nvctitulo1": "",
     "nvcmins1": 0,
@@ -239,14 +239,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     semanadefault.smmesvideo2 = semanatofill.smmesvideo2;
     semanadefault.smmesvideo3 = semanatofill.smmesvideo3;
     semanadefault.smmesvideo4 = semanatofill.smmesvideo4;
-    if (semanatofill.smmtieneayudante1)
-      semanadefault.smmtieneayudante1 = semanatofill.smmtieneayudante1;
-    if (semanatofill.smmtieneayudante2)
-      semanadefault.smmtieneayudante2 = semanatofill.smmtieneayudante2;
-    if (semanatofill.smmtieneayudante3)
-      semanadefault.smmtieneayudante3 = semanatofill.smmtieneayudante3;
-    if (semanatofill.smmtieneayudante4)
-      semanadefault.smmtieneayudante4 = semanatofill.smmtieneayudante4;
+    semanadefault.smmtieneayudante1 = semanatofill.smmtieneayudante1;
+    semanadefault.smmtieneayudante2 = semanatofill.smmtieneayudante2;
+    semanadefault.smmtieneayudante3 = semanatofill.smmtieneayudante3;
+    semanadefault.smmtieneayudante4 = semanatofill.smmtieneayudante4;
     semanadefault.cancion2 = semanatofill.cancion2;
     if (semanatofill.nvctitulo1)
       semanadefault.nvctitulo1 = semanatofill.nvctitulo1
