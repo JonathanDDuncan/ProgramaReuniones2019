@@ -6,10 +6,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
       fillData(app, data);
     });
   });
-  
-
-
-
 
   window.app.ports.fillSemanaCallBack.subscribe(function (data) {
     console.log(JSON.stringify(data));
