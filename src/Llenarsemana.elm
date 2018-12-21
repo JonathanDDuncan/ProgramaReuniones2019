@@ -78,7 +78,11 @@ llenarsemanas model =
         (\sem modelaccum ->
             { modelaccum | semanatofill = sem }
                 |> llenarsemana
-                |> (\modellenado -> { modellenado | semanasllenados = modellenado.semanasllenados ++ [ modellenado.semanatofill ] })
+                |> (\modellenado ->
+                        { modellenado
+                            | semanasllenados = modellenado.semanasllenados ++ [ modellenado.semanatofill ]
+                        }
+                   )
         )
         model
         model.semanastofill
@@ -160,13 +164,13 @@ discursos model =
 estudiantes : Model -> Model
 estudiantes model =
     model
-        |> tblectorbiblia
         |> setpresidentepartevideo
         |> setpresidenteleccionmaestros
+        |> tblectorbiblia
         |> smm1
         |> smm2
         |> smm3
-        |> smm4
+        |> smm4 
 
 
 setpresidentepartevideo model =
@@ -384,21 +388,15 @@ dompresidente model =
         )
         model
 
-
-smmdiscurso : Model -> Model
-smmdiscurso model =
+ 
+smmdiscurso  getter setter model =
     setpublicador
         "smmdiscurso"
         2
         idDiscursos
-        .smm3esid
+        getter
         .smmdiscurso
-        (\( semana, id, name ) ->
-            { semana
-                | smm3esid = id
-                , smm3esname = name
-            }
-        )
+        setter
         model
 
 
@@ -493,19 +491,31 @@ smm1 model =
 
 smm2 : Model -> Model
 smm2 model =
-    if model.semanatofill.smm1esid == "" then
-        model
-            |> setsmm2
-                idDiscursos
-                .smm2esid
-                .smm1publicador
+    if model.semanatofill.smm2esid == "" then
+        if model.semanatofill.smmtieneayudante2 then
+            model
+                |> setsmm2
+                    idDiscursos
+                    .smm2esid
+                    .smm1publicador
+                    (\( semana, id, name ) ->
+                        { semana
+                            | smm2esid = id
+                            , smm2esname = name
+                        }
+                    )
+                |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm2ayuid .ayudante (\( semana, id, name ) -> { semana | smm2ayuid = id, smm2ayuname = name }) .smm2esid
+
+        else
+            model
+                |> smmdiscurso 
+                .smm2esid  
                 (\( semana, id, name ) ->
                     { semana
                         | smm2esid = id
                         , smm2esname = name
                     }
                 )
-            |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm2ayuid .ayudante (\( semana, id, name ) -> { semana | smm2ayuid = id, smm2ayuname = name }) .smm2esid
 
     else
         model
@@ -513,28 +523,37 @@ smm2 model =
 
 smm3 : Model -> Model
 smm3 model =
-    if model.semanatofill.smmtieneayudante3 then
-        model
-            |> setsmm3
-                (List.concat [ idDiscursos, idAyudantes ])
-                .smm3esid
-                .smm3publicador
-                (\( semana, id, name ) ->
-                    { semana
-                        | smm3esid = id
-                        , smm3esname = name
-                    }
-                )
-            |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm3ayuid .ayudante (\( semana, id, name ) -> { semana | smm3ayuid = id, smm3ayuname = name }) .smm3esid
+    if model.semanatofill.smm3esid == "" then
+        if model.semanatofill.smmtieneayudante3 then
+            model
+                |> setsmm3
+                    (List.concat [ idDiscursos, idAyudantes ])
+                    .smm3esid
+                    .smm3publicador
+                    (\( semana, id, name ) ->
+                        { semana
+                            | smm3esid = id
+                            , smm3esname = name
+                        }
+                    )
+                |> setayudante (List.concat [ idDiscursos, idAyudantes ]) .smm3ayuid .ayudante (\( semana, id, name ) -> { semana | smm3ayuid = id, smm3ayuname = name }) .smm3esid
+
+        else
+            model
+                |> smmdiscurso  .smm3esid (\( semana, id, name ) ->
+            { semana
+                | smm3esid = id
+                , smm3esname = name
+            }
+        )
 
     else
         model
-            |> smmdiscurso
 
 
 smm4 : Model -> Model
 smm4 model =
-    if model.semanatofill.smm1esid == "" then
+    if model.semanatofill.smm4esid == "" then
         if model.semanatofill.smmtieneayudante4 then
             model
                 |> setsmm4
@@ -551,7 +570,12 @@ smm4 model =
 
         else
             model
-                |> smmdiscurso
+                |> smmdiscurso .smm4esid   (\( semana, id, name ) ->
+            { semana
+                | smm4esid = id
+                , smm4esname = name
+            }
+        )
 
     else
         model

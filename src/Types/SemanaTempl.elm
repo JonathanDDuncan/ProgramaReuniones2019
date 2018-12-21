@@ -68,12 +68,12 @@ type alias SemanaTempl =
     , tb1orador : String
     , tblector : String
     , consejolector : String
-    , smmprimeraes : String
-    , smmprimeraayu : String
-    , smmrevisitaes : String
+    , smm1esname : String
+    , smm1ayuname : String
+    , smm2esname : String
     , smmrevisitaayu : String
-    , smmcbes : String
-    , smmcbayu : String
+    , smm3esname : String
+    , smm3ayuname : String
     , nvcestudiolector : String
     , aparatos : String
     , camara : String
@@ -168,12 +168,12 @@ decodeSemanaTempl =
         |> Json.Decode.Pipeline.required "tb1orador" Json.Decode.string
         |> Json.Decode.Pipeline.required "tblector" Json.Decode.string
         |> Json.Decode.Pipeline.required "consejolector" Json.Decode.string
-        |> Json.Decode.Pipeline.required "smmprimeraes" Json.Decode.string
-        |> Json.Decode.Pipeline.required "smmprimeraayu" Json.Decode.string
-        |> Json.Decode.Pipeline.required "smmrevisitaes" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm1esname" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm1ayuname" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm2esname" Json.Decode.string
         |> Json.Decode.Pipeline.required "smmrevisitaayu" Json.Decode.string
-        |> Json.Decode.Pipeline.required "smmcbes" Json.Decode.string
-        |> Json.Decode.Pipeline.required "smmcbayu" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm3esname" Json.Decode.string
+        |> Json.Decode.Pipeline.required "smm3ayuname" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvcestudiolector" Json.Decode.string
         |> Json.Decode.Pipeline.required "aparatos" Json.Decode.string
         |> Json.Decode.Pipeline.required "camara" Json.Decode.string
@@ -267,12 +267,12 @@ encodeSemanaTempl record =
         , ( "tb1orador", Json.Encode.string <| record.tb1orador )
         , ( "tblector", Json.Encode.string <| record.tblector )
         , ( "consejolector", Json.Encode.string <| record.consejolector )
-        , ( "smmprimeraes", Json.Encode.string <| record.smmprimeraes )
-        , ( "smmprimeraayu", Json.Encode.string <| record.smmprimeraayu )
-        , ( "smmrevisitaes", Json.Encode.string <| record.smmrevisitaes )
+        , ( "smm1esname", Json.Encode.string <| record.smm1esname )
+        , ( "smm1ayuname", Json.Encode.string <| record.smm1ayuname )
+        , ( "smm2esname", Json.Encode.string <| record.smm2esname )
         , ( "smmrevisitaayu", Json.Encode.string <| record.smmrevisitaayu )
-        , ( "smmcbes", Json.Encode.string <| record.smmcbes )
-        , ( "smmcbayu", Json.Encode.string <| record.smmcbayu )
+        , ( "smm3esname", Json.Encode.string <| record.smm3esname )
+        , ( "smm3ayuname", Json.Encode.string <| record.smm3ayuname )
         , ( "nvcestudiolector", Json.Encode.string <| record.nvcestudiolector )
         , ( "aparatos", Json.Encode.string <| record.aparatos )
         , ( "camara", Json.Encode.string <| record.camara )
