@@ -170,7 +170,7 @@ estudiantes model =
         |> smm1
         |> smm2
         |> smm3
-        |> smm4 
+        |> smm4
 
 
 setpresidentepartevideo model =
@@ -388,8 +388,8 @@ dompresidente model =
         )
         model
 
- 
-smmdiscurso  getter setter model =
+
+smmdiscurso getter setter model =
     setpublicador
         "smmdiscurso"
         2
@@ -434,11 +434,12 @@ setayudante getters semanaid pubfilter semanasetter discursantegetter model =
             model.publicadores
                 |> filtermismosexoofamiliarsexoopuesto discursante
                 |> filterpubs (\pub -> pubfilter pub)
-                |> filterpubssolodisponibles model.semanatofill.fechasabado
                 |> List.sortBy (\pub -> pub.name)
+                |> recombine idsemanapasada
+                |> filterpubssolodisponibles model.semanatofill.fechasabado
+                |> filterdiscursante discursanteid
                 |> removepublicadoresmatching "setayudante" getters model.semanatofill
                 |> removeprincipiantes esprincipiante
-                |> recombine idsemanapasada
                 |> removeVideoIfGreaterEqualThan 2
                 |> choosefirst
                 |> setasignments semanasetter model
@@ -508,14 +509,14 @@ smm2 model =
 
         else
             model
-                |> smmdiscurso 
-                .smm2esid  
-                (\( semana, id, name ) ->
-                    { semana
-                        | smm2esid = id
-                        , smm2esname = name
-                    }
-                )
+                |> smmdiscurso
+                    .smm2esid
+                    (\( semana, id, name ) ->
+                        { semana
+                            | smm2esid = id
+                            , smm2esname = name
+                        }
+                    )
 
     else
         model
@@ -540,12 +541,13 @@ smm3 model =
 
         else
             model
-                |> smmdiscurso  .smm3esid (\( semana, id, name ) ->
-            { semana
-                | smm3esid = id
-                , smm3esname = name
-            }
-        )
+                |> smmdiscurso .smm3esid
+                    (\( semana, id, name ) ->
+                        { semana
+                            | smm3esid = id
+                            , smm3esname = name
+                        }
+                    )
 
     else
         model
@@ -570,12 +572,13 @@ smm4 model =
 
         else
             model
-                |> smmdiscurso .smm4esid   (\( semana, id, name ) ->
-            { semana
-                | smm4esid = id
-                , smm4esname = name
-            }
-        )
+                |> smmdiscurso .smm4esid
+                    (\( semana, id, name ) ->
+                        { semana
+                            | smm4esid = id
+                            , smm4esname = name
+                        }
+                    )
 
     else
         model
@@ -1409,6 +1412,14 @@ filterpubssolodisponibles fechasabado publicadores =
 
                             Just fechafin ->
                                 fechasabado >= fechainicio && fechasabado >= fechafin
+            )
+
+
+filterdiscursante discursanteid publicadores =
+    publicadores
+        |> List.filter
+            (\pub ->
+                pub.id /= discursanteid
             )
 
 
