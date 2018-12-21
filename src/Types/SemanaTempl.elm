@@ -67,6 +67,7 @@ type alias SemanaTempl =
     , tbperlasorador : String
     , tb1orador : String
     , tblector : String
+    , lecturaversiculos : String
     , consejolector : String
     , smm1esname : String
     , smm1ayuname : String
@@ -169,6 +170,7 @@ decodeSemanaTempl =
         |> Json.Decode.Pipeline.required "tbperlasorador" Json.Decode.string
         |> Json.Decode.Pipeline.required "tb1orador" Json.Decode.string
         |> Json.Decode.Pipeline.required "tblector" Json.Decode.string
+        |> Json.Decode.Pipeline.required "lecturaversiculos" Json.Decode.string
         |> Json.Decode.Pipeline.required "consejolector" Json.Decode.string
         |> Json.Decode.Pipeline.required "smm1esname" Json.Decode.string
         |> Json.Decode.Pipeline.required "smm1ayuname" Json.Decode.string
@@ -270,6 +272,7 @@ encodeSemanaTempl record =
         , ( "tbperlasorador", Json.Encode.string <| record.tbperlasorador )
         , ( "tb1orador", Json.Encode.string <| record.tb1orador )
         , ( "tblector", Json.Encode.string <| record.tblector )
+        , ( "lecturaversiculos", Json.Encode.string <| record.lecturaversiculos )
         , ( "consejolector", Json.Encode.string <| record.consejolector )
         , ( "smm1esname", Json.Encode.string <| record.smm1esname )
         , ( "smm1ayuname", Json.Encode.string <| record.smm1ayuname )

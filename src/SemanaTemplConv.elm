@@ -94,6 +94,7 @@ semanaToSemanaTempl semana =
             , tbperlasorador = semana.tbperlasoradorname
             , tb1orador = semana.tb1oradorname
             , tblector = semana.tblectorname
+            , lecturaversiculos = semana.lecturaversiculos
             , consejolector = toStringOrEmpty semana.consejolector
             , smm1esname = semana.smm1esname
             , smm1ayuname = semana.smm1ayuname

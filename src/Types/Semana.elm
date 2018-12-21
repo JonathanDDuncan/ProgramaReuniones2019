@@ -31,6 +31,7 @@ type alias Semana =
     , consejolector : Int
     , tblectorid : String
     , tblectorname : String
+    , lecturaversiculos : String
     , smmleccionmaestros : Bool
     , smmtema1 : String
     , smmtema2 : String
@@ -152,6 +153,7 @@ init =
     , consejolector = 0
     , tblectorid = ""
     , tblectorname = ""
+    , lecturaversiculos = ""
     , smmleccionmaestros = False
     , smmtema1 = ""
     , smmtema2 = ""
@@ -280,6 +282,7 @@ decodeSemana =
         |> Json.Decode.Pipeline.required "consejolector" Json.Decode.int
         |> Json.Decode.Pipeline.required "tblectorid" Json.Decode.string
         |> Json.Decode.Pipeline.required "tblectorname" Json.Decode.string
+        |> Json.Decode.Pipeline.required "lecturaversiculos" Json.Decode.string
         |> Json.Decode.Pipeline.required "smmleccionmaestros" Json.Decode.bool
         |> Json.Decode.Pipeline.required "smmtema1" Json.Decode.string
         |> Json.Decode.Pipeline.required "smmtema2" Json.Decode.string
@@ -407,6 +410,7 @@ encodeSemana record =
         , ( "consejolector", Json.Encode.int <| record.consejolector )
         , ( "tblectorid", Json.Encode.string <| record.tblectorid )
         , ( "tblectorname", Json.Encode.string <| record.tblectorname )
+        , ( "lecturaversiculos", Json.Encode.string <| record.lecturaversiculos )
         , ( "smmleccionmaestros", Json.Encode.bool <| record.smmleccionmaestros )
         , ( "smmtema1", Json.Encode.string <| record.smmtema1 )
         , ( "smmtema2", Json.Encode.string <| record.smmtema2 )
@@ -497,7 +501,6 @@ encodeSemana record =
         , ( "domcancion2versiculo", Json.Encode.string <| record.domcancion2versiculo )
         , ( "elcversiculos", Json.Encode.string <| record.elcversiculos )
         , ( "elcnarradorid", Json.Encode.string <| record.elcnarradorid )
-        , ( "elcelcpersonajes", Json.Encode.list  (\y -> Json.Encode.string y) record.elcelcpersonajes) 
-        , ( "elcelcpersonajeslectids", Json.Encode.list  (\y -> Json.Encode.string y) record.elcelcpersonajeslectids) 
+        , ( "elcelcpersonajes", Json.Encode.list (\y -> Json.Encode.string y) record.elcelcpersonajes )
+        , ( "elcelcpersonajeslectids", Json.Encode.list (\y -> Json.Encode.string y) record.elcelcpersonajeslectids )
         ]
- 
