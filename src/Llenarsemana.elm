@@ -1,5 +1,66 @@
-module LlenarSemana exposing (anteriores, aparatos, apoyo, camara, choosefirst, cronometro, discursos, dompresidente, estudiantes, filtermismosexoofamiliarsexoopuesto, filterpubs, filterpubssolodisponibles, getIdName, getcancion, getlastweekid, getlastweekidwithin, getlastweeks, getlastweeksids, idApoyos, idAyudantes, idDiscursos, idDiscursoscomentarios, idLectores, idNoPuedeApoyos, idOraciones, lectores, lectorestudiocongregacion, llenarcanciones, llenarsemana, llenarsemanas, nvc1anciano, nvc2anciano, nvcestudioorador, nvcorador1, nvcorador2, oracion1, oracion2, presidente, presidenteestudiantes, pubsnotinidlistorvideo, recombine, removeVideo, removeVideoIfGreaterEqualThan, removeprevioussemanas, removeprincipiantes, removepublicadoresmatching, setasignments, setayudante, setpresidentepartevideo, setpublicador, setsmm1, setsmm2, setsmm3, 
- smm1, smm2, smm3, smmdiscurso, tb1orador, tblectorbiblia, tbperlasorador, updatesemantofill)
+module LlenarSemana exposing
+    ( anteriores
+    , aparatos
+    , apoyo
+    , camara
+    , choosefirst
+    , cronometro
+    , discursos
+    , dompresidente
+    , estudiantes
+    , filtermismosexoofamiliarsexoopuesto
+    , filterpubs
+    , filterpubssolodisponibles
+    , getIdName
+    , getcancion
+    , getlastweekid
+    , getlastweekidwithin
+    , getlastweeks
+    , getlastweeksids
+    , idApoyos
+    , idAyudantes
+    , idDiscursos
+    , idDiscursoscomentarios
+    , idLectores
+    , idNoPuedeApoyos
+    , idOraciones
+    , lectores
+    , lectorestudiocongregacion
+    , llenarcanciones
+    , llenarsemana
+    , llenarsemanas
+    , nvc1anciano
+    , nvc2anciano
+    , nvcestudioorador
+    , nvcorador1
+    , nvcorador2
+    , oracion1
+    , oracion2
+    , presidente
+    , presidenteestudiantes
+    , pubsnotinidlistorvideo
+    , recombine
+    , removeVideo
+    , removeVideoIfGreaterEqualThan
+    , removeprevioussemanas
+    , removeprincipiantes
+    , removepublicadoresmatching
+    , setasignments
+    , setayudante
+    , setpresidentepartevideo
+    , setpublicador
+    , setsmm1
+    , setsmm2
+    , setsmm3
+    , smm1
+    , smm2
+    , smm3
+    , smmdiscurso
+    , tb1orador
+    , tblectorbiblia
+    , tbperlasorador
+    , updatesemantofill
+    )
 
 import List.Extra as ListExtra
 import Types.AppTypes exposing (..)
@@ -35,7 +96,7 @@ llenarsemana model =
 
     else
         model
- 
+
 
 llenarcanciones : Model -> Model
 llenarcanciones model =
@@ -1227,13 +1288,13 @@ getIdName chosen =
             ( pub.id, pub.name )
 
 
+
 -- showpubs :
 --     List { a | id : String, name : String }
 --     -> String
 -- showpubs publicadores =
 --     publicadores
 --         |> List.map (\pub -> pub.id ++ ",  " ++ pub.name)
-        
 
 
 filterpubs :
@@ -1289,7 +1350,7 @@ updatesemantofill semanasetter model =
 
 getcancion :
     List Cancion
-    -> List Publicador 
+    -> List Publicador
     -> Int
     -> CancionPublicador
 getcancion canciones publicadores num =
@@ -1318,9 +1379,8 @@ getcancion canciones publicadores num =
                 Just val ->
                     val.name
     in
-    
- {  id =id1                       
-     , nombre = nombre1
+    { id = id1
+    , nombre = nombre1
     , tema = tema1
-  , versiculo = versiculo1                     }
-    
+    , versiculo = versiculo1
+    }

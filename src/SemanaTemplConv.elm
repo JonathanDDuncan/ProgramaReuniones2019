@@ -24,7 +24,7 @@ getDate fecha =
         , yearNumber
         ]
         utc
-        (millisToPosix fecha)
+        (millisToPosix (fecha * 1000))
         |> String.toLower
 
 
@@ -35,7 +35,7 @@ semanaToSemanaTempl semana =
             { hour = semana.starthour, minutes = semana.startminute }
 
         semanatempl =
-            { resfecha = getDate semana.fechasabado
+            { fechasabado = getDate semana.fechasabado
             , sabasamblea = semana.sabasamblea
             , cancion1 = semana.cancion1
             , cancion2 = semana.cancion2

@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function semanatemplate(semanadefault, semanatofill) {
     semanadefault.id = semanatofill.id;
-    semanadefault.fecha = semanatofill.fecha;
+    semanadefault.fechasabado =  parseInt(semanatofill.fechasabado);
 
     semanadefault.starthour = semanatofill.starthour;
     semanadefault.startminute = semanatofill.startminute;

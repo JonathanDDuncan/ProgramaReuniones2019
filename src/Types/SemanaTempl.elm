@@ -8,7 +8,7 @@ import Json.Encode
 
 
 type alias SemanaTempl =
-    { resfecha : String
+    { fechasabado : String
     , sabasamblea : Bool
     , cancion1 : Int
     , cancion2 : Int
@@ -108,7 +108,7 @@ decodeSemanasTemplates =
 decodeSemanaTempl : Json.Decode.Decoder SemanaTempl
 decodeSemanaTempl =
     Json.Decode.succeed SemanaTempl
-        |> Json.Decode.Pipeline.required "resfecha" Json.Decode.string
+        |> Json.Decode.Pipeline.required "fechasabado" Json.Decode.string
         |> Json.Decode.Pipeline.required "sabasamblea" Json.Decode.bool
         |> Json.Decode.Pipeline.required "cancion1" Json.Decode.int
         |> Json.Decode.Pipeline.required "cancion2" Json.Decode.int
@@ -207,7 +207,7 @@ encodeSemanasTemplates records =
 encodeSemanaTempl : SemanaTempl -> Json.Encode.Value
 encodeSemanaTempl record =
     Json.Encode.object
-        [ ( "resfecha", Json.Encode.string <| record.resfecha )
+        [ ( "fechasabado", Json.Encode.string <| record.fechasabado )
         , ( "sabasamblea", Json.Encode.bool <| record.sabasamblea )
         , ( "cancion1", Json.Encode.int <| record.cancion1 )
         , ( "cancion2", Json.Encode.int <| record.cancion2 )
