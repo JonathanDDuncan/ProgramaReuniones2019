@@ -1549,7 +1549,7 @@
             "idasignado": "84a1b478-a4f9-4ed3-a048-f48027f5aef3"
         }
     ],
-           "semanasllenados": [
+    "semanasllenados": [
         {
             "id": "48ebff9c-952f-47e9-92a9-7e0511f1bba5",
             "creado": 1542381448,
@@ -1561,7 +1561,6 @@
             "fecha": "8 de diciembre",
             "fechasabado": 1544248800,
             "fechadomingo": 1544248800,
-            
             "presidenteid": "beb26774-e8dd-40d3-990f-813d9d6e9d79",
             "presidentename": "Francisco David Hernández",
             "cancion1": 115,
@@ -1601,7 +1600,6 @@
             "smmtieneayudante2": false,
             "smmtieneayudante3": false,
             "smmtieneayudante4": false,
-
             "consejoprimera": 0,
             "smm1esid": "8f9446fa-51e7-4508-8b56-b4dcc15ba17b",
             "smm1esname": "Francisco David Hernández",
@@ -1672,12 +1670,11 @@
             "domcancion2id": "78a004aa-93d8-4a5a-bbb4-75f14d376a2b",
             "domcancion2name": "Abigail Peralta",
             "domcancion2tema": "Siempre fieles y leales",
-            "domcancion2versiculo": "(Salmo 18:25)"
-            ,
+            "domcancion2versiculo": "(Salmo 18:25)",
             "elcversiculos": "",
             "elcnarradorid": "",
             "elcpersonajesynombres": "",
-            "elcnarradorname": "", 
+            "elcnarradorname": "",
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         },
@@ -1692,7 +1689,6 @@
             "fecha": "15 de diciembre",
             "fechasabado": 1544853600,
             "fechadomingo": 1544853600,
-            
             "presidenteid": "75463c4b-c5dc-4aaa-9fde-4d666f4cc192",
             "presidentename": "Jonathan Duncan",
             "cancion1": 60,
@@ -1802,12 +1798,11 @@
             "domcancion2id": "a97bcdf6-a0ef-441e-804a-876778b40f39",
             "domcancion2name": "Stefany Maradiaga",
             "domcancion2tema": "Hoy voy a salir a predicar",
-            "domcancion2versiculo": "(Jeremías 1:17)"
-            ,
+            "domcancion2versiculo": "(Jeremías 1:17)",
             "elcversiculos": "",
             "elcnarradorid": "",
             "elcpersonajesynombres": "",
-            "elcnarradorname": "", 
+            "elcnarradorname": "",
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         },
@@ -1822,7 +1817,6 @@
             "fecha": "22 de diciembre",
             "fechasabado": 1545458400,
             "fechadomingo": 1545458400,
-            
             "presidenteid": "84a1b478-a4f9-4ed3-a048-f48027f5aef3",
             "presidentename": "José Rivera",
             "cancion1": 96,
@@ -1932,12 +1926,11 @@
             "domcancion2id": "a97bcdf6-a0ef-441e-804a-876778b40f39",
             "domcancion2name": "Stefany Maradiaga",
             "domcancion2tema": "Honremos al nuevo Rey de la Tierra",
-            "domcancion2versiculo": "(Salmo 2:12)"
-            ,
+            "domcancion2versiculo": "(Salmo 2:12)",
             "elcversiculos": "",
             "elcnarradorid": "",
             "elcpersonajesynombres": "",
-            "elcnarradorname": "", 
+            "elcnarradorname": "",
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         },
@@ -1952,7 +1945,6 @@
             "fecha": "29 de diciembre",
             "fechasabado": 1546063200,
             "fechadomingo": 1546063200,
-           
             "presidenteid": "beb26774-e8dd-40d3-990f-813d9d6e9d79",
             "presidentename": "Francisco David Hernández",
             "cancion1": 78,
@@ -2062,12 +2054,11 @@
             "domcancion2id": "78a004aa-93d8-4a5a-bbb4-75f14d376a2b",
             "domcancion2name": "Abigail Peralta",
             "domcancion2tema": "Servimos con aguante",
-            "domcancion2versiculo": "(Mateo 24:13)"
-            ,
+            "domcancion2versiculo": "(Mateo 24:13)",
             "elcversiculos": "",
             "elcnarradorid": "",
             "elcpersonajesynombres": "",
-            "elcnarradorname": "", 
+            "elcnarradorname": "",
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         },
@@ -2082,7 +2073,6 @@
             "fecha": "5 de enero de 2019",
             "fechasabado": 1546668000,
             "fechadomingo": 1546668000,
-           
             "presidenteid": "75463c4b-c5dc-4aaa-9fde-4d666f4cc192",
             "presidentename": "Jonathan Duncan",
             "cancion1": 103,
@@ -2102,7 +2092,6 @@
             "tblectorname": "Jimmy Martinez",
             "lecturaversiculos": "",
             "smmleccionmaestros": false,
-            
             "smmtema1": "Segunda revisita",
             "smmtema2": "Tercera revisita",
             "smmtema3": "Curso bíblico",
@@ -2193,15 +2182,13 @@
             "domcancion2id": "e586551c-6db9-47a5-90f4-a7acf9210bd6",
             "domcancion2name": "Yolaine Duncan",
             "domcancion2tema": "El libro de Dios es un tesoro",
-            "domcancion2versiculo": "(Proverbios 2:1)"
-            ,
+            "domcancion2versiculo": "(Proverbios 2:1)",
             "elcversiculos": "",
             "elcnarradorid": "",
             "elcpersonajesynombres": "",
-            "elcnarradorname": "", 
+            "elcnarradorname": "",
             "elcelcpersonajes": [],
             "elcelcpersonajeslectids": []
         }
     ]
-   
 }
