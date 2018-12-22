@@ -117,10 +117,8 @@
         "domcancion2versiculo": "",
         "elcversiculos": "",
         "elcnarradorid": "",
-        "elcpersonajesynombres": "",
         "elcnarradorname": "", 
-        "elcelcpersonajes": [],
-        "elcelcpersonajeslectids": []
+        "elcpersonajes":""
     },
     "puntosMejoresLectoresMaestros": [
         {

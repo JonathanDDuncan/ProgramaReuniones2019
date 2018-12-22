@@ -1,58 +1,60 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    var blank = function(uuid){return {
-        "id": uuid,
-        "fechasabado": 0,
-        "fechadomingo": 0,
-        "sabasamblea": false,
-        "domasamblea": false,
-        "domhaydiscursante": false,
-        "domdiscursante": "",
-        "cancion1": 0,
-        "tb1titulo": "",
-        "lecturaversiculos": "",
-        "consejolector": 0,
-        "smmleccionmaestros": false,
-        "smmtema1": "",
-        "smmtema2": "",
-        "smmtema3": "",
-        "smmtema4": "",
-        "smmmin1": 0,
-        "smmmin2": 0,
-        "smmmin3": 0,
-        "smmmin4": 0,
-        "smmconsejo1": 0,
-        "smmconsejo2": 0,
-        "smmconsejo3": 0,
-        "smmconsejo4": 0,
-        "smmesvideo1": false,
-        "smmesvideo2": false,
-        "smmesvideo3": false,
-        "smmesvideo4": false,
-        "smmtieneayudante1": false,
-        "smmtieneayudante2": false,
-        "smmtieneayudante3": false,
-        "smmtieneayudante4": false,
-        "cancion2": 0,
-        "nvctitulo1": "",
-        "nvcmins1": 0,
-        "nvcanciano1": false,
-        "nvctitulo2": "",
-        "nvcmins2": 0,
-        "nvcanciano2": false,
-        "cancion3": 0,
-        "domcancion1": 0,
-        "domcancion2": 0,
-        "elcversiculos": "",
-        "elcnarradorid": "",
-        "elcpersonajes": ""
-      }};
-      var tabledata = [
-        blank(uuidv4()), blank(uuidv4()), blank(uuidv4()), blank(uuidv4()), blank(uuidv4())
-      ];
+  var blank = function (uuid) {
+    return {
+      "id": uuid,
+      "fechasabado": 0,
+      "fechadomingo": 0,
+      "sabasamblea": false,
+      "domasamblea": false,
+      "domhaydiscursante": false,
+      "domdiscursante": "",
+      "cancion1": 0,
+      "tb1titulo": "",
+      "lecturaversiculos": "",
+      "consejolector": 0,
+      "smmleccionmaestros": false,
+      "smmtema1": "",
+      "smmtema2": "",
+      "smmtema3": "",
+      "smmtema4": "",
+      "smmmin1": 0,
+      "smmmin2": 0,
+      "smmmin3": 0,
+      "smmmin4": 0,
+      "smmconsejo1": 0,
+      "smmconsejo2": 0,
+      "smmconsejo3": 0,
+      "smmconsejo4": 0,
+      "smmesvideo1": false,
+      "smmesvideo2": false,
+      "smmesvideo3": false,
+      "smmesvideo4": false,
+      "smmtieneayudante1": false,
+      "smmtieneayudante2": false,
+      "smmtieneayudante3": false,
+      "smmtieneayudante4": false,
+      "cancion2": 0,
+      "nvctitulo1": "",
+      "nvcmins1": 0,
+      "nvcanciano1": false,
+      "nvctitulo2": "",
+      "nvcmins2": 0,
+      "nvcanciano2": false,
+      "cancion3": 0,
+      "domcancion1": 0,
+      "domcancion2": 0,
+      "elcversiculos": "",
+      "elcnarradorid": "",
+      "elcpersonajes": ""
+    }
+  };
+  var tabledata = [
+    blank(uuidv4()), blank(uuidv4()), blank(uuidv4()), blank(uuidv4()), blank(uuidv4())
+  ];
 
-      
+
   var dateEditor = function (cell, onRendered, success, cancel) {
     //cell - the cell component for the editable cell
     //onRendered - function to call when the editor has been rendered
@@ -106,11 +108,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     window.publicadores = publicadores;
     var table = new Tabulator("#example-table", {
       height: "311px",
-      layout:"fitColumns",
+      layout: "fitColumns",
       // dataTree: true,
       data: tabledata,
       columns: [
-        { title: "id", field: "id", visible:false },
+        { title: "id", field: "id", visible: false },
         { title: "fecha sabado", field: "fechasabado", width: 150, editor: dateEditor },
         { title: "fecha domingo", field: "fechadomingo", width: 150, editor: dateEditor },
         { title: "sab asamblea", field: "sabasamblea", width: 150, editor: "tickCross" },
@@ -153,26 +155,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         { title: "Domingo Cancion 2", field: "domcancion1", width: 150, editor: "number" },
         { title: "Domingo Cancion 3", field: "domcancion2", width: 150, editor: "number" },
         { title: "ELC Versiculos", field: "elcversiculos", width: 150, editor: "input" },
-        { title: "ELC Narrador", field: "elcnarradorid", width: 150, editor: "select" , editorParams:{
-                 showListOnEmpty:true, //show all values when the list is empty,
-          freetext:true, //allow the user to set the value of the cell to a free text entry
-          allowEmpty:true, //allow empty string values
-          searchFunc:function(term, values){ //search for exact matches
-              var matches = []
-      
-              values.forEach(function(item){
-                  if(item.value === term){
-                      matches.push(item);
-                  }
-              });
-      
-              return matches;
-          },
-         
-         values: converttoselectitems(publicadores) ,
-        } }
-      ,
-        { title: "elcpersonajes", field: "elcpersonajes", editor: "textarea" },
+        {
+          title: "ELC Narrador", field: "elcnarradorid", width: 150, editor: "select", editorParams: {
+           showListOnEmpty: true, //show all values when the list is empty,
+           values: converttoselectitems(publicadores),
+          }
+        },
+        { title: "ELC Personajes", field: "elcpersonajes", width: 150, editor: "textarea", formatter: "textarea" },
       ],
     });
     window.table = table;
@@ -181,13 +170,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var values = {};
 
     items.forEach(element => {
-            values[element.name] = element.name;
+      values[element.name] = element.name;
     });
     return values;
   };
-  
+
   function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);
     });

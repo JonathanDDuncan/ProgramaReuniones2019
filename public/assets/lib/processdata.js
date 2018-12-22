@@ -79,10 +79,10 @@ function semanatemplate(semanadefault, semanatofill) {
   semanadefault.elcversiculos = semanatofill.elcversiculos
   if (semanatofill.elcnarradorid)
     semanadefault.elcnarradorid = semanatofill.elcnarradorid
-  if (semanatofill.elcelcpersonajes)
-    semanadefault.elcelcpersonajes = semanatofill.elcelcpersonajes;
-  if (semanatofill.elcelcpersonajeslectids)
-    semanadefault.elcelcpersonajeslectids = semanatofill.elcelcpersonajeslectids;
+  if (semanatofill.elcpersonajes)
+    semanadefault.elcpersonajes = semanatofill.elcpersonajes;
+  if (semanatofill.elcpersonajeslectids)
+    semanadefault.elcpersonajeslectids = semanatofill.elcpersonajeslectids;
   return semanadefault;
 }
 

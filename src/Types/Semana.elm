@@ -123,9 +123,7 @@ type alias Semana =
     , elcversiculos : String
     , elcnarradorid : String
     , elcnarradorname : String
-    , elcpersonajesynombres : String
-    , elcelcpersonajes : List String
-    , elcelcpersonajeslectids : List String
+    , elcpersonajes : String
     }
 
 
@@ -247,9 +245,7 @@ init =
     , elcversiculos = ""
     , elcnarradorid = ""
     , elcnarradorname = ""
-    , elcpersonajesynombres = ""
-    , elcelcpersonajes = []
-    , elcelcpersonajeslectids = []
+    , elcpersonajes = ""
     }
 
 
@@ -378,9 +374,7 @@ decodeSemana =
         |> Json.Decode.Pipeline.required "elcversiculos" Json.Decode.string
         |> Json.Decode.Pipeline.required "elcnarradorid" Json.Decode.string
         |> Json.Decode.Pipeline.required "elcnarradorname" Json.Decode.string
-        |> Json.Decode.Pipeline.required "elcpersonajesynombres" Json.Decode.string
-        |> Json.Decode.Pipeline.required "elcelcpersonajes" (Json.Decode.list Json.Decode.string)
-        |> Json.Decode.Pipeline.required "elcelcpersonajeslectids" (Json.Decode.list Json.Decode.string)
+        |> Json.Decode.Pipeline.required "elcpersonajes" Json.Decode.string
 
 
 encodeSemanas : List Semana -> Json.Encode.Value
@@ -508,7 +502,5 @@ encodeSemana record =
         , ( "elcversiculos", Json.Encode.string <| record.elcversiculos )
         , ( "elcnarradorid", Json.Encode.string <| record.elcnarradorid )
         , ( "elcnarradorname", Json.Encode.string <| record.elcnarradorname )
-        , ( "elcpersonajesynombres", Json.Encode.string <| record.elcpersonajesynombres )
-        , ( "elcelcpersonajes", Json.Encode.list (\y -> Json.Encode.string y) record.elcelcpersonajes )
-        , ( "elcelcpersonajeslectids", Json.Encode.list (\y -> Json.Encode.string y) record.elcelcpersonajeslectids )
+        , ( "elcpersonajes", Json.Encode.string <| record.elcpersonajes )
         ]

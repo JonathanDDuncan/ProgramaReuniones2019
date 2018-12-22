@@ -86,7 +86,7 @@ type alias SemanaTempl =
     , oracion2 : String
     , elcversiculos : String
     , elcnarradorname : String
-    , elcpersonajesynombres : String
+    , elcpersonajes : List String
     , dompresidente : String
     , ini1h1 : String
     , ini2h1 : String
@@ -192,7 +192,7 @@ decodeSemanaTempl =
         |> Json.Decode.Pipeline.required "oracion2" Json.Decode.string
         |> Json.Decode.Pipeline.required "elcversiculos" Json.Decode.string
         |> Json.Decode.Pipeline.required "elcnarradorname" Json.Decode.string
-        |> Json.Decode.Pipeline.required "elcpersonajesynombres" Json.Decode.string
+        |> Json.Decode.Pipeline.required "elcpersonajes" (Json.Decode.list Json.Decode.string)
         |> Json.Decode.Pipeline.required "dompresidente" Json.Decode.string
         |> Json.Decode.Pipeline.required "ini1h1" Json.Decode.string
         |> Json.Decode.Pipeline.required "ini2h1" Json.Decode.string
@@ -297,7 +297,7 @@ encodeSemanaTempl record =
         , ( "oracion2", Json.Encode.string <| record.oracion2 )
         , ( "elcversiculos", Json.Encode.string <| record.elcversiculos )
         , ( "elcnarradorname", Json.Encode.string <| record.elcnarradorname )
-        , ( "elcpersonajesynombres", Json.Encode.string <| record.elcpersonajesynombres )
+        , ( "elcpersonajes", Json.Encode.list Json.Encode.string <| record.elcpersonajes )
         , ( "dompresidente", Json.Encode.string <| record.dompresidente )
         , ( "ini1h1", Json.Encode.string <| record.ini1h1 )
         , ( "ini2h1", Json.Encode.string <| record.ini2h1 )

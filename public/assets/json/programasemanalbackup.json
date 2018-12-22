@@ -1673,10 +1673,8 @@
             "domcancion2versiculo": "(Salmo 18:25)",
             "elcversiculos": "",
             "elcnarradorid": "",
-            "elcpersonajesynombres": "",
             "elcnarradorname": "",
-            "elcelcpersonajes": [],
-            "elcelcpersonajeslectids": []
+            "elcpersonajes": ""
         },
         {
             "id": "e655db9c-6f94-44d1-9aec-2b578e86928e",
@@ -1801,10 +1799,8 @@
             "domcancion2versiculo": "(Jeremías 1:17)",
             "elcversiculos": "",
             "elcnarradorid": "",
-            "elcpersonajesynombres": "",
             "elcnarradorname": "",
-            "elcelcpersonajes": [],
-            "elcelcpersonajeslectids": []
+            "elcpersonajes": ""
         },
         {
             "id": "cbc35986-b861-4ecb-96e2-420f11d05754",
@@ -1929,10 +1925,8 @@
             "domcancion2versiculo": "(Salmo 2:12)",
             "elcversiculos": "",
             "elcnarradorid": "",
-            "elcpersonajesynombres": "",
             "elcnarradorname": "",
-            "elcelcpersonajes": [],
-            "elcelcpersonajeslectids": []
+            "elcpersonajes": ""
         },
         {
             "id": "4a10b1ce-e70f-4f8b-a0fa-68f0db316c6d",
@@ -2057,10 +2051,8 @@
             "domcancion2versiculo": "(Mateo 24:13)",
             "elcversiculos": "",
             "elcnarradorid": "",
-            "elcpersonajesynombres": "",
             "elcnarradorname": "",
-            "elcelcpersonajes": [],
-            "elcelcpersonajeslectids": []
+            "elcpersonajes": ""
         },
         {
             "id": "13bc3296-e678-4737-bfed-0b9cc4022f19",
@@ -2185,10 +2177,8 @@
             "domcancion2versiculo": "(Proverbios 2:1)",
             "elcversiculos": "",
             "elcnarradorid": "",
-            "elcpersonajesynombres": "",
             "elcnarradorname": "",
-            "elcelcpersonajes": [],
-            "elcelcpersonajeslectids": []
+            "elcpersonajes": ""
         }
     ]
 }
