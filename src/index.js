@@ -8,3 +8,4 @@ var app = Elm.Main.init({
 window.app = app;
 
 registerServiceWorker();
+$('.tabular.menu .item').tab();

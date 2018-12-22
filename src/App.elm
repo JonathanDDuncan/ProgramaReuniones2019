@@ -196,14 +196,24 @@ createBackup newmodel semanastempl =
 view : Model -> Html Msg
 view model =
     div [ class "ui container" ]
-        [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
+        [ div [ class "ui tabular menu" ]
+            [ div [ class "item", attribute "data-tab" "tab-name" ]
+                [ text "Tab Name" ]
+            , div [ class "item", attribute "data-tab" "tab-name2" ]
+                [ text "Tab Name 2" ]
+            ]
+        , div [ class "ui tab", attribute "data-tab" "tab-name" ]
+            [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
         , input [ class "ui button", type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
         , br [] []
         , div [ attribute "id" "example-table" ] []
         , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
         , br [] []
-        , button [class "ui button", attribute "id" "process" ] [ text "Process" ]
-        , div [  attribute "id" "links" ] []
+        , button [ class "ui button", attribute "id" "process" ] [ text "Process" ]
+        , div [ attribute "id" "links" ] []]
+        , div [ class "ui tab", attribute "data-tab" "tab-name2" ]
+            [text "Value 2"]
+        
         ]
 
 
