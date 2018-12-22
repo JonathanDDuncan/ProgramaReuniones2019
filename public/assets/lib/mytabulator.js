@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   })
 
   function createtablesemanasllenar(publicadores){
+    publicadores = sortpublicadores(publicadores);
     var tablesemanasllenar = new Tabulator("#example-table", {
       height: "311px",
       layout: "fitColumns",
@@ -140,6 +141,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 
+function sortpublicadores(publicadores){
+  publicadores.sort(function(a, b){   
+    var x = a.name.toLowerCase();
+    var y = b.name.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return 0;});
+  return publicadores;
+};
 
 var dateEditor = function (cell, onRendered, success, cancel) {
   //cell - the cell component for the editable cell
@@ -185,13 +195,14 @@ var dateEditor = function (cell, onRendered, success, cancel) {
     if (e.keyCode == 27) {
       cancel();
     }
-  });
+  }); 
 
   return input;
 };
 
 
 function createtablepublicadores(publicadores){
+  publicadores = sortpublicadores(publicadores);
   $.tab('change tab', 'tab-publicadores');
   var tablepublicadores = new Tabulator("#table-publicadores", {
     height: "311px",
