@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-  var blank = function (uuid) {
+  var blanksemanasllenar = function (uuid) {
     return {
       "id": uuid,
       "fechasabado": 0,
@@ -51,62 +51,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   };
   var tabledata = [
-    blank(uuidv4()), blank(uuidv4()), blank(uuidv4()), blank(uuidv4()), blank(uuidv4())
+    blanksemanasllenar(uuidv4()), blanksemanasllenar(uuidv4()), blanksemanasllenar(uuidv4()), blanksemanasllenar(uuidv4()), blanksemanasllenar(uuidv4())
   ];
 
-
-  var dateEditor = function (cell, onRendered, success, cancel) {
-    //cell - the cell component for the editable cell
-    //onRendered - function to call when the editor has been rendered
-    //success - function to call to pass the successfuly updated value to Tabulator
-    //cancel - function to call to abort the edit and return to a normal cell
-
-    //create and style input
-    var cellValue = moment(cell.getValue(), "YYYY-MM-DD").format("YYYY-MM-DD"),
-      input = document.createElement("input");
-
-    input.setAttribute("type", "date");
-
-    input.style.padding = "4px";
-    input.style.width = "100%";
-    input.style.boxSizing = "border-box";
-
-    input.value = cellValue;
-
-    onRendered(function () {
-      input.focus();
-      input.style.height = "100%";
-    });
-
-    function onChange() {
-      if (input.value != cellValue) {
-        success(moment(input.value, "YYYY-MM-DD").format("YYYY-MM-DD"));
-      } else {
-        cancel();
-      }
-    }
-
-    //submit new value on blur or change
-    input.addEventListener("change", onChange);
-    input.addEventListener("blur", onChange);
-
-    //submit new value on enter
-    input.addEventListener("keydown", function (e) {
-      if (e.keyCode == 13) {
-        onChange();
-      }
-
-      if (e.keyCode == 27) {
-        cancel();
-      }
-    });
-
-    return input;
-  };
-
   loadJSON('assets/json/publicadores.json', function (publicadores) {
-    window.publicadores = publicadores;
-    var table = new Tabulator("#example-table", {
+    if (!window.publicadores)
+      window.publicadores = publicadores;
+
+      createtablesemanasllenar(window.publicadores)
+  })
+
+  function createtablesemanasllenar(publicadores){
+    var tablesemanasllenar = new Tabulator("#example-table", {
       height: "311px",
       layout: "fitColumns",
       // dataTree: true,
@@ -164,8 +120,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         { title: "ELC Personajes", field: "elcpersonajes", width: 150, editor: "textarea", formatter: "textarea" },
       ],
     });
-    window.tablesemanasllenar = table;
-  })
+    window.tablesemanasllenar = tablesemanasllenar;
+  };
+
   function converttoselectitems(items) {
     var values = {};
 
@@ -182,3 +139,130 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
+
+
+var dateEditor = function (cell, onRendered, success, cancel) {
+  //cell - the cell component for the editable cell
+  //onRendered - function to call when the editor has been rendered
+  //success - function to call to pass the successfuly updated value to Tabulator
+  //cancel - function to call to abort the edit and return to a normal cell
+
+  //create and style input
+  var cellValue = moment(cell.getValue(), "YYYY-MM-DD").format("YYYY-MM-DD"),
+    input = document.createElement("input");
+
+  input.setAttribute("type", "date");
+
+  input.style.padding = "4px";
+  input.style.width = "100%";
+  input.style.boxSizing = "border-box";
+
+  input.value = cellValue;
+
+  onRendered(function () {
+    input.focus();
+    input.style.height = "100%";
+  });
+
+  function onChange() {
+    if (input.value != cellValue) {
+      success(moment(input.value, "YYYY-MM-DD").format("YYYY-MM-DD"));
+    } else {
+      cancel();
+    }
+  }
+
+  //submit new value on blur or change
+  input.addEventListener("change", onChange);
+  input.addEventListener("blur", onChange);
+
+  //submit new value on enter
+  input.addEventListener("keydown", function (e) {
+    if (e.keyCode == 13) {
+      onChange();
+    }
+
+    if (e.keyCode == 27) {
+      cancel();
+    }
+  });
+
+  return input;
+};
+
+
+function createtablepublicadores(publicadores){
+  $.tab('change tab', 'tab-publicadores');
+  var tablepublicadores = new Tabulator("#table-publicadores", {
+    height: "311px",
+    layout: "fitColumns",
+    // dataTree: true,
+ 
+    columns: [
+      { title: "id", field: "id" },
+      { title: "creado", field: "creado", visible: false },
+      { title: "modificado", field: "modificado", visible: false },
+      { title: "Nombre", field: "name", width: 150, editor: "input" },
+      { title: "Varón", field: "varon", width: 150, editor: "tickCross" },
+      { title: "Anciano", field: "anciano", width: 150, editor: "tickCross" },
+      { title: "Es video", field: "esvideo", width: 150, editor: "tickCross" },
+      { title: "Presidente Sábado", field: "presidentesabado", width: 150, editor: "tickCross" },
+      { title: "Tb1 Orador", field: "tb1orador", width: 150, editor: "tickCross" },
+      { title: "Perlas", field: "perlas", width: 150, editor: "tickCross" },
+      { title: "Lector  Biblia", field: "lecturabiblia", width: 150, editor: "tickCross" },
+      { title: "Oración", field: "oracion", width: 150, editor: "tickCross" },
+      { title: "Ayudante", field: "ayudante", width: 150, editor: "tickCross" },
+      { title: "Principiante", field: "principiante", width: 150, editor: "tickCross" },
+      { title: "SMM 1 Publicador", field: "smm1publicador", width: 150, editor: "tickCross" },
+      { title: "SMM 2 Publicador", field: "smm2publicador", width: 150, editor: "tickCross" },
+      { title: "SMM 3 Publicador", field: "smm3publicador", width: 150, editor: "tickCross" },
+      { title: "SMM 4 Publicador", field: "smm4publicador", width: 150, editor: "tickCross" },
+      { title: "SMM Discurso", field: "smmdiscurso", width: 150, editor: "tickCross" },
+      { title: "NVC", field: "nvc", width: 150, editor: "tickCross" },
+      { title: "Estudio Congregación", field: "estudiocongregacion", width: 150, editor: "tickCross" },
+      { title: "Lector Estudio Congregación", field: "lectorestudiocongregacion", width: 150, editor: "tickCross" },
+      { title: "Lector Atalaya", field: "lectoreatalaya", width: 150, editor: "tickCross" },
+      { title: "Cámara", field: "camara", width: 150, editor: "tickCross" },
+      { title: "Aparatos", field: "aparatos", width: 150, editor: "tickCross" },
+      { title: "Cronómetro", field: "cronometro", width: 150, editor: "tickCross" },
+      { title: "Presidente Domingo", field: "presidentedomingo", width: 150, editor: "tickCross" },
+      { title: "Fecha no disponible inicio", field: "fechanodisponibleinicio", width: 150, editor: dateEditor},
+      { title: "Fecha no disponible fin", field: "fechanodisponiblefin", width: 150, editor: dateEditor },
+      { title: "familiaressexoopuesto", field: "familiaressexoopuesto", visible: false },
+    
+     
+      ]
+     , data: publicadores
+  });
+  window.tablepublicadores = tablepublicadores;
+};
+
+function createtablecanciones(canciones){
+  $.tab('change tab', 'tab-canciones');
+  var tablecanciones = new Tabulator("#table-canciones", {
+    height: "311px",
+    layout: "fitColumns",
+    // dataTree: true,
+   
+   columns: [
+      { title: "num", field: "num" , editor: "input" },
+      { title: "tema", field: "tema", editor: "input"  },
+      { title: "versiculo", field: "versiculo",editor: "input" },
+      { title: "asignado", field: "asignado", width: 150, editor: "input" },
+      { title: "idasignado", field: "idasignado", width: 150, editor: "input" },
+   ],
+   data: canciones
+  });
+  window.tablecanciones = tablecanciones;
+};
+function createtablesemanasanteriores(anteriores){
+  $.tab('change tab', 'tab-anteriores');
+  var tablesemanasanteriores = new Tabulator("#table-anteriores", {
+    height: "311px",
+    layout: "fitColumns",
+    // dataTree: true,
+    data: anteriores
+    
+  });
+  window.tablesemanasanteriores = tablesemanasanteriores;
+};

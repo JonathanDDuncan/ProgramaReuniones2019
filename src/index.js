@@ -9,3 +9,4 @@ window.app = app;
 
 registerServiceWorker();
 $('.tabular.menu .item').tab();
+$.tab('change tab', 'tab-llenar');

@@ -211,14 +211,32 @@ view model =
         , div [ class "ui tab", attribute "data-tab" "tab-llenar" ]
             tabllenar
         , div [ class "ui tab", attribute "data-tab" "tab-publicadores" ]
-            [ text "Publicadores" ]
+            tabpublicadores
         , div [ class "ui tab", attribute "data-tab" "tab-canciones" ]
-            [ text "Canciones" ]
+            tabcanciones
         , div [ class "ui tab", attribute "data-tab" "tab-anterior" ]
-            [ text "Anteriores" ]
+            tabanteriores
         , div [ class "ui tab", attribute "data-tab" "tab-cargar" ]
             tabcargar
         ]
+
+
+tabpublicadores =
+    [ h1 [ class "ui header" ] [ text "Publicadores" ]
+    , div [ attribute "id" "table-publicadores" ] []
+    ]
+
+
+tabcanciones =
+    [ h1 [ class "ui header" ] [ text "Canciones" ]
+    , div [ attribute "id" "table-canciones" ] []
+    ]
+
+
+tabanteriores =
+    [ h1 [ class "ui header" ] [ text "Semanas anteriores" ]
+    , div [ attribute "id" "table-anteriores" ] []
+    ]
 
 
 tabllenar =

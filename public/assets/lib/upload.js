@@ -30,12 +30,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
     fr.onload = function (e) {
       console.log(e);
       var result = JSON.parse(e.target.result);
-      tablesemanasllenar.setData(result);
+      loadbackup(result);
     }
 
     fr.readAsText(files.item(0));
   };
 });
+
+function loadbackup( backup){
+  window.publicadores = backup.publicadores;
+  window.canciones = backup.canciones;
+  window.semanasllenados = backup.semanasllenados;
+ 
+  createtablepublicadores(window.publicadores);
+  createtablecanciones(window.canciones);
+  createtablesemanasanteriores(window.semanasllenados);
+  $.tab('change tab', 'tab-cargar');
+};
 
 function loadJSON(url, callback) {
 
