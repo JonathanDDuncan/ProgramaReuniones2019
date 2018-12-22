@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (!window.publicadores)
       window.publicadores = publicadores;
 
-      createtablesemanasllenar(window.publicadores)
+    createtablesemanasllenar(window.publicadores)
   })
 
-  function createtablesemanasllenar(publicadores){
+  function createtablesemanasllenar(publicadores) {
     publicadores = sortpublicadores(publicadores);
     var tablesemanasllenar = new Tabulator("#example-table", {
       height: "311px",
@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         { title: "ELC Versiculos", field: "elcversiculos", width: 150, editor: "input" },
         {
           title: "ELC Narrador", field: "elcnarradorid", width: 150, editor: "select", editorParams: {
-           showListOnEmpty: true, //show all values when the list is empty,
-           values: converttoselectitems(publicadores),
+            showListOnEmpty: true, //show all values when the list is empty,
+            values: converttoselectitems(publicadores),
           }
         },
         { title: "ELC Personajes", field: "elcpersonajes", width: 150, editor: "textarea", formatter: "textarea" },
@@ -141,13 +141,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 
-function sortpublicadores(publicadores){
-  publicadores.sort(function(a, b){   
+function sortpublicadores(publicadores) {
+  publicadores.sort(function (a, b) {
     var x = a.name.toLowerCase();
     var y = b.name.toLowerCase();
-    if (x < y) {return -1;}
-    if (x > y) {return 1;}
-    return 0;});
+    if (x < y) { return -1; }
+    if (x > y) { return 1; }
+    return 0;
+  });
   return publicadores;
 };
 
@@ -195,85 +196,212 @@ var dateEditor = function (cell, onRendered, success, cancel) {
     if (e.keyCode == 27) {
       cancel();
     }
-  }); 
+  });
 
   return input;
 };
 
 
-function createtablepublicadores(publicadores){
+function createtablepublicadores(publicadores) {
   publicadores = sortpublicadores(publicadores);
   $.tab('change tab', 'tab-publicadores');
   var tablepublicadores = new Tabulator("#table-publicadores", {
     height: "311px",
-    layout: "fitColumns",
+    layout: "fitData",
     // dataTree: true,
- 
+
     columns: [
       { title: "id", field: "id" },
       { title: "creado", field: "creado", visible: false },
       { title: "modificado", field: "modificado", visible: false },
-      { title: "Nombre", field: "name", width: 150, editor: "input" },
-      { title: "Varón", field: "varon", width: 150, editor: "tickCross" },
-      { title: "Anciano", field: "anciano", width: 150, editor: "tickCross" },
-      { title: "Es video", field: "esvideo", width: 150, editor: "tickCross" },
-      { title: "Presidente Sábado", field: "presidentesabado", width: 150, editor: "tickCross" },
-      { title: "Tb1 Orador", field: "tb1orador", width: 150, editor: "tickCross" },
-      { title: "Perlas", field: "perlas", width: 150, editor: "tickCross" },
-      { title: "Lector  Biblia", field: "lecturabiblia", width: 150, editor: "tickCross" },
-      { title: "Oración", field: "oracion", width: 150, editor: "tickCross" },
-      { title: "Ayudante", field: "ayudante", width: 150, editor: "tickCross" },
-      { title: "Principiante", field: "principiante", width: 150, editor: "tickCross" },
-      { title: "SMM 1 Publicador", field: "smm1publicador", width: 150, editor: "tickCross" },
-      { title: "SMM 2 Publicador", field: "smm2publicador", width: 150, editor: "tickCross" },
-      { title: "SMM 3 Publicador", field: "smm3publicador", width: 150, editor: "tickCross" },
-      { title: "SMM 4 Publicador", field: "smm4publicador", width: 150, editor: "tickCross" },
-      { title: "SMM Discurso", field: "smmdiscurso", width: 150, editor: "tickCross" },
-      { title: "NVC", field: "nvc", width: 150, editor: "tickCross" },
-      { title: "Estudio Congregación", field: "estudiocongregacion", width: 150, editor: "tickCross" },
-      { title: "Lector Estudio Congregación", field: "lectorestudiocongregacion", width: 150, editor: "tickCross" },
-      { title: "Lector Atalaya", field: "lectoreatalaya", width: 150, editor: "tickCross" },
-      { title: "Cámara", field: "camara", width: 150, editor: "tickCross" },
-      { title: "Aparatos", field: "aparatos", width: 150, editor: "tickCross" },
-      { title: "Cronómetro", field: "cronometro", width: 150, editor: "tickCross" },
-      { title: "Presidente Domingo", field: "presidentedomingo", width: 150, editor: "tickCross" },
-      { title: "Fecha no disponible inicio", field: "fechanodisponibleinicio", width: 150, editor: dateEditor},
-      { title: "Fecha no disponible fin", field: "fechanodisponiblefin", width: 150, editor: dateEditor },
+      { title: "Nombre", field: "name", editor: "input" },
+      { title: "Varón", field: "varon", editor: "tickCross" },
+      { title: "Anciano", field: "anciano", editor: "tickCross" },
+      { title: "Es video", field: "esvideo", editor: "tickCross" },
+      { title: "Presidente Sábado", field: "presidentesabado", editor: "tickCross" },
+      { title: "Tb1 Orador", field: "tb1orador", editor: "tickCross" },
+      { title: "Perlas", field: "perlas", editor: "tickCross" },
+      { title: "Lector  Biblia", field: "lecturabiblia", editor: "tickCross" },
+      { title: "Oración", field: "oracion", editor: "tickCross" },
+      { title: "Ayudante", field: "ayudante", editor: "tickCross" },
+      { title: "Principiante", field: "principiante", editor: "tickCross" },
+      { title: "SMM 1 Publicador", field: "smm1publicador", editor: "tickCross" },
+      { title: "SMM 2 Publicador", field: "smm2publicador", editor: "tickCross" },
+      { title: "SMM 3 Publicador", field: "smm3publicador", editor: "tickCross" },
+      { title: "SMM 4 Publicador", field: "smm4publicador", editor: "tickCross" },
+      { title: "SMM Discurso", field: "smmdiscurso", editor: "tickCross" },
+      { title: "NVC", field: "nvc", editor: "tickCross" },
+      { title: "Estudio Congregación", field: "estudiocongregacion", editor: "tickCross" },
+      { title: "Lector Estudio Congregación", field: "lectorestudiocongregacion", editor: "tickCross" },
+      { title: "Lector Atalaya", field: "lectoreatalaya", editor: "tickCross" },
+      { title: "Cámara", field: "camara", editor: "tickCross" },
+      { title: "Aparatos", field: "aparatos", editor: "tickCross" },
+      { title: "Cronómetro", field: "cronometro", editor: "tickCross" },
+      { title: "Presidente Domingo", field: "presidentedomingo", editor: "tickCross" },
+      { title: "Fecha no disponible inicio", field: "fechanodisponibleinicio", editor: dateEditor },
+      { title: "Fecha no disponible fin", field: "fechanodisponiblefin", editor: dateEditor },
       { title: "familiaressexoopuesto", field: "familiaressexoopuesto", visible: false },
-    
-     
-      ]
-     , data: publicadores
+
+
+    ]
+    , data: publicadores
   });
   window.tablepublicadores = tablepublicadores;
 };
 
-function createtablecanciones(canciones){
+function createtablecanciones(canciones) {
   $.tab('change tab', 'tab-canciones');
   var tablecanciones = new Tabulator("#table-canciones", {
     height: "311px",
-    layout: "fitColumns",
+    layout: "fitData",
     // dataTree: true,
-   
-   columns: [
-      { title: "num", field: "num" , editor: "input" },
-      { title: "tema", field: "tema", editor: "input"  },
-      { title: "versiculo", field: "versiculo",editor: "input" },
-      { title: "asignado", field: "asignado", width: 150, editor: "input" },
-      { title: "idasignado", field: "idasignado", width: 150, editor: "input" },
-   ],
-   data: canciones
+
+    columns: [
+      { title: "num", field: "num", editor: "input" },
+      { title: "tema", field: "tema", editor: "input" },
+      { title: "versiculo", field: "versiculo", editor: "input" },
+      { title: "asignado", field: "asignado", editor: "input" },
+      { title: "idasignado", field: "idasignado", editor: "input" },
+    ],
+    data: canciones
   });
   window.tablecanciones = tablecanciones;
 };
-function createtablesemanasanteriores(anteriores){
+function createtablesemanasanteriores(anteriores) {
   $.tab('change tab', 'tab-anteriores');
   var tablesemanasanteriores = new Tabulator("#table-anteriores", {
     height: "311px",
-    layout: "fitColumns",
+    layout: "fitData",
     // dataTree: true,
+    columns: [
+      { title: "id", field: "id", editor: "input" },
+      { title: "creado", field: "creado", editor: "input" },
+      { title: "modificado", field: "modificado", editor: "input" },
+      { title: "starthour", field: "starthour", editor: "input" },
+      { title: "startminute", field: "startminute", editor: "input" },
+      { title: "sabasamblea", field: "sabasamblea", editor: "tickCross" },
+      { title: "sabasambleamensage", field: "sabasambleamensage", editor: "input" },
+      { title: "fecha", field: "fecha", editor: "input" },
+      { title: "fechasabado", field: "fechasabado", editor: "input" },
+      { title: "fechadomingo", field: "fechadomingo", editor: "input" },
+      { title: "presidenteid", field: "presidenteid", editor: "input" },
+      { title: "presidentename", field: "presidentename", editor: "input" },
+      { title: "cancion1", field: "cancion1", editor: "input" },
+      { title: "cancion1id", field: "cancion1id", editor: "input" },
+      { title: "cancion1name", field: "cancion1name", editor: "input" },
+      { title: "cancion1tema", field: "cancion1tema", editor: "input" },
+      { title: "cancion1versiculo", field: "cancion1versiculo", editor: "input" },
+      { title: "oracion1id", field: "oracion1id", editor: "input" },
+      { title: "oracion1name", field: "oracion1name", editor: "input" },
+      { title: "tb1titulo", field: "tb1titulo", editor: "input" },
+      { title: "tb1oradorid", field: "tb1oradorid", editor: "input" },
+      { title: "tb1oradorname", field: "tb1oradorname", editor: "input" },
+      { title: "tbperlasoradorid", field: "tbperlasoradorid", editor: "input" },
+      { title: "tbperlasoradorname", field: "tbperlasoradorname", editor: "input" },
+      { title: "consejolector", field: "consejolector", editor: "input" },
+      { title: "tblectorid", field: "tblectorid", editor: "input" },
+      { title: "tblectorname", field: "tblectorname", editor: "input" },
+      { title: "lecturaversiculos", field: "lecturaversiculos", editor: "input" },
+      { title: "smmleccionmaestros", field: "smmleccionmaestros", editor: "tickCross" },
+      { title: "smmtema1", field: "smmtema1", editor: "input" },
+      { title: "smmtema2", field: "smmtema2", editor: "input" },
+      { title: "smmtema3", field: "smmtema3", editor: "input" },
+      { title: "smmtema4", field: "smmtema4", editor: "input" },
+      { title: "smmmin1", field: "smmmin1", editor: "input" },
+      { title: "smmmin2", field: "smmmin2", editor: "input" },
+      { title: "smmmin3", field: "smmmin3", editor: "input" },
+      { title: "smmmin4", field: "smmmin4", editor: "input" },
+      { title: "smmconsejo1", field: "smmconsejo1", editor: "input" },
+      { title: "smmconsejo2", field: "smmconsejo2", editor: "input" },
+      { title: "smmconsejo3", field: "smmconsejo3", editor: "input" },
+      { title: "smmconsejo4", field: "smmconsejo4", editor: "input" },
+      { title: "smmesvideo1", field: "smmesvideo1", editor: "tickCross" },
+      { title: "smmesvideo2", field: "smmesvideo2", editor: "tickCross" },
+      { title: "smmesvideo3", field: "smmesvideo3", editor: "tickCross" },
+      { title: "smmesvideo4", field: "smmesvideo4", editor: "tickCross" },
+      { title: "smmtieneayudante1", field: "smmtieneayudante1", editor: "tickCross" },
+      { title: "smmtieneayudante2", field: "smmtieneayudante2", editor: "tickCross" },
+      { title: "smmtieneayudante3", field: "smmtieneayudante3", editor: "tickCross" },
+      { title: "smmtieneayudante4", field: "smmtieneayudante4", editor: "tickCross" },
+      { title: "consejoprimera", field: "consejoprimera", editor: "input" },
+      { title: "smm1esid", field: "smm1esid", editor: "input" },
+      { title: "smm1esname", field: "smm1esname", editor: "input" },
+      { title: "smm1ayuid", field: "smm1ayuid", editor: "input" },
+      { title: "smm1ayuname", field: "smm1ayuname", editor: "input" },
+      { title: "consejorevisita", field: "consejorevisita", editor: "input" },
+      { title: "smm2esid", field: "smm2esid", editor: "input" },
+      { title: "smm2esname", field: "smm2esname", editor: "input" },
+      { title: "smm2ayuid", field: "smm2ayuid", editor: "input" },
+      { title: "smm2ayuname", field: "smm2ayuname", editor: "input" },
+      { title: "escurso", field: "escurso", editor: "tickCross" },
+      { title: "consejocb", field: "consejocb", editor: "input" },
+      { title: "smm3esid", field: "smm3esid", editor: "input" },
+      { title: "smm3esname", field: "smm3esname", editor: "input" },
+      { title: "smm3ayuname", field: "smm3ayuname", editor: "input" },
+      { title: "smm4esid", field: "smm4esid", editor: "input" },
+      { title: "smm4esname", field: "smm4esname", editor: "input" },
+      { title: "smm4ayuid", field: "smm4ayuid", editor: "input" },
+      { title: "smm4ayuname", field: "smm4ayuname", editor: "input" },
+      { title: "presentacionesmesid", field: "presentacionesmesid", editor: "input" },
+      { title: "presentacionesmesname", field: "presentacionesmesname", editor: "input" },
+      { title: "cancion2", field: "cancion2", editor: "input" },
+      { title: "cancion2id", field: "cancion2id", editor: "input" },
+      { title: "cancion2name", field: "cancion2name", editor: "input" },
+      { title: "cancion2tema", field: "cancion2tema", editor: "input" },
+      { title: "cancion2versiculo", field: "cancion2versiculo", editor: "input" },
+      { title: "nvctitulo1", field: "nvctitulo1", editor: "input" },
+      { title: "nvcmins1", field: "nvcmins1", editor: "input" },
+      { title: "nvcorador1id", field: "nvcorador1id", editor: "input" },
+      { title: "nvcorador1name", field: "nvcorador1name", editor: "input" },
+      { title: "nvcanciano1", field: "nvcanciano1", editor: "input" },
+      { title: "nvctitulo2", field: "nvctitulo2", editor: "input" },
+      { title: "nvcmins2", field: "nvcmins2", editor: "input" },
+      { title: "nvcorador2id", field: "nvcorador2id", editor: "input" },
+      { title: "nvcorador2name", field: "nvcorador2name", editor: "input" },
+      { title: "nvcanciano2", field: "nvcanciano2", editor: "input" },
+      { title: "nvcestudiooradorid", field: "nvcestudiooradorid", editor: "input" },
+      { title: "nvcestudiooradorname", field: "nvcestudiooradorname", editor: "input" },
+      { title: "nvcestudiolectorid", field: "nvcestudiolectorid", editor: "input" },
+      { title: "nvcestudiolectorname", field: "nvcestudiolectorname", editor: "input" },
+      { title: "cancion3", field: "cancion3", editor: "input" },
+      { title: "cancion3id", field: "cancion3id", editor: "input" },
+      { title: "cancion3name", field: "cancion3name", editor: "input" },
+      { title: "cancion3tema", field: "cancion3tema", editor: "input" },
+      { title: "cancion3versiculo", field: "cancion3versiculo", editor: "input" },
+      { title: "oracion2id", field: "oracion2id", editor: "input" },
+      { title: "oracion2name", field: "oracion2name", editor: "input" },
+      { title: "camaraid", field: "camaraid", editor: "input" },
+      { title: "camaraname", field: "camaraname", editor: "input" },
+      { title: "aparatosid", field: "aparatosid", editor: "input" },
+      { title: "aparatosname", field: "aparatosname", editor: "input" },
+      { title: "cronometroid", field: "cronometroid", editor: "input" },
+      { title: "cronometroname", field: "cronometroname", editor: "input" },
+      { title: "domasamblea", field: "domasamblea", editor: "tickCross" },
+      { title: "domasambleamensage", field: "domasambleamensage", editor: "input" },
+      { title: "domfecha", field: "domfecha", editor: "input" },
+      { title: "dompresidenteid", field: "dompresidenteid", editor: "input" },
+      { title: "dompresidentename", field: "dompresidentename", editor: "input" },
+      { title: "domdiscursante", field: "domdiscursante", editor: "input" },
+      { title: "domhaydiscursante", field: "domhaydiscursante", editor: "tickCross" },
+      { title: "domcancion1", field: "domcancion1", editor: "input" },
+      { title: "domcancion1id", field: "domcancion1id", editor: "input" },
+      { title: "domcancion1name", field: "domcancion1name", editor: "input" },
+      { title: "domcancion1tema", field: "domcancion1tema", editor: "input" },
+      { title: "domcancion1versiculo", field: "domcancion1versiculo", editor: "input" },
+      { title: "domcancion2", field: "domcancion2", editor: "input" },
+      { title: "domcancion2id", field: "domcancion2id", editor: "input" },
+      { title: "domcancion2name", field: "domcancion2name", editor: "input" },
+      { title: "domcancion2tema", field: "domcancion2tema", editor: "input" },
+      { title: "domcancion2versiculo", field: "domcancion2versiculo", editor: "input" },
+      { title: "elcversiculos", field: "elcversiculos", editor: "input" },
+      { title: "elcnarradorid", field: "elcnarradorid", editor: "input" },
+      { title: "elcnarradorname", field: "elcnarradorname", editor: "input" },
+      { title: "elcpersonajes", field: "elcpersonajes", editor: "input" },
+
+    ]
+    ,
     data: anteriores
-    
+
   });
   window.tablesemanasanteriores = tablesemanasanteriores;
 };
