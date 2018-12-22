@@ -197,24 +197,47 @@ view : Model -> Html Msg
 view model =
     div [ class "ui container" ]
         [ div [ class "ui tabular menu" ]
-            [ div [ class "item", attribute "data-tab" "tab-name" ]
-                [ text "Tab Name" ]
-            , div [ class "item", attribute "data-tab" "tab-name2" ]
-                [ text "Tab Name 2" ]
+            [ div [ class "item", attribute "data-tab" "tab-llenar" ]
+                [ text "Para Llenar" ]
+            , div [ class "item", attribute "data-tab" "tab-publicadores" ]
+                [ text "Publicadores" ]
+            , div [ class "item", attribute "data-tab" "tab-canciones" ]
+                [ text "Canciones" ]
+            , div [ class "item", attribute "data-tab" "tab-anterior" ]
+                [ text "Datos Anteriores " ]
+            , div [ class "item", attribute "data-tab" "tab-cargar" ]
+                [ text "Cargar " ]
             ]
-        , div [ class "ui tab", attribute "data-tab" "tab-name" ]
-            [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
-        , input [ class "ui button", type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
-        , br [] []
-        , div [ attribute "id" "example-table" ] []
-        , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
-        , br [] []
-        , button [ class "ui button", attribute "id" "process" ] [ text "Process" ]
-        , div [ attribute "id" "links" ] []]
-        , div [ class "ui tab", attribute "data-tab" "tab-name2" ]
-            [text "Value 2"]
-        
+        , div [ class "ui tab", attribute "data-tab" "tab-llenar" ]
+            tabllenar
+        , div [ class "ui tab", attribute "data-tab" "tab-publicadores" ]
+            [ text "Publicadores" ]
+        , div [ class "ui tab", attribute "data-tab" "tab-canciones" ]
+            [ text "Canciones" ]
+        , div [ class "ui tab", attribute "data-tab" "tab-anterior" ]
+            [ text "Anteriores" ]
+        , div [ class "ui tab", attribute "data-tab" "tab-cargar" ]
+            tabcargar
         ]
+
+
+tabllenar =
+    [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
+    , input [ class "ui button", type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
+    , br [] []
+    , div [ attribute "id" "example-table" ] []
+    , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
+    , br [] []
+    , button [ class "ui button", attribute "id" "process" ] [ text "Process" ]
+    , div [ attribute "id" "links" ] []
+    ]
+
+
+tabcargar =
+    [ h1 [ class "ui header" ] [ text "Cargar copia de seguridad" ]
+    , input [ class "ui button", type_ "file", attribute "id" "cargarcopiaseguridad", attribute "value" "Cargar Copia de Seguridad" ] []
+    , br [] []
+    ]
 
 
 subscriptions : model -> Sub Msg
