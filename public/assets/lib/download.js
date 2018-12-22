@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
  
     document.getElementById("download-json").addEventListener("click", function () {
-        table.download("json", "data.json");
+      tablesemanasllenar.download("json", "data.json");
     
       });
     

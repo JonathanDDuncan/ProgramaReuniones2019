@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         { title: "ELC Personajes", field: "elcpersonajes", width: 150, editor: "textarea", formatter: "textarea" },
       ],
     });
-    window.table = table;
+    window.tablesemanasllenar = table;
   })
   function converttoselectitems(items) {
     var values = {};

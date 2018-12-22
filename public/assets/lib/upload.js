@@ -12,12 +12,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
     fr.onload = function (e) {
       console.log(e);
       var result = JSON.parse(e.target.result);
-      table.setData(result);
+      tablesemanasllenar.setData(result);
     }
 
     fr.readAsText(files.item(0));
   };
  
+  document.getElementById('cargarcopiaseguridad').onchange = function () {
+    var files = document.getElementById('cargarcopiaseguridad').files;
+    console.log(files);
+    if (files.length <= 0) {
+      return false;
+    }
+
+    var fr = new FileReader();
+
+    fr.onload = function (e) {
+      console.log(e);
+      var result = JSON.parse(e.target.result);
+      tablesemanasllenar.setData(result);
+    }
+
+    fr.readAsText(files.item(0));
+  };
 });
 
 function loadJSON(url, callback) {
@@ -94,6 +111,6 @@ function getJsonData(callback) {
 
 };
 function getsemanasparallenar(callback) {
-  var data = window.table.getData();
+  var data = window.tablesemanasllenar.getData();
   callback(data);
 };
