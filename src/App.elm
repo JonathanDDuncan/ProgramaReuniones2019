@@ -197,13 +197,13 @@ view : Model -> Html Msg
 view model =
     div [ class "ui container" ]
         [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
-        , input [ type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
+        , input [ class "ui button", type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
         , br [] []
         , div [ attribute "id" "example-table" ] []
-        , button [ attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
+        , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
         , br [] []
-        , button [ attribute "id" "process" ] [ text "Process" ]
-        , div [ attribute "id" "links" ] []
+        , button [class "ui button", attribute "id" "process" ] [ text "Process" ]
+        , div [  attribute "id" "links" ] []
         ]
 
 
