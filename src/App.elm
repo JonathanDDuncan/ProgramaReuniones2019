@@ -23,7 +23,6 @@ init =
       , semanasanteriores = []
       , publicadores = []
       , canciones = []
-      , ultimaActualizacion = 0
       }
     , Cmd.none
     )
@@ -169,7 +168,6 @@ update message model =
                         { model
                             | publicadores = backup.publicadores
                             , canciones = backup.canciones
-                            , ultimaActualizacion = backup.ultimaActualizacion
                             , semanasllenados = []
                             , semanasanteriores = List.append backup.semanasanteriores backup.semanasanteriores
                         }
@@ -182,7 +180,6 @@ update message model =
             ( { model
                 | publicadores = []
                 , canciones = []
-                , ultimaActualizacion = 0
                 , semanasllenados = []
                 , semanasanteriores = []
               }
@@ -190,11 +187,10 @@ update message model =
             )
 
 
-createBackup : { f | canciones : a, publicadores : b, semanasanteriores : c, semanasllenados : d, ultimaActualizacion : e } -> g -> { canciones : a, publicadores : b, semanasanteriores : c, semanasllenados : d, semanastemplates : g, ultimaActualizacion : e }
+createBackup : { f | canciones : a, publicadores : b, semanasanteriores : c, semanasllenados : d } -> g -> { canciones : a, publicadores : b, semanasanteriores : c, semanasllenados : d, semanastemplates : g }
 createBackup newmodel semanastempl =
     { publicadores = newmodel.publicadores
     , canciones = newmodel.canciones
-    , ultimaActualizacion = newmodel.ultimaActualizacion
     , semanasllenados = newmodel.semanasllenados
     , semanasanteriores = newmodel.semanasanteriores
     , semanastemplates = semanastempl

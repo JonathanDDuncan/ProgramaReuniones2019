@@ -103,7 +103,6 @@ function loadCommonData(callback) {
 //     data.publicadores = json.publicadores;
 //     data.canciones = json.canciones;
 //     data.previoussemanasresult = json.semanasllenados;
-//     data.ultimaActualizacion = json.ultimaActualizacion;
 
 //     callback(data);
 //   })

@@ -4,7 +4,7 @@ import Types.Cancion exposing (..)
 import Types.Publicador exposing (..)
 import Types.Semana exposing (..)
 
- 
+
 type alias Model =
     { semanatofill : Semana
     , semanastofill : List Semana
@@ -12,8 +12,8 @@ type alias Model =
     , semanasanteriores : List Semana
     , publicadores : List Publicador
     , canciones : List Cancion
-    , ultimaActualizacion : Int
     }
- 
+
+
 asd a b c =
     ( a, b, c )
