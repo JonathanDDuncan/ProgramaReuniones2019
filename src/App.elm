@@ -252,6 +252,7 @@ tabcargar =
     [ h1 [ class "ui header" ] [ text "Cargar copia de seguridad" ]
     , input [ class "ui button", type_ "file", attribute "id" "cargarcopiaseguridad", attribute "value" "Cargar Copia de Seguridad" ] []
     , br [] []
+    , h1 [ class "ui header" ] [ text "Crear Programa" ]
     , button [ class "ui button", attribute "id" "process" ] [ text "Process" ]
     , br [] []
     , div [ attribute "id" "links" ] []
