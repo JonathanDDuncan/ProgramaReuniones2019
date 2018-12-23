@@ -95,18 +95,27 @@ function loadCommonData(callback) {
   })
 };
 
+// function loadBackupData(callback) {
+//   loadJSON('assets/json/programasemanalbackup.json', function (json) {
+//     var data = {};
+//     data.publicadores = json.publicadores;
+//     data.canciones = json.canciones;
+//     data.previoussemanasresult = json.semanasllenados;
+//     data.ultimaActualizacion = json.ultimaActualizacion;
+
+//     callback(data);
+//   })
+// };
+
+
 function loadBackupData(callback) {
-  loadJSON('assets/json/programasemanalbackup.json', function (json) {
     var data = {};
-    data.publicadores = json.publicadores;
-    data.canciones = json.canciones;
-    data.previoussemanasresult = json.semanasllenados;
-    data.ultimaActualizacion = json.ultimaActualizacion;
-
-    callback(data);
-  })
+    data.publicadores = window.publicadores;
+    data.canciones = window.canciones;
+    data.previoussemanasresult = window.semanasllenados;
+    
+    callback(data);  
 };
-
 
 function getJsonData(callback) {
 
