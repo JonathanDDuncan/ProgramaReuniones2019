@@ -18,9 +18,9 @@ getDate : Int -> String
 getDate fecha =
     DateFormat.formatWithLanguage DateFormat.Language.spanish
         [ dayOfMonthNumber
-        , text " "
+        , text " de "
         , monthNameFull
-        , text ", "
+        , text " "
         , yearNumber
         ]
         utc
