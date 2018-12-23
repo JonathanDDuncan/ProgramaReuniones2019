@@ -31,7 +31,7 @@ function runtemplate(json) {
             type: "blob",
             mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         }); //Output the document using Data-URI
-        saveAs(out, "output.docx");
+        saveAs(out, "VIDA Y MINISTERIO CRISTIANOS " + moment().format() + ".docx");
     })
 };
 

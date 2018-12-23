@@ -395,11 +395,10 @@ function createtablesemanasanteriores(anteriores) {
       { title: "elcnarradorid", field: "elcnarradorid", editor: "input" },
       { title: "elcnarradorname", field: "elcnarradorname", editor: "input" },
       { title: "elcpersonajes", field: "elcpersonajes", editor: "textarea" },
-
     ]
-    ,
-    data: anteriores
-
+    , data: anteriores
+   
   });
+  
   window.tablesemanasanteriores = tablesemanasanteriores;
 };
