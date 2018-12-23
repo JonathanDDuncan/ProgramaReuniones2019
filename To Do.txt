@@ -1,0 +1,2 @@
+﻿
+Set congregation name from web page.
