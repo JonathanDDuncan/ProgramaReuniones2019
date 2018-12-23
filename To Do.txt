@@ -1,2 +1,6 @@
-﻿
-Set congregation name from web page.
+﻿Set congregation name from web page.
+
+Save processed and load last backup to indexxedb on load
+Save and load last unprocessed semanasparallenar to indexxedb
+
+Load alternate template file
