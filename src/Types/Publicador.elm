@@ -28,7 +28,6 @@ type alias Publicador =
     , nvc : Bool
     , estudiocongregacion : Bool
     , lectorestudiocongregacion : Bool
-    , lectoreatalaya : Bool
     , camara : Bool
     , aparatos : Bool
     , cronometro : Bool
@@ -69,7 +68,6 @@ decodePublicador =
         |> Json.Decode.Pipeline.required "nvc" Json.Decode.bool
         |> Json.Decode.Pipeline.required "estudiocongregacion" Json.Decode.bool
         |> Json.Decode.Pipeline.required "lectorestudiocongregacion" Json.Decode.bool
-        |> Json.Decode.Pipeline.required "lectoreatalaya" Json.Decode.bool
         |> Json.Decode.Pipeline.required "camara" Json.Decode.bool
         |> Json.Decode.Pipeline.required "aparatos" Json.Decode.bool
         |> Json.Decode.Pipeline.required "cronometro" Json.Decode.bool
@@ -81,12 +79,12 @@ decodePublicador =
 
 encodePublicadores : List Publicador -> Json.Encode.Value
 encodePublicadores records =
-    Json.Encode.list   encodePublicador records 
+    Json.Encode.list encodePublicador records
 
 
 encodePublicador : Publicador -> Json.Encode.Value
 encodePublicador record =
-    let 
+    let
         fechanodisponibleinicioval =
             case record.fechanodisponibleinicio of
                 Just j ->
@@ -132,7 +130,6 @@ encodePublicador record =
         , ( "nvc", Json.Encode.bool <| record.nvc )
         , ( "estudiocongregacion", Json.Encode.bool <| record.estudiocongregacion )
         , ( "lectorestudiocongregacion", Json.Encode.bool <| record.lectorestudiocongregacion )
-        , ( "lectoreatalaya", Json.Encode.bool <| record.lectoreatalaya )
         , ( "camara", Json.Encode.bool <| record.camara )
         , ( "aparatos", Json.Encode.bool <| record.aparatos )
         , ( "cronometro", Json.Encode.bool <| record.cronometro )
