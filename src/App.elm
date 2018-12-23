@@ -245,9 +245,6 @@ tabllenar =
     , br [] []
     , div [ attribute "id" "example-table" ] []
     , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
-    , br [] []
-    , button [ class "ui button", attribute "id" "process" ] [ text "Process" ]
-    , div [ attribute "id" "links" ] []
     ]
 
 
@@ -255,6 +252,9 @@ tabcargar =
     [ h1 [ class "ui header" ] [ text "Cargar copia de seguridad" ]
     , input [ class "ui button", type_ "file", attribute "id" "cargarcopiaseguridad", attribute "value" "Cargar Copia de Seguridad" ] []
     , br [] []
+    , button [ class "ui button", attribute "id" "process" ] [ text "Process" ]
+    , br [] []
+    , div [ attribute "id" "links" ] []
     ]
 
 
