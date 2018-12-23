@@ -110,16 +110,16 @@ type alias Semana =
     , dompresidentename : String
     , domdiscursante : String
     , domhaydiscursante : Bool
-    , domcancion1 : Int
-    , domcancion1id : String
-    , domcancion1name : String
-    , domcancion1tema : String
-    , domcancion1versiculo : String
     , domcancion2 : Int
     , domcancion2id : String
     , domcancion2name : String
     , domcancion2tema : String
     , domcancion2versiculo : String
+    , domcancion3 : Int
+    , domcancion3id : String
+    , domcancion3name : String
+    , domcancion3tema : String
+    , domcancion3versiculo : String
     , elcversiculos : String
     , elcnarradorid : String
     , elcnarradorname : String
@@ -232,16 +232,16 @@ init =
     , dompresidentename = ""
     , domdiscursante = ""
     , domhaydiscursante = False
-    , domcancion1 = 0
-    , domcancion1id = ""
-    , domcancion1name = ""
-    , domcancion1tema = ""
-    , domcancion1versiculo = ""
     , domcancion2 = 0
     , domcancion2id = ""
     , domcancion2name = ""
     , domcancion2tema = ""
     , domcancion2versiculo = ""
+    , domcancion3 = 0
+    , domcancion3id = ""
+    , domcancion3name = ""
+    , domcancion3tema = ""
+    , domcancion3versiculo = ""
     , elcversiculos = ""
     , elcnarradorid = ""
     , elcnarradorname = ""
@@ -361,16 +361,16 @@ decodeSemana =
         |> Json.Decode.Pipeline.required "dompresidentename" Json.Decode.string
         |> Json.Decode.Pipeline.required "domdiscursante" Json.Decode.string
         |> Json.Decode.Pipeline.required "domhaydiscursante" Json.Decode.bool
-        |> Json.Decode.Pipeline.required "domcancion1" Json.Decode.int
-        |> Json.Decode.Pipeline.required "domcancion1id" Json.Decode.string
-        |> Json.Decode.Pipeline.required "domcancion1name" Json.Decode.string
-        |> Json.Decode.Pipeline.required "domcancion1tema" Json.Decode.string
-        |> Json.Decode.Pipeline.required "domcancion1versiculo" Json.Decode.string
         |> Json.Decode.Pipeline.required "domcancion2" Json.Decode.int
         |> Json.Decode.Pipeline.required "domcancion2id" Json.Decode.string
         |> Json.Decode.Pipeline.required "domcancion2name" Json.Decode.string
         |> Json.Decode.Pipeline.required "domcancion2tema" Json.Decode.string
         |> Json.Decode.Pipeline.required "domcancion2versiculo" Json.Decode.string
+        |> Json.Decode.Pipeline.required "domcancion3" Json.Decode.int
+        |> Json.Decode.Pipeline.required "domcancion3id" Json.Decode.string
+        |> Json.Decode.Pipeline.required "domcancion3name" Json.Decode.string
+        |> Json.Decode.Pipeline.required "domcancion3tema" Json.Decode.string
+        |> Json.Decode.Pipeline.required "domcancion3versiculo" Json.Decode.string
         |> Json.Decode.Pipeline.required "elcversiculos" Json.Decode.string
         |> Json.Decode.Pipeline.required "elcnarradorid" Json.Decode.string
         |> Json.Decode.Pipeline.required "elcnarradorname" Json.Decode.string
@@ -489,16 +489,16 @@ encodeSemana record =
         , ( "dompresidentename", Json.Encode.string <| record.dompresidentename )
         , ( "domdiscursante", Json.Encode.string <| record.domdiscursante )
         , ( "domhaydiscursante", Json.Encode.bool <| record.domhaydiscursante )
-        , ( "domcancion1", Json.Encode.int <| record.domcancion1 )
-        , ( "domcancion1id", Json.Encode.string <| record.domcancion1id )
-        , ( "domcancion1name", Json.Encode.string <| record.domcancion1name )
-        , ( "domcancion1tema", Json.Encode.string <| record.domcancion1tema )
-        , ( "domcancion1versiculo", Json.Encode.string <| record.domcancion1versiculo )
         , ( "domcancion2", Json.Encode.int <| record.domcancion2 )
         , ( "domcancion2id", Json.Encode.string <| record.domcancion2id )
         , ( "domcancion2name", Json.Encode.string <| record.domcancion2name )
         , ( "domcancion2tema", Json.Encode.string <| record.domcancion2tema )
         , ( "domcancion2versiculo", Json.Encode.string <| record.domcancion2versiculo )
+        , ( "domcancion3", Json.Encode.int <| record.domcancion3 )
+        , ( "domcancion3id", Json.Encode.string <| record.domcancion3id )
+        , ( "domcancion3name", Json.Encode.string <| record.domcancion3name )
+        , ( "domcancion3tema", Json.Encode.string <| record.domcancion3tema )
+        , ( "domcancion3versiculo", Json.Encode.string <| record.domcancion3versiculo )
         , ( "elcversiculos", Json.Encode.string <| record.elcversiculos )
         , ( "elcnarradorid", Json.Encode.string <| record.elcnarradorid )
         , ( "elcnarradorname", Json.Encode.string <| record.elcnarradorname )

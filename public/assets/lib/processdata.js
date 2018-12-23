@@ -74,8 +74,8 @@ function semanatemplate(semanadefault, semanatofill) {
   if (semanatofill.nvcanciano2)
     semanadefault.nvcanciano2 = semanatofill.nvcanciano2;
   semanadefault.cancion3 = semanatofill.cancion3;
-  semanadefault.domcancion1 = semanatofill.domcancion1;
   semanadefault.domcancion2 = semanatofill.domcancion2;
+  semanadefault.domcancion3 = semanatofill.domcancion3;
   semanadefault.elcversiculos = semanatofill.elcversiculos
   if (semanatofill.elcnarradorid)
     semanadefault.elcnarradorid = semanatofill.elcnarradorid

@@ -116,10 +116,10 @@ llenarcanciones model =
             getcancion model.canciones model.publicadores model.semanatofill.cancion3
 
         dcp1 =
-            getcancion model.canciones model.publicadores model.semanatofill.domcancion1
+            getcancion model.canciones model.publicadores model.semanatofill.domcancion2
 
         dcp2 =
-            getcancion model.canciones model.publicadores model.semanatofill.domcancion2
+            getcancion model.canciones model.publicadores model.semanatofill.domcancion3
 
         semanasetter =
             \semana ->
@@ -136,14 +136,14 @@ llenarcanciones model =
                     , cancion3name = scp3.nombre
                     , cancion3tema = scp3.tema
                     , cancion3versiculo = scp3.versiculo
-                    , domcancion1id = dcp1.id
-                    , domcancion1name = dcp1.nombre
-                    , domcancion1tema = dcp1.tema
-                    , domcancion1versiculo = dcp1.versiculo
-                    , domcancion2id = dcp2.id
-                    , domcancion2name = dcp2.nombre
-                    , domcancion2tema = dcp2.tema
-                    , domcancion2versiculo = dcp2.versiculo
+                    , domcancion2id = dcp1.id
+                    , domcancion2name = dcp1.nombre
+                    , domcancion2tema = dcp1.tema
+                    , domcancion2versiculo = dcp1.versiculo
+                    , domcancion3id = dcp2.id
+                    , domcancion3name = dcp2.nombre
+                    , domcancion3tema = dcp2.tema
+                    , domcancion3versiculo = dcp2.versiculo
                 }
     in
     updatesemantofill semanasetter model

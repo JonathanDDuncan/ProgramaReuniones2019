@@ -13,8 +13,8 @@ type alias SemanaTempl =
     , cancion1 : Int
     , cancion2 : Int
     , cancion3 : Int
-    , domcancion1 : Int
     , domcancion2 : Int
+    , domcancion3 : Int
     , tb1titulo : String
     , nvctitulo1 : String
     , nvcmins1 : Int
@@ -52,13 +52,13 @@ type alias SemanaTempl =
     , temacancion1 : String
     , temacancion2 : String
     , temacancion3 : String
-    , domtemacancion1 : String
     , domtemacancion2 : String
+    , domtemacancion3 : String
     , respcancion1 : String
     , respcancion2 : String
     , respcancion3 : String
-    , domrespcancion1 : String
     , domrespcancion2 : String
+    , domrespcancion3 : String
     , nvcorador1 : String
     , nvcorador2 : String
     , nvcestudioorador : String
@@ -119,8 +119,8 @@ decodeSemanaTempl =
         |> Json.Decode.Pipeline.required "cancion1" Json.Decode.int
         |> Json.Decode.Pipeline.required "cancion2" Json.Decode.int
         |> Json.Decode.Pipeline.required "cancion3" Json.Decode.int
-        |> Json.Decode.Pipeline.required "domcancion1" Json.Decode.int
         |> Json.Decode.Pipeline.required "domcancion2" Json.Decode.int
+        |> Json.Decode.Pipeline.required "domcancion3" Json.Decode.int
         |> Json.Decode.Pipeline.required "tb1titulo" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvctitulo1" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvcmins1" Json.Decode.int
@@ -158,13 +158,13 @@ decodeSemanaTempl =
         |> Json.Decode.Pipeline.required "temacancion1" Json.Decode.string
         |> Json.Decode.Pipeline.required "temacancion2" Json.Decode.string
         |> Json.Decode.Pipeline.required "temacancion3" Json.Decode.string
-        |> Json.Decode.Pipeline.required "domtemacancion1" Json.Decode.string
         |> Json.Decode.Pipeline.required "domtemacancion2" Json.Decode.string
+        |> Json.Decode.Pipeline.required "domtemacancion3" Json.Decode.string
         |> Json.Decode.Pipeline.required "respcancion1" Json.Decode.string
         |> Json.Decode.Pipeline.required "respcancion2" Json.Decode.string
         |> Json.Decode.Pipeline.required "respcancion3" Json.Decode.string
-        |> Json.Decode.Pipeline.required "domrespcancion1" Json.Decode.string
         |> Json.Decode.Pipeline.required "domrespcancion2" Json.Decode.string
+        |> Json.Decode.Pipeline.required "domrespcancion3" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvcorador1" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvcorador2" Json.Decode.string
         |> Json.Decode.Pipeline.required "nvcestudioorador" Json.Decode.string
@@ -224,8 +224,8 @@ encodeSemanaTempl record =
         , ( "cancion1", Json.Encode.int <| record.cancion1 )
         , ( "cancion2", Json.Encode.int <| record.cancion2 )
         , ( "cancion3", Json.Encode.int <| record.cancion3 )
-        , ( "domcancion1", Json.Encode.int <| record.domcancion1 )
         , ( "domcancion2", Json.Encode.int <| record.domcancion2 )
+        , ( "domcancion3", Json.Encode.int <| record.domcancion3 )
         , ( "tb1titulo", Json.Encode.string <| record.tb1titulo )
         , ( "nvctitulo1", Json.Encode.string <| record.nvctitulo1 )
         , ( "nvcmins1", Json.Encode.int <| record.nvcmins1 )
@@ -263,13 +263,13 @@ encodeSemanaTempl record =
         , ( "temacancion1", Json.Encode.string <| record.temacancion1 )
         , ( "temacancion2", Json.Encode.string <| record.temacancion2 )
         , ( "temacancion3", Json.Encode.string <| record.temacancion3 )
-        , ( "domtemacancion1", Json.Encode.string <| record.domtemacancion1 )
         , ( "domtemacancion2", Json.Encode.string <| record.domtemacancion2 )
+        , ( "domtemacancion3", Json.Encode.string <| record.domtemacancion3 )
         , ( "respcancion1", Json.Encode.string <| record.respcancion1 )
         , ( "respcancion2", Json.Encode.string <| record.respcancion2 )
         , ( "respcancion3", Json.Encode.string <| record.respcancion3 )
-        , ( "domrespcancion1", Json.Encode.string <| record.domrespcancion1 )
         , ( "domrespcancion2", Json.Encode.string <| record.domrespcancion2 )
+        , ( "domrespcancion3", Json.Encode.string <| record.domrespcancion3 )
         , ( "nvcorador1", Json.Encode.string <| record.nvcorador1 )
         , ( "nvcorador2", Json.Encode.string <| record.nvcorador2 )
         , ( "nvcestudioorador", Json.Encode.string <| record.nvcestudioorador )
