@@ -285,7 +285,6 @@ function createtablesemanasanteriores(anteriores) {
       { title: "startminute", field: "startminute", editor: "number" },
       { title: "sabado asamblea", field: "sabasamblea", editor: "tickCross" },
       { title: "sabado asamblea mensage", field: "sabasambleamensage", editor: "input" },
-      { title: "fecha", field: "fecha", editor: "input" },
       { title: "fechasabado", field: "fechasabado", editor: "input" },
       { title: "fechadomingo", field: "fechadomingo", editor: "input" },
       { title: "presidenteid", field: "presidenteid", editor: "input" },
