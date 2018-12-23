@@ -72,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
       data: tabledata,
       columns: [
         { title: "id", field: "id", visible: false },
-        { title: "fecha sabado", field: "fechasabado", width: 150, editor: dateEditor("YYYY-MM-DD","YYYY-MM-DD") },
-        { title: "fecha domingo", field: "fechadomingo", width: 150, editor: dateEditor("YYYY-MM-DD","YYYY-MM-DD") },
+        { title: "fecha sabado", field: "fechasabado", width: 150, editor: dateEditor("YYYY-MM-DD") },
+        { title: "fecha domingo", field: "fechadomingo", width: 150, editor: dateEditor("YYYY-MM-DD") },
         { title: "Sábado hora inicio", field: "starthour", width: 150, editor: "number" },
         { title: "Sábado minutos inicio", field: "startminute", width: 150, editor: "number" },
         { title: "sab asamblea", field: "sabasamblea", width: 150, editor: "tickCross" },
@@ -156,7 +156,7 @@ function sortpublicadores(publicadores) {
   return publicadores;
 };
 
-var  dateEditor = function(inputformat, outputformat){
+var  dateEditor = function(inputformat){
 return function (cell, onRendered, success, cancel) {
   //cell - the cell component for the editable cell
   //onRendered - function to call when the editor has been rendered
@@ -164,7 +164,7 @@ return function (cell, onRendered, success, cancel) {
   //cancel - function to call to abort the edit and return to a normal cell
 
   //create and style input
-  var cellValue = moment(cell.getValue(), inputformat).format(outputformat),
+  var cellValue = moment(cell.getValue(), inputformat).format("YYYY-MM-DD"),
     input = document.createElement("input");
 
   input.setAttribute("type", "date");
@@ -182,7 +182,7 @@ return function (cell, onRendered, success, cancel) {
 
   function onChange() {
     if (input.value != cellValue) {
-      success(moment(input.value, outputformat).format(inputformat));
+      success(moment(input.value, "YYYY-MM-DD").format(inputformat));
     } else {
       cancel();
     }
@@ -243,8 +243,8 @@ function createtablepublicadores(publicadores) {
       { title: "Aparatos", field: "aparatos", editor: "tickCross" },
       { title: "Cronómetro", field: "cronometro", editor: "tickCross" },
       { title: "Presidente Domingo", field: "presidentedomingo", editor: "tickCross" },
-      { title: "Fecha no disponible inicio", field: "fechanodisponibleinicio", editor: dateEditor("X","YYYY-MM-DD") },
-      { title: "Fecha no disponible fin", field: "fechanodisponiblefin", editor: dateEditor("X","YYYY-MM-DD") },
+      { title: "Fecha no disponible inicio", field: "fechanodisponibleinicio", editor: dateEditor("X") },
+      { title: "Fecha no disponible fin", field: "fechanodisponiblefin", editor: dateEditor("X") },
       { title: "familiaressexoopuesto", field: "familiaressexoopuesto", visible: false },
 
 
@@ -280,12 +280,12 @@ function createtablesemanasanteriores(anteriores) {
     // dataTree: true,
     columns: [
       { title: "id", field: "id", editor: "input" },
-      { title: "creado", field: "creado", editor: "input" },
-      { title: "modificado", field: "modificado", editor: "input" },
-      { title: "starthour", field: "starthour", editor: "input" },
-      { title: "startminute", field: "startminute", editor: "input" },
-      { title: "sabasamblea", field: "sabasamblea", editor: "tickCross" },
-      { title: "sabasambleamensage", field: "sabasambleamensage", editor: "input" },
+      { title: "creado", field: "creado",  editor: dateEditor("X") },
+      { title: "modificado", field: "modificado", editor: dateEditor("X")},
+      { title: "starthour", field: "starthour", editor: "number" },
+      { title: "startminute", field: "startminute", editor: "number" },
+      { title: "sabado asamblea", field: "sabasamblea", editor: "tickCross" },
+      { title: "sabado asamblea mensage", field: "sabasambleamensage", editor: "input" },
       { title: "fecha", field: "fecha", editor: "input" },
       { title: "fechasabado", field: "fechasabado", editor: "input" },
       { title: "fechadomingo", field: "fechadomingo", editor: "input" },
@@ -401,7 +401,7 @@ function createtablesemanasanteriores(anteriores) {
       { title: "elcversiculos", field: "elcversiculos", editor: "input" },
       { title: "elcnarradorid", field: "elcnarradorid", editor: "input" },
       { title: "elcnarradorname", field: "elcnarradorname", editor: "input" },
-      { title: "elcpersonajes", field: "elcpersonajes", editor: "input" },
+      { title: "elcpersonajes", field: "elcpersonajes", editor: "textarea" },
 
     ]
     ,
