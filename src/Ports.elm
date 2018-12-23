@@ -1,4 +1,4 @@
-port module Ports exposing (fillSemana, fillSemanaCallBack, fillSemanas, fillSemanasCallBack, fillSemanasTemplCallBack, loadCanciones, loadPublicadores, loadSemanasAnteriores, programasemanalbackupCallBack, programasemanalrestore)
+port module Ports exposing (clear, fillSemana, fillSemanaCallBack, fillSemanas, fillSemanasCallBack, fillSemanasTemplCallBack, loadCanciones, loadPublicadores, loadSemanasAnteriores, programasemanalbackupCallBack, programasemanalrestore)
 
 import Types.Backup exposing (..)
 import Types.Semana exposing (..)
@@ -37,3 +37,6 @@ port programasemanalbackupCallBack : Backup -> Cmd msg
 
 
 port programasemanalrestore : (Backup -> msg) -> Sub msg
+
+
+port clear : (String -> msg) -> Sub msg

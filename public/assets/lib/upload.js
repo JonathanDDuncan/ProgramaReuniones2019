@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     fr.readAsText(files.item(0));
   };
- 
+
   document.getElementById('cargarcopiaseguridad').onchange = function () {
     var files = document.getElementById('cargarcopiaseguridad').files;
     console.log(files);
@@ -37,11 +37,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
 });
 
-function loadbackup( backup){
+function loadbackup(backup) {
   window.publicadores = backup.publicadores;
   window.canciones = backup.canciones;
   window.semanasllenados = backup.semanasllenados;
- 
+
   createtablepublicadores(window.publicadores);
   createtablecanciones(window.canciones);
   createtablesemanasanteriores(window.semanasllenados);
@@ -75,14 +75,16 @@ function fillData(app, data) {
 
   var timebetween = 100;
   setTimeout(function () {
-
-    window.app.ports.loadCanciones.send(JSON.stringify(canciones));
+    window.app.ports.clear.send("clear");
     setTimeout(function () {
-      window.app.ports.loadPublicadores.send(JSON.stringify(publicadores));
+      window.app.ports.loadCanciones.send(JSON.stringify(canciones));
       setTimeout(function () {
-        window.app.ports.loadSemanasAnteriores.send(JSON.stringify(semanasanteriores));
+        window.app.ports.loadPublicadores.send(JSON.stringify(publicadores));
         setTimeout(function () {
-          window.app.ports.fillSemanas.send(JSON.stringify(semanastofill));
+          window.app.ports.loadSemanasAnteriores.send(JSON.stringify(semanasanteriores));
+          setTimeout(function () {
+            window.app.ports.fillSemanas.send(JSON.stringify(semanastofill));
+          }, timebetween)
         }, timebetween)
       }, timebetween)
     }, timebetween)
@@ -109,12 +111,12 @@ function loadCommonData(callback) {
 
 
 function loadBackupData(callback) {
-    var data = {};
-    data.publicadores = window.publicadores;
-    data.canciones = window.canciones;
-    data.previoussemanasresult = window.semanasllenados;
-    
-    callback(data);  
+  var data = {};
+  data.publicadores = window.publicadores;
+  data.canciones = window.canciones;
+  data.previoussemanasresult = window.semanasllenados;
+
+  callback(data);
 };
 
 function getJsonData(callback) {

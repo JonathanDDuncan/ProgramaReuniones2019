@@ -40,6 +40,7 @@ type Msg
     | LoadCanciones String
     | LoadSemanasAnteriores String
     | Programasemanalrestore Backup
+    | Clear String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -177,6 +178,17 @@ update message model =
             , Cmd.none
             )
 
+        Clear _ ->
+            ( { model
+                | publicadores = []
+                , canciones = []
+                , ultimaActualizacion = 0
+                , semanasllenados = []
+                , semanasanteriores = []
+              }
+            , Cmd.none
+            )
+
 
 createBackup : { f | canciones : a, publicadores : b, semanasanteriores : c, semanasllenados : d, ultimaActualizacion : e } -> g -> { canciones : a, publicadores : b, semanasanteriores : c, semanasllenados : d, semanastemplates : g, ultimaActualizacion : e }
 createBackup newmodel semanastempl =
@@ -270,4 +282,5 @@ subscriptions model =
         , Ports.loadCanciones LoadCanciones
         , Ports.loadSemanasAnteriores LoadSemanasAnteriores
         , Ports.programasemanalrestore Programasemanalrestore
+        , Ports.clear Clear
         ]
