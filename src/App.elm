@@ -197,7 +197,9 @@ view : Model -> Html Msg
 view model =
     div [ class "ui container" ]
         [ div [ class "ui tabular menu" ]
-            [ div [ class "item", attribute "data-tab" "tab-llenar" ]
+            [ div [ class "item", attribute "data-tab" "tab-cargar" ]
+                [ text "Cargar " ]
+            , div [ class "item", attribute "data-tab" "tab-llenar" ]
                 [ text "Para Llenar" ]
             , div [ class "item", attribute "data-tab" "tab-publicadores" ]
                 [ text "Publicadores" ]
@@ -205,8 +207,6 @@ view model =
                 [ text "Canciones" ]
             , div [ class "item", attribute "data-tab" "tab-anterior" ]
                 [ text "Datos Anteriores " ]
-            , div [ class "item", attribute "data-tab" "tab-cargar" ]
-                [ text "Cargar " ]
             ]
         , div [ class "ui tab", attribute "data-tab" "tab-llenar" ]
             tabllenar
@@ -241,7 +241,6 @@ tabanteriores =
 
 tabllenar =
     [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
-    , input [ class "ui button", type_ "file", attribute "id" "selectFiles", attribute "value" "Import" ] []
     , br [] []
     , div [ attribute "id" "example-table" ] []
     , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
@@ -249,7 +248,10 @@ tabllenar =
 
 
 tabcargar =
-    [ h1 [ class "ui header" ] [ text "Cargar copia de seguridad" ]
+    [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
+    , input [ class "ui button", type_ "file", attribute "id" "selectFiles", attribute "value" "Cargar semanas para llenar" ] []
+    , br [] []
+    , h1 [ class "ui header" ] [ text "Copia de seguridad" ]
     , input [ class "ui button", type_ "file", attribute "id" "cargarcopiaseguridad", attribute "value" "Cargar Copia de Seguridad" ] []
     , br [] []
     , h1 [ class "ui header" ] [ text "Crear Programa" ]
