@@ -1,23 +1,4 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-
-  var cargarcopiascallback = function (result) {
-    loadbackup(result);
-    $('.ui.menu').find('.item').tab('change tab', 'tab-publicadores');
-  }
-
-  loadj('cargarcopiaseguridad', cargarcopiascallback);
-
-  var selecfilescallback = function (result) {
-    tablesemanasllenar.setData(result);
-    $('.ui.menu').find('.item').tab('change tab', 'tab-llenar');
-  }
-
-  loadj('selectFiles', selecfilescallback);
-
-
-});
-
-function loadj(id, callback) {
+function loadfile(id, callback) {
   document.getElementById(id).onchange =
 
     function () {
@@ -134,6 +115,7 @@ function getJsonData(callback) {
   });
 
 };
+
 function getsemanasparallenar(callback) {
   var data = window.tablesemanasllenar.getData();
   callback(data);

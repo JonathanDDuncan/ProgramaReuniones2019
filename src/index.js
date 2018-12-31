@@ -5,33 +5,12 @@ import registerServiceWorker from './registerServiceWorker';
 var app = Elm.Main.init({
   node: document.getElementById('root')
 });
-// window.app = app;
 
 registerServiceWorker();
 $('.tabular.menu .item').tab();
 $('.ui.menu').find('.item').tab('change tab', 'tab-llenar')
 
 document.addEventListener("DOMContentLoaded", function (event) {
-
-  app.ports.fillSemanasCallBack.subscribe(function (data) {
-    console.log(JSON.stringify(data));
-    directDownloadJSON(data, "fillSemanas" + moment().format());
-  });
-
-  app.ports.fillSemanasTemplCallBack.subscribe(function (data) {
-    // console.log(JSON.stringify(data));
-    // directDownloadJSON(data, "datosprograma" + moment().format());
-    runtemplate(data);
-  });
-
-  app.ports.programasemanalbackupCallBack.subscribe(function (data) {
-    console.log(JSON.stringify(data));
-    directDownloadJSON(data, "programasemanalbackup" + moment().format());
-  });
-  
-  app.ports.fillSemanaCallBack.subscribe(function (data) {
-    console.log(JSON.stringify(data));
-  });
 
   document.getElementById("download-json").addEventListener("click", function () {
     tablesemanasllenar.download("json", "semanas para llenar " + moment().format() + ".json");
@@ -44,5 +23,43 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
   });
 
+  loadfile('cargarcopiaseguridad', function (result) {
+    if (result.publicadores && result.canciones && result.semanasllenados ){
+      loadbackup(result);
+      $('.ui.menu').find('.item').tab('change tab', 'tab-publicadores');
+    }
+    else{
+      var mensaje = "No es archivo de copia de seguridad"
+      console.log("No es archivo de copia de seguridad");
+      alert("No es archivo de copia de seguridad")
+    }
+  });
 
+  loadfile('selectFiles', function (result) {
+    tablesemanasllenar.setData(result);
+    $('.ui.menu').find('.item').tab('change tab', 'tab-llenar');
+  });
+
+});
+
+// Setup ports
+document.addEventListener("DOMContentLoaded", function (event) {
+
+  app.ports.fillSemanasCallBack.subscribe(function (data) {
+    console.log(JSON.stringify(data));
+    directDownloadJSON(data, "fillSemanas" + moment().format());
+  });
+
+  app.ports.fillSemanasTemplCallBack.subscribe(function (data) {
+    runtemplate(data);
+  });
+
+  app.ports.programasemanalbackupCallBack.subscribe(function (data) {
+    console.log(JSON.stringify(data));
+    directDownloadJSON(data, "programasemanalbackup" + moment().format());
+  });
+
+  app.ports.fillSemanaCallBack.subscribe(function (data) {
+    console.log(JSON.stringify(data));
+  });
 });
