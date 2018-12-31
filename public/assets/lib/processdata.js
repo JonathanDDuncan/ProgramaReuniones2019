@@ -1,18 +1,3 @@
-
-document.addEventListener("DOMContentLoaded", function (event) {
-
-  document.getElementById("process").addEventListener("click", function () {
-    getJsonData(function (data) {
-      fillData(app, data);
-    });
-  });
-
-  window.app.ports.fillSemanaCallBack.subscribe(function (data) {
-    console.log(JSON.stringify(data));
-  });
-
-});
-
 var now = epochTime(new Date());
 
 function epochTime(date) {
