@@ -209,7 +209,7 @@ return function (cell, onRendered, success, cancel) {
 
 function createtablepublicadores(publicadores) {
   publicadores = sortpublicadores(publicadores);
-  $.tab('change tab', 'tab-publicadores');
+    $('.ui.menu').find('.item').tab('change tab', 'tab-publicadores')
   var tablepublicadores = new Tabulator("#table-publicadores", {
     height: "311px",
     layout: "fitData",
@@ -254,7 +254,8 @@ function createtablepublicadores(publicadores) {
 };
 
 function createtablecanciones(canciones) {
-  $.tab('change tab', 'tab-canciones');
+  $('.ui.menu').find('.item').tab('change tab', 'tab-canciones')
+  
   var tablecanciones = new Tabulator("#table-canciones", {
     height: "311px",
     layout: "fitData",
@@ -272,7 +273,8 @@ function createtablecanciones(canciones) {
   window.tablecanciones = tablecanciones;
 };
 function createtablesemanasanteriores(anteriores) {
-  $.tab('change tab', 'tab-anteriores');
+  $('.ui.menu').find('.item').tab('change tab', 'tab-anteriores')
+  
   var tablesemanasanteriores = new Tabulator("#table-anteriores", {
     height: "311px",
     layout: "fitData",

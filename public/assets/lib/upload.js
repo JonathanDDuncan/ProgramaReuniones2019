@@ -1,41 +1,43 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
-  document.getElementById('selectFiles').onchange = function () {
-    var files = document.getElementById('selectFiles').files;
-    console.log(files);
-    if (files.length <= 0) {
-      return false;
-    }
+  var cargarcopiascallback = function (result) {
+    loadbackup(result);
+    $('.ui.menu').find('.item').tab('change tab', 'tab-publicadores');
+  }
 
-    var fr = new FileReader();
+  loadj('cargarcopiaseguridad', cargarcopiascallback);
 
-    fr.onload = function (e) {
-      console.log(e);
-      var result = JSON.parse(e.target.result);
-      tablesemanasllenar.setData(result);
-    }
+  var selecfilescallback = function (result) {
+    tablesemanasllenar.setData(result);
+    $('.ui.menu').find('.item').tab('change tab', 'tab-llenar');
+  }
 
-    fr.readAsText(files.item(0));
-  };
+  loadj('selectFiles', selecfilescallback);
 
-  document.getElementById('cargarcopiaseguridad').onchange = function () {
-    var files = document.getElementById('cargarcopiaseguridad').files;
-    console.log(files);
-    if (files.length <= 0) {
-      return false;
-    }
 
-    var fr = new FileReader();
-
-    fr.onload = function (e) {
-      console.log(e);
-      var result = JSON.parse(e.target.result);
-      loadbackup(result);
-    }
-
-    fr.readAsText(files.item(0));
-  };
 });
+
+function loadj(id, callback) {
+  document.getElementById(id).onchange =
+
+    function () {
+      var files = document.getElementById(id).files;
+      console.log(files);
+      if (files.length <= 0) {
+        return false;
+      }
+
+      var fr = new FileReader();
+
+      fr.onload = function (e) {
+        console.log(e);
+        var result = JSON.parse(e.target.result);
+        callback(result);
+      }
+
+      fr.readAsText(files.item(0));
+    };
+};
 
 function loadbackup(backup) {
   window.publicadores = backup.publicadores;
@@ -45,7 +47,7 @@ function loadbackup(backup) {
   createtablepublicadores(window.publicadores);
   createtablecanciones(window.canciones);
   createtablesemanasanteriores(window.semanasllenados);
-  $.tab('change tab', 'tab-cargar');
+
 };
 
 function loadJSON(url, callback) {
@@ -75,15 +77,15 @@ function fillData(app, data) {
 
   var timebetween = 100;
   setTimeout(function () {
-    window.app.ports.clear.send("clear");
+    app.ports.clear.send("clear");
     setTimeout(function () {
-      window.app.ports.loadCanciones.send(JSON.stringify(canciones));
+      app.ports.loadCanciones.send(JSON.stringify(canciones));
       setTimeout(function () {
-        window.app.ports.loadPublicadores.send(JSON.stringify(publicadores));
+        app.ports.loadPublicadores.send(JSON.stringify(publicadores));
         setTimeout(function () {
-          window.app.ports.loadSemanasAnteriores.send(JSON.stringify(semanasanteriores));
+          app.ports.loadSemanasAnteriores.send(JSON.stringify(semanasanteriores));
           setTimeout(function () {
-            window.app.ports.fillSemanas.send(JSON.stringify(semanastofill));
+            app.ports.fillSemanas.send(JSON.stringify(semanastofill));
           }, timebetween)
         }, timebetween)
       }, timebetween)
