@@ -46,34 +46,6 @@ function loadJSON(url, callback) {
 }
 
 
-function fillData(app, data) {
-  var canciones = data.canciones;
-  var defaultsemana = data.defaultsemana;
-  var publicadores = data.publicadores;
-
-  var semanasanteriores = data.previoussemanasresult;
-  var semanasparallenar = data.semanasparallenar;
-
-  var semanastofill = process(semanasparallenar, defaultsemana);
-
-  var timebetween = 100;
-  setTimeout(function () {
-    app.ports.clear.send("clear");
-    setTimeout(function () {
-      app.ports.loadCanciones.send(JSON.stringify(canciones));
-      setTimeout(function () {
-        app.ports.loadPublicadores.send(JSON.stringify(publicadores));
-        setTimeout(function () {
-          app.ports.loadSemanasAnteriores.send(JSON.stringify(semanasanteriores));
-          setTimeout(function () {
-            app.ports.fillSemanas.send(JSON.stringify(semanastofill));
-          }, timebetween)
-        }, timebetween)
-      }, timebetween)
-    }, timebetween)
-  }, timebetween);
-}
-
 function loadCommonData(callback) {
   loadJSON('assets/json/commonData.json', function (json) {
     callback(json);

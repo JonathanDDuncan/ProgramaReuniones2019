@@ -102,7 +102,7 @@ function postsemanaprocess(semanatofill) {
   return semanatofill;
 };
 
-function process(arr, defaultsemana) {
+function preprocesssemanas(arr, defaultsemana) {
   var semanas = []
 
   for (var i = 0, len = arr.length; i < len; i++) {

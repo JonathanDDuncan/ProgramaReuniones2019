@@ -19,16 +19,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   document.getElementById("process").addEventListener("click", function () {
     getJsonData(function (data) {
-      fillData(app, data);
+      var canciones = data.canciones;
+      var defaultsemana = data.defaultsemana;
+      var publicadores = data.publicadores;
+
+      var semanasanteriores = data.previoussemanasresult;
+      var semanasparallenar = data.semanasparallenar;
+
+      var semanastofill = preprocesssemanas(semanasparallenar, defaultsemana);
+
+      var timebetween = 100;
+      setTimeout(function () {
+        app.ports.clear.send("clear");
+        setTimeout(function () {
+          app.ports.loadCanciones.send(JSON.stringify(canciones));
+          setTimeout(function () {
+            app.ports.loadPublicadores.send(JSON.stringify(publicadores));
+            setTimeout(function () {
+              app.ports.loadSemanasAnteriores.send(JSON.stringify(semanasanteriores));
+              setTimeout(function () {
+                app.ports.fillSemanas.send(JSON.stringify(semanastofill));
+              }, timebetween)
+            }, timebetween)
+          }, timebetween)
+        }, timebetween)
+      }, timebetween);
     });
   });
 
   loadfile('cargarcopiaseguridad', function (result) {
-    if (result.publicadores && result.canciones && result.semanasllenados ){
+    if (result.publicadores && result.canciones && result.semanasllenados) {
       loadbackup(result);
       $('.ui.menu').find('.item').tab('change tab', 'tab-publicadores');
     }
-    else{
+    else {
       var mensaje = "No es archivo de copia de seguridad"
       console.log("No es archivo de copia de seguridad");
       alert("No es archivo de copia de seguridad")
