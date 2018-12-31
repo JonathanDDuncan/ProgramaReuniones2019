@@ -64,11 +64,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     $('.ui.menu').find('.item').tab('change tab', 'tab-llenar');
   });
 
-});
-
-// Setup ports
-document.addEventListener("DOMContentLoaded", function (event) {
-
   app.ports.fillSemanasCallBack.subscribe(function (data) {
     console.log(JSON.stringify(data));
     directDownloadJSON(data, "fillSemanas" + moment().format());
