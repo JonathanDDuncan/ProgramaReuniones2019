@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
     else {
       var mensaje = "No es archivo de copia de seguridad"
-      console.log("No es archivo de copia de seguridad");
-      alert("No es archivo de copia de seguridad")
+      console.log(mensaje);
+      alert(mensaje)
     }
   });
 
