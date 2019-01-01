@@ -80,7 +80,7 @@
     return semanatofill;
   };
 
-  function postsemanaprocess(semanatofill) {
+  function postsemanaprocess(semanatofill, publicadores) {
 
     if (semanatofill.sabasamblea)
       semanatofill.sabasambleamensage = "Hay asamblea";
@@ -96,7 +96,7 @@
 
 
     // get the id from the name
-    window.publicadores.forEach(element => {
+    publicadores.forEach(element => {
       if (element.name == semanatofill.elcnarradorid)
         semanatofill.elcnarradorid = element.id;
     });
@@ -104,11 +104,11 @@
     return semanatofill;
   };
 
-  function preprocesssemanas(arr, defaultsemana) {
+  function preprocesssemanas(arr, defaultsemana, publicadores) {
     var semanas = []
 
     for (var i = 0, len = arr.length; i < len; i++) {
-      var semana = postsemanaprocess(semanatemplate(setcreatemodifieddates(defaultsemana), arr[i]));
+      var semana = postsemanaprocess(semanatemplate(setcreatemodifieddates(defaultsemana), arr[i]), publicadores);
       semanas.push(semana);
     }
 

@@ -11,12 +11,27 @@ $('.tabular.menu .item').tab();
 $('.ui.menu').find('.item').tab('change tab', 'tab-llenar')
 
 document.addEventListener("DOMContentLoaded", function (event) {
+  var getstate = function () {
+    if (!window.progreunion)
+      window.progreunion = {};
+    if (!window.progreunion.state)
+      window.progreunion.state = {};
+    return window.progreunion.state;
+  }
+
+  progreunion.load.loadCommonData(function (commonData) {
+    var state = getstate();
+    state.defaultsemana = commonData.defaultsemana;
+    state.puntosMejoresLectoresMaestros = commonData.puntosMejoresLectoresMaestros;
+  });
+
 
   progreunion.load.loadJSON('assets/json/publicadores.json', function (publicadores) {
-    if (!window.publicadores)
-      window.publicadores = publicadores;
+    var state = getstate();
+    
+    state.publicadores = publicadores;
 
-    progreunion.tabulator.createtablesemanasllenar(window.publicadores)
+    progreunion.tabulator.createtablesemanasllenar(state.publicadores)
   })
 
   document.getElementById("download-json").addEventListener("click", function () {
@@ -25,46 +40,41 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   document.getElementById("process").addEventListener("click", function () {
-    progreunion.load.getJsonData(function (data) {
-      var canciones = data.canciones;
-      var defaultsemana = data.defaultsemana;
-      var publicadores = data.publicadores;
+    var state = getstate();
+    state.semanasparallenar = progreunion.tabulators.tablesemanasllenar.getData();     
+    var semanastofill = progreunion.process.preprocesssemanas(state.semanasparallenar, state.defaultsemana, state.publicadores);
 
-      var semanasanteriores = data.previoussemanasresult;
-      var semanasparallenar = data.semanasparallenar;
-
-      var semanastofill = progreunion.process.preprocesssemanas(semanasparallenar, defaultsemana);
-
-      var timebetween = 100;
+    var timebetween = 100;
+    setTimeout(function () {
+      app.ports.clear.send("clear");
       setTimeout(function () {
-        app.ports.clear.send("clear");
+        app.ports.loadCanciones.send(JSON.stringify(state.canciones));
         setTimeout(function () {
-          app.ports.loadCanciones.send(JSON.stringify(canciones));
+          app.ports.loadPublicadores.send(JSON.stringify(state.publicadores));
           setTimeout(function () {
-            app.ports.loadPublicadores.send(JSON.stringify(publicadores));
+            app.ports.loadSemanasAnteriores.send(JSON.stringify(state.semanasllenados));
             setTimeout(function () {
-              app.ports.loadSemanasAnteriores.send(JSON.stringify(semanasanteriores));
-              setTimeout(function () {
-                app.ports.fillSemanas.send(JSON.stringify(semanastofill));
-              }, timebetween)
+              app.ports.fillSemanas.send(JSON.stringify(semanastofill));
             }, timebetween)
           }, timebetween)
         }, timebetween)
-      }, timebetween);
-    });
+      }, timebetween)
+    }, timebetween);
   });
+
 
   progreunion.load.loadfile('cargarcopiaseguridad', function (result) {
     if (result.publicadores && result.canciones && result.semanasllenados) {
 
-      var backup = result;
-      window.publicadores = backup.publicadores;
-      window.canciones = backup.canciones;
-      window.semanasllenados = backup.semanasllenados;
+      var state = getstate();
+      
+      state.publicadores = result.publicadores;
+      state.canciones = result.canciones;
+      state.semanasllenados = result.semanasllenados;
 
-      progreunion.tabulator.createtablepublicadores(window.publicadores);
-      progreunion.tabulator.createtablecanciones(window.canciones);
-      progreunion.tabulator.createtablesemanasanteriores(window.semanasllenados);
+      progreunion.tabulator.createtablepublicadores(state.publicadores);
+      progreunion.tabulator.createtablecanciones(state.canciones);
+      progreunion.tabulator.createtablesemanasanteriores(state.semanasllenados);
 
       $('.ui.menu').find('.item').tab('change tab', 'tab-publicadores');
     }

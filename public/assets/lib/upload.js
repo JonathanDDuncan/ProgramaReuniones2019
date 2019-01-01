@@ -54,40 +54,14 @@
   // };
 
 
-  function loadBackupData(callback) {
-    var data = {};
-    data.publicadores = window.publicadores;
-    data.canciones = window.canciones;
-    data.previoussemanasresult = window.semanasllenados;
-
-    callback(data);
-  };
-
-  function getJsonData(callback) {
-    getsemanasparallenar(function (semanas) {
-      loadBackupData(function (backup) {
-        loadCommonData(function (common) {
-          var data = backup;
-          data.defaultsemana = common.defaultsemana;
-          data.semanasparallenar = semanas;
-          callback(data);
-        });
-      });
-    });
-  };
-
-  function getsemanasparallenar(callback) {
-    var data = progreunion.tabulators.tablesemanasllenar.getData();
-    callback(data);
-  };
-
+ 
   if (!window.progreunion)
     window.progreunion = {};
 
   window.progreunion.load =
     {
       loadJSON: loadJSON,
-      getJsonData: getJsonData,
+      loadCommonData: loadCommonData,
       loadfile: loadfile
     }
 }());
