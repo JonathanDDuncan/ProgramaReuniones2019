@@ -6,7 +6,7 @@ import './lib/templator.js';
 import './lib/processdata.js';
 import { Elm } from './Main.elm';
 import registerServiceWorker from './registerServiceWorker';
-
+ 
 var app = Elm.Main.init({
   node: document.getElementById('root')
 });
