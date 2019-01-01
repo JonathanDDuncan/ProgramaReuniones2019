@@ -1,4 +1,9 @@
 import './main.css';
+import './lib/upload.js';
+import './lib/mytabulator.js';
+import './lib/download.js';
+import './lib/templator.js';
+import './lib/processdata.js';
 import { Elm } from './Main.elm';
 import registerServiceWorker from './registerServiceWorker';
 
