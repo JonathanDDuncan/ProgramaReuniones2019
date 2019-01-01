@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   document.getElementById("download-json").addEventListener("click", function () {
-    tablesemanasllenar.download("json", "semanas para llenar " + moment().format() + ".json");
+    jsApp.tabulators.tablesemanasllenar.download("json", "semanas para llenar " + moment().format() + ".json");
 
   });
 
