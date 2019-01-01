@@ -35,25 +35,11 @@
     xobj.send(null);
   }
 
-
   function loadCommonData(callback) {
     loadJSON('assets/json/commonData.json', function (json) {
       callback(json);
     })
   };
-
-  // function loadBackupData(callback) {
-  //   loadJSON('assets/json/programasemanalbackup.json', function (json) {
-  //     var data = {};
-  //     data.publicadores = json.publicadores;
-  //     data.canciones = json.canciones;
-  //     data.previoussemanasresult = json.semanasllenados;
-
-  //     callback(data);
-  //   })
-  // };
-
-
  
   if (!window.jsApp)
     window.jsApp = {};
