@@ -2,7 +2,7 @@
     var JSZip = require('jszip');
     var JSZipUtils = require('jszip-utils');
     var Docxtemplater = require('docxtemplater');
-    function runtemplate(json) {
+    function runtemplate(moment, json) {
 
         let result = loadFile("../assets/templates/S-140-S-template.docx", function (error, content) {
             if (error) { throw error };
