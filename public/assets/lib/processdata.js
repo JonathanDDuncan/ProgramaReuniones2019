@@ -115,10 +115,10 @@
     return semanas;
   };
 
-  if (!window.progreunion)
-    window.progreunion = {};
+  if (!window.jsApp)
+    window.jsApp = {};
 
-  window.progreunion.process =
+  window.jsApp.process =
     {
       preprocesssemanas: preprocesssemanas
     }

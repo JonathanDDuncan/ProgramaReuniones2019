@@ -40,10 +40,10 @@
         JSZipUtils.getBinaryContent(url, callback);
     }
 
-    if (!window.progreunion)
-        window.progreunion = {};
+    if (!window.jsApp)
+        window.jsApp = {};
 
-    window.progreunion.template =
+    window.jsApp.template =
         {
             create: runtemplate
         }

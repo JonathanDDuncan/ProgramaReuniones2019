@@ -55,10 +55,10 @@
 
 
  
-  if (!window.progreunion)
-    window.progreunion = {};
+  if (!window.jsApp)
+    window.jsApp = {};
 
-  window.progreunion.load =
+  window.jsApp.load =
     {
       loadJSON: loadJSON,
       loadCommonData: loadCommonData,

@@ -29,10 +29,10 @@ var directDownloadJSON = function (obj, filename) {
   a.dispatchEvent(e)
 };
 
-if (!window.progreunion)
-window.progreunion = {};
+if (!window.jsApp)
+window.jsApp = {};
 
-window.progreunion.download =
+window.jsApp.download =
 {
   directDownloadJSON: directDownloadJSON 
 }

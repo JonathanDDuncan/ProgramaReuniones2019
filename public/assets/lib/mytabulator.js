@@ -397,10 +397,10 @@
     tabulators.tablesemanasanteriores = tablesemanasanteriores;
   };
 
-  if (!window.progreunion)
-    window.progreunion = {};
+  if (!window.jsApp)
+    window.jsApp = {};
 
-  window.progreunion.tabulator =
+  window.jsApp.tabulator =
     {
       createtablesemanasllenar: createtablesemanasllenar,
       createtablepublicadores: createtablepublicadores,
@@ -408,6 +408,6 @@
       createtablesemanasanteriores: createtablesemanasanteriores
     }
    
-    window.progreunion.tabulators = tabulators
+    window.jsApp.tabulators = tabulators
    
 }());
