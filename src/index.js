@@ -5,6 +5,7 @@ import './lib/download.js';
 import './lib/templator.js';
 import './lib/processdata.js';
 import { Elm } from './Main.elm';
+import { saveAs } from 'file-saver';
 import registerServiceWorker from './registerServiceWorker';
 var moment = require('moment');
 
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   app.ports.fillSemanasTemplCallBack.subscribe(function (data) {
-    jsApp.template.create(moment, data);
+    jsApp.template.create(saveAs, moment, data);
   });
 
   app.ports.programasemanalbackupCallBack.subscribe(function (data) {
