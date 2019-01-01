@@ -1,4 +1,5 @@
 (function () {
+  var Tabulator = require('tabulator-tables');
   var tabulators = {};
   var blanksemanasllenar = function (uuid) {
     return {
