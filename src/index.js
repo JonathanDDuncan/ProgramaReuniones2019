@@ -4,6 +4,12 @@ import './lib/mytabulator.js';
 import './lib/download.js';
 import './lib/templator.js';
 import './lib/processdata.js';
+import '../semantic/dist/semantic.min.js';
+import '../semantic/dist/semantic.min.css';
+import './css/tabulator.min.css';
+import './css/tabulator_semantic-ui.min.css';
+
+
 import { Elm } from './Main.elm';
 import { saveAs } from 'file-saver';
 import registerServiceWorker from './registerServiceWorker';
