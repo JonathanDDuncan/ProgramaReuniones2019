@@ -1,5 +1,5 @@
 
-
+(function () {
 var downloadJSON = function (obj, filename) {
 
   var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
@@ -28,3 +28,12 @@ var directDownloadJSON = function (obj, filename) {
   e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
   a.dispatchEvent(e)
 };
+
+if (!window.progreunion)
+window.progreunion = {};
+
+window.progreunion.download =
+{
+  directDownloadJSON: directDownloadJSON 
+}
+}());
