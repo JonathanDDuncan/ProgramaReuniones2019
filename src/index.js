@@ -83,6 +83,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
     jsApp.tabulator.addRow("tablesemanasllenar");
   });
 
+  document.getElementById("addrowpublicadores").addEventListener("click", function () {
+    jsApp.tabulator.addRow("tablepublicadores");
+  });
+
+  document.getElementById("addrowcanciones").addEventListener("click", function () {
+    jsApp.tabulator.addRow("tablecanciones");
+  });
+
+  document.getElementById("addrowanteriores").addEventListener("click", function () {
+    jsApp.tabulator.addRow("tablesemanasanteriores");
+  });
+
+  document.getElementById("addrowllenar").addEventListener("click", function () {
+    jsApp.tabulator.addRow("tablesemanasllenar");
+  });
+
   document.getElementById("process").addEventListener("click", function () {
     var state = getstate();
     state.semanasparallenar = jsApp.tabulators.tablesemanasllenar.getData();

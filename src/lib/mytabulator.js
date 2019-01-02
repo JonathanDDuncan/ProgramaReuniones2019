@@ -135,11 +135,29 @@
   var addRow = function (tablename) {
     if (tablename == "tablesemanasllenar")
       jsApp.tabulators.tablesemanasllenar.addRow(blanksemanasllenar());
+    else {
+      if (!jsApp.tabulators[tablename])
+        createtable(tablename);
+      if (jsApp.tabulators[tablename])
+        jsApp.tabulators[tablename].addRow({ id: uuidv4() });
+    }
+  }
+
+  function createtable(tablename) {
+    if (tablename == "tablesemanasllenar")
+      createtablesemanasllenar([]);
+    if (tablename == "tablepublicadores")
+      createtablepublicadores([]);
+    if (tablename == "tablecanciones")
+      createtablecanciones([]);
+    if (tablename == "tablesemanasanteriores")
+      createtablesemanasanteriores([]);
   }
 
   var deleteRow = function (cell, formatterParams, onRendered) { //plain text value
     return "<button ><i class='fa fa-trash'></i> Delete</button>";
   };
+
   function converttoselectitems(items) {
     var values = {};
 
@@ -155,7 +173,6 @@
       return v.toString(16);
     });
   }
-
 
   function sortpublicadores(publicadores) {
     publicadores.sort(function (a, b) {
@@ -317,8 +334,8 @@
           }
         },
         { title: "id", field: "id", editor: "input" },
-        { title: "creado", field: "creado", editor: dateEditor("X") },
-        { title: "modificado", field: "modificado", editor: dateEditor("X") },
+        { title: "creado", field: "creado", visible: false, editor: dateEditor("X") },
+        { title: "modificado", field: "modificado", visible: false, editor: dateEditor("X") },
         { title: "starthour", field: "starthour", editor: "number" },
         { title: "startminute", field: "startminute", editor: "number" },
         { title: "sabado asamblea", field: "sabasamblea", editor: "tickCross" },

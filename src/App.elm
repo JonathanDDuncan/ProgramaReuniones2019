@@ -232,18 +232,21 @@ view model =
 tabpublicadores =
     [ h1 [ class "ui header" ] [ text "Publicadores" ]
     , div [ attribute "id" "table-publicadores" ] []
+    , addrow "addrowpublicadores"
     ]
 
 
 tabcanciones =
     [ h1 [ class "ui header" ] [ text "Canciones" ]
     , div [ attribute "id" "table-canciones" ] []
+    , addrow "addrowcanciones"
     ]
 
 
 tabanteriores =
     [ h1 [ class "ui header" ] [ text "Semanas anteriores" ]
     , div [ attribute "id" "table-anteriores" ] []
+    , addrow "addrowanteriores"
     ]
 
 
@@ -251,13 +254,19 @@ tabllenar =
     [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
     , br [] []
     , div [ attribute "id" "example-table" ] []
-    , div [ class "ui grid" ]
-        [ div [ class "row" ]
-            [ div [ class "right floated two wide column" ] [ a [ id "addrowllenar" ] [ span [] [ node "i" [ class "fas fa-plus-circle fa-w-16 fa-3x" ] [] ] ] ]
-            ]
-        ]
+    , addrow "addrowllenar"
     , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
     ]
+
+
+addrow idname =
+    div [ class "ui grid" ]
+        [ div [ class "row" ]
+            [ div [ class "right floated two wide column" ]
+                [ a [ id idname ] [ node "i" [ class "fas fa-plus-circle fa-w-16 fa-3x" ] [] ]
+                ]
+            ]
+        ]
 
 
 tabcargar =
