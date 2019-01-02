@@ -251,6 +251,11 @@ tabllenar =
     [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
     , br [] []
     , div [ attribute "id" "example-table" ] []
+    , div [ class "ui grid" ]
+        [ div [ class "row" ]
+            [ div [ class "right floated two wide column" ] [ a [ id "addrowllenar" ] [ span [] [ node "i" [ class "fas fa-plus-circle fa-w-16 fa-3x" ] [] ] ] ]
+            ]
+        ]
     , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
     ]
 

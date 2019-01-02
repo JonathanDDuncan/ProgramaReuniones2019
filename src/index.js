@@ -79,6 +79,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   });
 
+  document.getElementById("addrowllenar").addEventListener("click", function () {
+    jsApp.tabulator.addRow("tablesemanasllenar");
+  });
+
   document.getElementById("process").addEventListener("click", function () {
     var state = getstate();
     state.semanasparallenar = jsApp.tabulators.tablesemanasllenar.getData();

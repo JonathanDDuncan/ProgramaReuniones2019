@@ -131,6 +131,12 @@
 
     tabulators.tablesemanasllenar = tablesemanasllenar;
   };
+
+  var addRow = function(tablename){
+    if (tablename == "tablesemanasllenar")
+    jsApp.tabulators.tablesemanasllenar.addRow(blanksemanasllenar());
+  }
+
   var deleteRow = function (cell, formatterParams, onRendered) { //plain text value
     return "<button ><i class='fa fa-trash'></i> Delete</button>";
   };
@@ -419,7 +425,8 @@
       createtablesemanasllenar: createtablesemanasllenar,
       createtablepublicadores: createtablepublicadores,
       createtablecanciones: createtablecanciones,
-      createtablesemanasanteriores: createtablesemanasanteriores
+      createtablesemanasanteriores: createtablesemanasanteriores,
+      addRow: addRow
     }
 
   window.jsApp.tabulators = tabulators
