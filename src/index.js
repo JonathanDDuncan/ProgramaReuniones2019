@@ -13,7 +13,7 @@ import './css/tabulator_semantic-ui.min.css';
 import { Elm } from './Main.elm';
 import { saveAs } from 'file-saver';
 import registerServiceWorker from './registerServiceWorker';
-var moment = require('moment');
+window.moment = require('moment');
 
 var app = Elm.Main.init({
   node: document.getElementById('root')
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   document.getElementById("process").addEventListener("click", function () {
     var state = getstate();
     state.semanasparallenar = jsApp.tabulators.tablesemanasllenar.getData();
-    var semanastofill = jsApp.process.preprocesssemanas(moment, state.semanasparallenar, state.defaultsemana, state.publicadores);
+    var semanastofill = jsApp.process.preprocesssemanas(state.semanasparallenar, state.defaultsemana, state.publicadores);
 
     var timebetween = 100;
     setTimeout(function () {
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 
   app.ports.fillSemanasTemplCallBack.subscribe(function (data) {
-    jsApp.template.create(saveAs, moment, data);
+    jsApp.template.create(saveAs, data);
   });
 
   app.ports.programasemanalbackupCallBack.subscribe(function (data) {

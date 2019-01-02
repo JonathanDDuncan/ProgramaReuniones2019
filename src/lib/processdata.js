@@ -5,7 +5,7 @@
     return Math.trunc(date.getTime() / 1000);
   };
 
-  function semanatemplate(moment, semanadefault, semanatofill) {
+  function semanatemplate(semanadefault, semanatofill) {
     semanadefault.id = semanatofill.id;
 
     semanadefault.fechasabado = parseInt(moment(semanatofill.fechasabado, "YYYY-MM-DD").format("X"))
@@ -104,11 +104,11 @@
     return semanatofill;
   };
 
-  function preprocesssemanas(moment, arr, defaultsemana, publicadores) {
+  function preprocesssemanas(arr, defaultsemana, publicadores) {
     var semanas = []
 
     for (var i = 0, len = arr.length; i < len; i++) {
-      var semana = postsemanaprocess(semanatemplate(moment, setcreatemodifieddates( defaultsemana), arr[i]), publicadores);
+      var semana = postsemanaprocess(semanatemplate( setcreatemodifieddates( defaultsemana), arr[i]), publicadores);
       semanas.push(semana);
     }
 
