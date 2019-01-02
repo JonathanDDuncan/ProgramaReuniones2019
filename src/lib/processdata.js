@@ -104,11 +104,12 @@
     return semanatofill;
   };
 
-  function preprocesssemanas(arr, defaultsemana, publicadores) {
+  function preprocesssemanas(state) {
+    var semanasparallenar = state.semanasparallenar;
     var semanas = []
 
-    for (var i = 0, len = arr.length; i < len; i++) {
-      var semana = postsemanaprocess(semanatemplate( setcreatemodifieddates( defaultsemana), arr[i]), publicadores);
+    for (var i = 0, len = semanasparallenar.length; i < len; i++) {
+      var semana = postsemanaprocess(semanatemplate( setcreatemodifieddates(state.defaultsemana), semanasparallenar[i]), state.publicadores);
       semanas.push(semana);
     }
 

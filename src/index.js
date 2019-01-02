@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   document.getElementById("process").addEventListener("click", function () {
     var state = getstate();
     state.semanasparallenar = jsApp.tabulators.tablesemanasllenar.getData();
-    var semanastofill = jsApp.process.preprocesssemanas(state.semanasparallenar, state.defaultsemana, state.publicadores);
+    var semanastofill = jsApp.process.preprocesssemanas(state);
 
     var timebetween = 100;
     setTimeout(function () {
