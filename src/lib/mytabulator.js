@@ -64,6 +64,14 @@
       // dataTree: true,
       data: tabledata,
       columns: [
+        {
+          formatter: deleteRow, width: 100, align: "center", cellClick: function (e, cell) {
+            var r = confirm("Esta seguro que desea borrar esta semana?");
+            if (r == true) {
+              cell.getRow()._row.delete();
+            }
+          }
+        },
         { title: "id", field: "id", visible: false },
         { title: "fecha sabado", field: "fechasabado", width: 150, editor: dateEditor("YYYY-MM-DD") },
         { title: "fecha domingo", field: "fechadomingo", width: 150, editor: dateEditor("YYYY-MM-DD") },
@@ -116,11 +124,16 @@
           }
         },
         { title: "ELC Personajes", field: "elcpersonajes", width: 150, editor: "textarea", formatter: "textarea" },
+       
       ],
     });
+
+
     tabulators.tablesemanasllenar = tablesemanasllenar;
   };
-
+  var deleteRow = function (cell, formatterParams, onRendered) { //plain text value
+    return "<button ><i class='fa fa-trash'></i> Delete</button>";
+  };
   function converttoselectitems(items) {
     var values = {};
 
@@ -408,7 +421,7 @@
       createtablecanciones: createtablecanciones,
       createtablesemanasanteriores: createtablesemanasanteriores
     }
-   
-    window.jsApp.tabulators = tabulators
-   
+
+  window.jsApp.tabulators = tabulators
+
 }());
