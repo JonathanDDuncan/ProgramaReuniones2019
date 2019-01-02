@@ -31,6 +31,17 @@ var getstate = function () {
   return window.jsApp.state;
 }
 
+var updateStatefromTables = function () {
+  var state = getstate();
+  if (jsApp.tabulators.tablesemanasllenar)
+    state.semanasparallenar = jsApp.tabulators.tablesemanasllenar.getData();
+  if (jsApp.tabulators.tablepublicadores)
+    state.publicadores = jsApp.tabulators.tablepublicadores.getData();
+  if (jsApp.tabulators.tablecanciones)
+    state.canciones = jsApp.tabulators.tablecanciones.getData();
+  if (jsApp.tabulators.tablesemanasanteriores)
+    state.semanasllenados = jsApp.tabulators.tablesemanasanteriores.getData();
+}
 document.addEventListener("DOMContentLoaded", function (event) {
   // Run immediatetly on content load
   jsApp.load.loadCommonData(function (commonData) {
@@ -95,13 +106,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     jsApp.tabulator.addRow("tablesemanasanteriores");
   });
 
-  document.getElementById("addrowllenar").addEventListener("click", function () {
-    jsApp.tabulator.addRow("tablesemanasllenar");
-  });
-
   document.getElementById("process").addEventListener("click", function () {
+    updateStatefromTables();
     var state = getstate();
-    state.semanasparallenar = jsApp.tabulators.tablesemanasllenar.getData();
+
     var semanastofill = jsApp.process.preprocesssemanas(state);
 
     var timebetween = 100;
