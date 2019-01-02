@@ -124,7 +124,7 @@
           }
         },
         { title: "ELC Personajes", field: "elcpersonajes", width: 150, editor: "textarea", formatter: "textarea" },
-       
+
       ],
     });
 
@@ -132,9 +132,9 @@
     tabulators.tablesemanasllenar = tablesemanasllenar;
   };
 
-  var addRow = function(tablename){
+  var addRow = function (tablename) {
     if (tablename == "tablesemanasllenar")
-    jsApp.tabulators.tablesemanasllenar.addRow(blanksemanasllenar());
+      jsApp.tabulators.tablesemanasllenar.addRow(blanksemanasllenar());
   }
 
   var deleteRow = function (cell, formatterParams, onRendered) { //plain text value
@@ -228,6 +228,14 @@
       // dataTree: true,
 
       columns: [
+        {
+          formatter: deleteRow, width: 100, align: "center", cellClick: function (e, cell) {
+            var r = confirm("Esta seguro que desea borrar este publicador?");
+            if (r == true) {
+              cell.getRow()._row.delete();
+            }
+          }
+        },
         { title: "id", field: "id" },
         { title: "creado", field: "creado", visible: false },
         { title: "modificado", field: "modificado", visible: false },
@@ -274,6 +282,14 @@
       // dataTree: true,
 
       columns: [
+        {
+          formatter: deleteRow, width: 100, align: "center", cellClick: function (e, cell) {
+            var r = confirm("Esta seguro que desea borrar esta canción?");
+            if (r == true) {
+              cell.getRow()._row.delete();
+            }
+          }
+        },
         { title: "num", field: "num", editor: "input" },
         { title: "tema", field: "tema", editor: "input" },
         { title: "versiculo", field: "versiculo", editor: "input" },
@@ -292,6 +308,14 @@
       layout: "fitData",
       // dataTree: true,
       columns: [
+        {
+          formatter: deleteRow, width: 100, align: "center", cellClick: function (e, cell) {
+            var r = confirm("Esta seguro que desea borrar esta semana anterior?");
+            if (r == true) {
+              cell.getRow()._row.delete();
+            }
+          }
+        },
         { title: "id", field: "id", editor: "input" },
         { title: "creado", field: "creado", editor: dateEditor("X") },
         { title: "modificado", field: "modificado", editor: dateEditor("X") },
