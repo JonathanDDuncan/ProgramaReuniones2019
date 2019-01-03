@@ -42,8 +42,16 @@ var updateStatefromTables = function () {
   if (jsApp.tabulators.tablesemanasanteriores)
     state.semanasllenados = jsApp.tabulators.tablesemanasanteriores.getData();
 }
+
+var createemptyTables = function (){
+  jsApp.tabulator.createtablepublicadores([]);
+  jsApp.tabulator.createtablecanciones([]);
+  jsApp.tabulator.createtablesemanasanteriores([]);
+}
 document.addEventListener("DOMContentLoaded", function (event) {
   // Run immediatetly on content load
+  createemptyTables();
+  
   jsApp.load.loadCommonData(function (commonData) {
     var state = getstate();
     state.defaultsemana = commonData.defaultsemana;
