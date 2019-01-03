@@ -215,6 +215,8 @@ view model =
                 [ text "Canciones" ]
             , div [ class "item", attribute "data-tab" "tab-anterior" ]
                 [ text "Datos Anteriores " ]
+            , div [ class "item", attribute "data-tab" "tab-crear" ]
+                [ text "Crear " ]
             ]
         , div [ class "ui tab", attribute "data-tab" "tab-llenar" ]
             tabllenar
@@ -226,6 +228,8 @@ view model =
             tabanteriores
         , div [ class "ui tab", attribute "data-tab" "tab-cargar" ]
             tabcargar
+        , div [ class "ui tab", attribute "data-tab" "tab-crear" ]
+            tabcrear
         ]
 
 
@@ -275,9 +279,12 @@ tabcargar =
     , br [] []
     , h1 [ class "ui header" ] [ text "Copia de seguridad" ]
     , input [ class "ui button", type_ "file", attribute "id" "cargarcopiaseguridad", attribute "value" "Cargar Copia de Seguridad" ] []
-    , br [] []
-    , h1 [ class "ui header" ] [ text "Crear Programa" ]
-    , button [ class "ui button", attribute "id" "process" ] [ text "Process" ]
+    ]
+
+
+tabcrear =
+    [ h1 [ class "ui header" ] [ text "Crear Programa" ]
+    , button [ class "ui button", attribute "id" "process" ] [ text "Crear" ]
     , br [] []
     , div [ attribute "id" "links" ] []
     ]
