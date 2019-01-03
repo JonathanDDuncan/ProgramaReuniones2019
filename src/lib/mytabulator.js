@@ -52,17 +52,14 @@
       "elcpersonajes": ""
     }
   };
-  var tabledata = [
-    blanksemanasllenar(uuidv4()), blanksemanasllenar(uuidv4()), blanksemanasllenar(uuidv4()), blanksemanasllenar(uuidv4()), blanksemanasllenar(uuidv4())
-  ];
-
+  
   function createtablesemanasllenar(publicadores) {
     publicadores = sortpublicadores(publicadores);
     var tablesemanasllenar = new Tabulator("#example-table", {
       height: "311px",
       layout: "fitColumns",
       // dataTree: true,
-      data: tabledata,
+      data: [],
       columns: [
         {
           formatter: deleteRow, width: 100, align: "center", cellClick: function (e, cell) {
