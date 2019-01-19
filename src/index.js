@@ -20,8 +20,7 @@ var app = Elm.Main.init({
 });
 
 registerServiceWorker();
-$('.tabular.menu .item').tab();
-$('.ui.menu').find('.item').tab('change tab', 'tab-llenar')
+
 
 var getstate = function () {
   if (!window.jsApp)
@@ -51,7 +50,8 @@ var createemptyTables = function (){
 document.addEventListener("DOMContentLoaded", function (event) {
   // Run immediatetly on content load
   createemptyTables();
-  
+  $('.tabular.menu .item').tab();
+  $('.ui.menu').find('.item').tab('change tab', 'tab-llenar')
   jsApp.load.loadCommonData(function (commonData) {
     var state = getstate();
     state.defaultsemana = commonData.defaultsemana;
@@ -140,21 +140,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
   // Elm Ports
-  app.ports.fillSemanasCallBack.subscribe(function (data) {
-    console.log(JSON.stringify(data));
-    jsApp.download.directDownloadJSON(data, "fillSemanas" + moment().format());
-  });
 
   app.ports.fillSemanasTemplCallBack.subscribe(function (data) {
     jsApp.template.create(saveAs, data);
   });
 
   app.ports.programasemanalbackupCallBack.subscribe(function (data) {
-    console.log(JSON.stringify(data));
+    // console.log(JSON.stringify(data));
     jsApp.download.directDownloadJSON(data, "programasemanalbackup" + moment().format());
   });
 
   app.ports.fillSemanaCallBack.subscribe(function (data) {
-    console.log(JSON.stringify(data));
+    // console.log(JSON.stringify(data));
   });
 });

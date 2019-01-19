@@ -205,16 +205,14 @@ view : Model -> Html Msg
 view model =
     div [ class "ui container" ]
         [ div [ class "ui tabular menu" ]
-            [ div [ class "item", attribute "data-tab" "tab-cargar" ]
-                [ text "Cargar " ]
-            , div [ class "item", attribute "data-tab" "tab-llenar" ]
+            [ div [ class "item", attribute "data-tab" "tab-llenar" ]
                 [ text "Para Llenar" ]
+            , div [ class "item", attribute "data-tab" "tab-anterior" ]
+                [ text "Datos Anteriores " ]
             , div [ class "item", attribute "data-tab" "tab-publicadores" ]
                 [ text "Publicadores" ]
             , div [ class "item", attribute "data-tab" "tab-canciones" ]
                 [ text "Canciones" ]
-            , div [ class "item", attribute "data-tab" "tab-anterior" ]
-                [ text "Datos Anteriores " ]
             , div [ class "item", attribute "data-tab" "tab-crear" ]
                 [ text "Crear " ]
             ]
@@ -226,8 +224,6 @@ view model =
             tabcanciones
         , div [ class "ui tab", attribute "data-tab" "tab-anterior" ]
             tabanteriores
-        , div [ class "ui tab", attribute "data-tab" "tab-cargar" ]
-            tabcargar
         , div [ class "ui tab", attribute "data-tab" "tab-crear" ]
             tabcrear
         ]
@@ -248,18 +244,28 @@ tabcanciones =
 
 
 tabanteriores =
-    [ h1 [ class "ui header" ] [ text "Semanas anteriores" ]
+    [ h1 [ class "ui header" ] [ text "Copia de seguridad" ]
+    , input [ class "ui button", type_ "file", attribute "id" "cargarcopiaseguridad", attribute "value" "Cargar Copia de Seguridad" ] []
+    , br [] []
+    , h1 [ class "ui header" ] [ text "Semanas anteriores" ]
     , div [ attribute "id" "table-anteriores" ] []
     , addrow "addrowanteriores"
     ]
 
 
 tabllenar =
-    [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
-    , br [] []
+    [ div [ class "ui row" ]
+        [ div [ class "left floated six wide column" ] [ h1 [ class "ui header" ] [ text "Semanas para llenar" ] ]
+        , div [ class "right floated six wide column" ]
+            [ h2 [ class "ui header" ] [ text "Cargar" ]
+            , input [ class "ui button", type_ "file", attribute "id" "selectFiles", attribute "value" "Cargar semanas para llenar" ] []
+            , br [] []
+            ]
+        ]
+    , h2 [ class "ui header" ] [ text "Tabla" ]
     , div [ attribute "id" "example-table" ] []
     , addrow "addrowllenar"
-    , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Download Semanas para llenar JSON" ]
+    , button [ class "ui secondary button", attribute "id" "download-json" ] [ text "Descargar Semanas para llenar JSON" ]
     ]
 
 
@@ -271,15 +277,6 @@ addrow idname =
                 ]
             ]
         ]
-
-
-tabcargar =
-    [ h1 [ class "ui header" ] [ text "Semanas para llenar" ]
-    , input [ class "ui button", type_ "file", attribute "id" "selectFiles", attribute "value" "Cargar semanas para llenar" ] []
-    , br [] []
-    , h1 [ class "ui header" ] [ text "Copia de seguridad" ]
-    , input [ class "ui button", type_ "file", attribute "id" "cargarcopiaseguridad", attribute "value" "Cargar Copia de Seguridad" ] []
-    ]
 
 
 tabcrear =

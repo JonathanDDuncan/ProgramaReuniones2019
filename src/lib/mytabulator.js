@@ -52,7 +52,7 @@
       "elcpersonajes": ""
     }
   };
-  
+
   function createtablesemanasllenar(publicadores) {
     publicadores = sortpublicadores(publicadores);
     var tablesemanasllenar = new Tabulator("#example-table", {
@@ -131,7 +131,7 @@
 
   var addRow = function (tablename) {
     if (tablename == "tablesemanasllenar")
-      jsApp.tabulators.tablesemanasllenar.addRow(blanksemanasllenar());
+      jsApp.tabulators.tablesemanasllenar.addRow(blanksemanasllenar(uuidv4()));
     else {
       if (!jsApp.tabulators[tablename])
         createtable(tablename);
@@ -330,7 +330,7 @@
             }
           }
         },
-        { title: "id", field: "id", editor: "input" },
+        { title: "id", field: "id", visible: false, editor: "input" },
         { title: "creado", field: "creado", visible: false, editor: dateEditor("X") },
         { title: "modificado", field: "modificado", visible: false, editor: dateEditor("X") },
         { title: "starthour", field: "starthour", editor: "number" },
