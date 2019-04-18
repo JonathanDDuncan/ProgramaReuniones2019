@@ -675,6 +675,11 @@ a:hover {
   color: #FFFFFF;
 }
 
+::-moz-selection {
+  background-color: #009FDA;
+  color: #FFFFFF;
+}
+
 ::selection {
   background-color: #009FDA;
   color: #FFFFFF;
@@ -684,6 +689,12 @@ a:hover {
 
 textarea::-webkit-selection,
 input::-webkit-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: #212121;
+}
+
+textarea::-moz-selection,
+input::-moz-selection {
   background-color: rgba(100, 100, 100, 0.4);
   color: #212121;
 }
@@ -5566,8 +5577,7 @@ i.flag:not(.icon) {
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';
-  background: url("./themes/default/assets/images/flags.png") no-repeat -108px -1976px;
-  width: 16px;
+    width: 16px;
   height: 11px;
 }
 
