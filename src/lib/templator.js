@@ -2,7 +2,7 @@
   var PizZip = require('pizzip');
   var Docxtemplater = require('docxtemplater');
   function runtemplate(saveAs, json) {
-    let result = loadFile('assets/templates/S-140-S-template.json', function(
+    let result = loadFile('assets/templates/S-140-S-template.docx', function(
       error,
       content
     ) {
