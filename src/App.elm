@@ -1,6 +1,6 @@
 module App exposing (Msg(..), createBackup, init, subscriptions, update, view)
 
-import Debug exposing (..)
+-- import Debug exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -53,10 +53,10 @@ update message model =
                 modelwithsemanatofill =
                     case semana of
                         Err err ->
-                            let
-                                _ =
-                                    Debug.log "FillSemana err" err
-                            in
+                            -- let
+                            --     _ =
+                            --         Debug.log "FillSemana err" err
+                            -- in
                             model
 
                         Ok res ->
@@ -75,10 +75,10 @@ update message model =
                 modelwithsemanas =
                     case semanas of
                         Err err ->
-                            let
-                                _ =
-                                    Debug.log "FillSemanas err" err
-                            in
+                            -- let
+                            --     _ =
+                            --         Debug.log "FillSemanas err" err
+                            -- in
                             model
 
                         Ok res ->
@@ -106,10 +106,10 @@ update message model =
                 modelwithSemanasAnteriores =
                     case semanasAnteriores of
                         Err err ->
-                            let
-                                _ =
-                                    Debug.log "LoadSemanasAnteriores error" err
-                            in
+                            -- let
+                            --     _ =
+                            --         Debug.log "LoadSemanasAnteriores error" err
+                            -- in
                             model
 
                         Ok semanas ->
@@ -127,10 +127,10 @@ update message model =
                 modelwithPublicadores =
                     case publicadores of
                         Err err ->
-                            let
-                                _ =
-                                    Debug.log "publicadores err" err
-                            in
+                            -- let
+                            --     _ =
+                            --         Debug.log "publicadores err" err
+                            -- in
                             model
 
                         Ok pubs ->
@@ -148,10 +148,10 @@ update message model =
                 modelwithCanciones =
                     case canciones of
                         Err err ->
-                            let
-                                _ =
-                                    Debug.log "canciones err" err
-                            in
+                            -- let
+                            --     _ =
+                            --         Debug.log "canciones err" err
+                            -- in
                             model
 
                         Ok canciones1 ->
@@ -164,7 +164,7 @@ update message model =
         Programasemanalrestore backup ->
             let
                 newmodel =
-                    Debug.log "restore"
+                    -- Debug.log "restore"
                         { model
                             | publicadores = backup.publicadores
                             , canciones = backup.canciones
