@@ -1,0 +1,12 @@
+{
+  "main.css": "/static/css/main.11d47cf6.chunk.css",
+  "main.js": "/static/js/main.5894ba9e.chunk.js",
+  "main.css.map": "/static/css/main.11d47cf6.chunk.css.map",
+  "main.js.map": "/static/js/main.5894ba9e.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.d53d57e4.js",
+  "runtime~main.js.map": "/static/js/runtime~main.d53d57e4.js.map",
+  "vendors~main.js": "/static/js/vendors~main.13cd7f81.chunk.js",
+  "vendors~main.js.map": "/static/js/vendors~main.13cd7f81.chunk.js.map",
+  "index.html": "/index.html",
+  "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff"
+}
